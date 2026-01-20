@@ -15,12 +15,6 @@ de análise criminal do Brasil.
 - Redução do tempo de análise de dias para segundos
 - Ferramenta gratuita para polícia, sem necessidade de licitação
 
-## Owner
-
-**Tribe**: Produtos Digitais
-**Squad**: gabriel-os
-**PM**: Beatriz Lima
-
 ## Métricas de Sucesso
 
 | Métrica                       | Target 2026 | Target 2027     |

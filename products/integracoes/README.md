@@ -11,12 +11,6 @@ Permitir que o ecossistema Gabriel se conecte de forma confiável com sistemas d
 - Disponibilização de inteligência da Gabriel de forma segura
 - Conexão com autoridades policiais
 
-## Owner
-
-**Tribe**: Produtos Digitais
-**Squad**: Integração
-**PM**: Luiz Gustavo Torres
-
 ## Métricas de Sucesso
 
 | Métrica    | Target | Atual   |

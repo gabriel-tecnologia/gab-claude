@@ -14,12 +14,6 @@ Fazer com que seja óbvio a importância da Gabriel para um morador, de forma in
 - Controle de dispositivos
 - Histórico de eventos
 
-## Owner
-
-**Tribe**: Produtos Digitais
-**Squad**: app-gabriel
-**PM**: João Gabriel Figueira
-
 ## Métricas de Sucesso
 
 | Métrica                    | Target    | Atual   |
