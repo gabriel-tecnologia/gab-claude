@@ -6,4 +6,42 @@
 >
 > Contribuições, críticas e sugestões são bem-vindas.
 
-Repositório central de documentação e workflows da área de tecnologia.
+Repositório central de documentação da área de tecnologia. Código fica em repositórios separados.
+
+## Estrutura
+
+| Diretório              | Conteúdo                                            |
+| ---------------------- | --------------------------------------------------- |
+| `products/`            | Catálogo de produtos (visão de negócio)             |
+| `tribes/`              | Estrutura de times, squads e decisões               |
+| `building-directives/` | Processos de engenharia (handbook, discovery, etc.) |
+| `people/`              | Onboarding, 1:1s, hiring                            |
+| `incidents/`           | Severidade, resolução, postmortems                  |
+| `templates/`           | Templates reutilizáveis                             |
+
+## Quick Links
+
+- **Novo na Gabriel?** → [Onboarding](./people/onboarding.md)
+- **Incidente?** → [Processo](./incidents/README.md)
+- **Templates** → [Ver todos](./templates/)
+
+## Convenções
+
+- **Linguagem**: Português
+- **Formato**: Markdown
+- **Nomes de arquivo**: lowercase com hífens (`meu-documento.md`)
+
+## Contribuindo
+
+1. Crie uma branch a partir de `main`
+2. Faça suas alterações
+3. Abra um PR com descrição clara
+4. Solicite review de pelo menos 1 pessoa
+
+## Integrações com AI
+
+Configurações para AI assistants em [.claude/](./.claude/) e [CLAUDE.md](./CLAUDE.md).
+
+## Dúvidas?
+
+Abra uma issue ou pergunte no canal #engenharia no Slack.
