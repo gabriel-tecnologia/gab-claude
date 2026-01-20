@@ -29,11 +29,11 @@
 
 ## Escalation
 
-| Situação                   | Ação               |
-| -------------------------- | ------------------ |
-| P1 sem resolução em 30 min | → CPTO             |
-| P2 sem resolução em 2h     | → Tech Lead sênior |
-| Múltiplos times            | → Coordenação      |
+| Situação                   | Ação                         |
+| -------------------------- | ---------------------------- |
+| P1 sem resolução em 30 min | → CPTO                       |
+| P2 sem resolução em 2h     | → Engineering Manager sênior |
+| Múltiplos times            | → Coordenação                |
 
 ---
 

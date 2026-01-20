@@ -27,11 +27,11 @@ Foco em **sistemas**, não pessoas. Se alguém "errou", o sistema permitiu.
 
 ## Timeline do Processo
 
-| Etapa                   | Prazo        | Responsável   |
-| ----------------------- | ------------ | ------------- |
-| Documento inicial       | 48h          | Quem resolveu |
-| Reunião                 | 5 dias úteis | Tech Lead     |
-| Action items concluídos | 2 sprints    | Squad         |
+| Etapa                   | Prazo        | Responsável         |
+| ----------------------- | ------------ | ------------------- |
+| Documento inicial       | 48h          | Quem resolveu       |
+| Reunião (opcional)      | 5 dias úteis | Engineering Manager |
+| Action items concluídos | 2 sprints    | Squad               |
 
 ---
 
