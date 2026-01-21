@@ -12,16 +12,15 @@ Repositório central de documentação da área de tecnologia. Código fica em r
 
 | Diretório              | Conteúdo                                            |
 | ---------------------- | --------------------------------------------------- |
-| `products/`            | Catálogo de produtos (visão de negócio)             |
-| `tribes/`              | Estrutura de times, squads e decisões               |
+| `business-context/`    | Contexto da empresa, produtos e área de tecnologia  |
+| `products/`            | Catálogo de produtos (visão de negócio, roadmaps)   |
 | `building-directives/` | Processos de engenharia (handbook, discovery, etc.) |
-| `people/`              | Onboarding, 1:1s, hiring                            |
 | `incidents/`           | Severidade, resolução, postmortems                  |
-| `templates/`           | Templates reutilizáveis                             |
+| `templates/`           | Templates reutilizáveis (ERD, PRD, squads)          |
 
 ## Quick Links
 
-- **Novo na Gabriel?** → [Onboarding](./people/onboarding.md)
+- **Contexto Gabriel** → [Empresa](./business-context/company-context.md) · [Produtos](./business-context/products-overview.md) · [Área Tech](./business-context/technology-area.md)
 - **Incidente?** → [Processo](./incidents/README.md)
 - **Templates** → [Ver todos](./templates/)
 
