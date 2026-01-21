@@ -1,382 +1,393 @@
-# Template de Product Strategy
+---
+Product Strategy Template
 
-Este template segue a fórmula Product School:
+Full version for team alignment.
+---
+
+# Product Strategy Template
+
+This template follows the Product School formula:
 
 ```
 Product Strategy = Vision + Insights + Challenges + Approaches + Accountability
+
 ```
 
 ---
 
-## Cabeçalho do Documento
+## Document Header
 
-**Nome do Produto:** [Nome]
+**Product Name:** [Name]
 **Status:** [Draft | In Review | Approved]
-**Autor:** [Seu Nome]
-**Stakeholders:** [Liste stakeholders principais]
-**Data de Criação:** [YYYY-MM-DD]
-**Última Atualização:** [YYYY-MM-DD]
-**Versão:** [1.0]
+**Author:** [Your Name]
+**Stakeholders:** [List key stakeholders]
+**Date Created:** [YYYY-MM-DD]
+**Last Updated:** [YYYY-MM-DD]
+**Version:** [1.0]
 
 ---
 
-## Índice
+## Table of Contents
 
-1. [Product Vision](#1-product-vision)
-2. [Product Insights](#2-product-insights)
-3. [Challenges](#3-challenges)
-4. [Approaches](#4-approaches)
-5. [Accountability](#5-accountability)
-6. [Sign-off](#sign-off)
+1. [Product Vision](https://www.google.com/search?q=%231-product-vision)
+2. [Product Insights](https://www.google.com/search?q=%232-product-insights)
+3. [Challenges](https://www.google.com/search?q=%233-challenges)
+4. [Approaches](https://www.google.com/search?q=%234-approaches)
+5. [Accountability](https://www.google.com/search?q=%235-accountability)
+6. [Sign-off](https://www.google.com/search?q=%23sign-off)
 
 ---
 
 ## 1. Product Vision
 
-A **essência** da sua product strategy. Define o que, para quem, e por que agora.
+The **essence** of your product strategy. Defines the what, for whom, and why now.
 
-### What (Problema)
+### What (Problem)
 
-[Descreva o problema que você está resolvendo]
+[Describe the problem you are solving]
 
-### Who (Cliente Alvo)
+### Who (Target Customer)
 
-[Descreva para quem você está resolvendo]
+[Describe who you are solving it for]
 
 ### Why Now (Timing)
 
-[Explique por que agora é o momento certo para construir isso]
+[Explain why now is the right time to build this]
 
 ### Vision Statement
 
-| Campo | Conteúdo |
-|-------|----------|
-| **For** | [Cliente alvo] |
-| **Who** | [Necessidade ou oportunidade - qual problema estamos resolvendo?] |
-| **The** | [Nome do produto] é um [categoria de produto] |
-| **That** | [Benefício chave, razão para comprar/usar] |
-| **Unlike** | [Alternativa competitiva principal] |
-| **Our Product** | [Declaração de diferenciação primária] |
+| Field           | Content                                              |
+| --------------- | ---------------------------------------------------- |
+| **For**         | [Target customer]                                    |
+| **Who**         | [Need or opportunity - what problem are we solving?] |
+| **The**         | [Product name] is a [product category]               |
+| **That**        | [Key benefit, reason to buy/use]                     |
+| **Unlike**      | [Primary competitive alternative]                    |
+| **Our Product** | [Primary differentiation statement]                  |
 
-**Vision Statement Consolidada:**
+**Consolidated Vision Statement:**
 
-> [Escreva a vision statement em formato de parágrafo, consolidando a tabela acima]
+> [Write the vision statement in paragraph format, consolidating the table above]
 
-### Conexão com Visão da Empresa
+### Connection to Company Vision
 
-[Como esta product strategy se conecta com a visão/missão maior da empresa]
+[How this product strategy connects to the company's larger vision/mission]
 
 ---
 
 ## 2. Product Insights
 
-A **lógica** da sua product strategy. Dados, diferenciadores e conhecimento de mercado.
+The **logic** of your product strategy. Data, differentiators, and market knowledge.
 
-### 2.1 Competitors (Análise Competitiva)
+### 2.1 Competitors (Competitive Analysis)
 
-**Principais Competidores:**
+**Main Competitors:**
 
-| Competidor | Forças | Fraquezas | Diferenciador |
-|------------|--------|-----------|---------------|
-| [Competidor 1] | [Liste forças] | [Liste fraquezas] | [O que os diferencia] |
-| [Competidor 2] | [Liste forças] | [Liste fraquezas] | [O que os diferencia] |
-| [Competidor 3] | [Liste forças] | [Liste fraquezas] | [O que os diferencia] |
+| Competitor     | Strengths        | Weaknesses        | Differentiator         |
+| -------------- | ---------------- | ----------------- | ---------------------- |
+| [Competitor 1] | [List strengths] | [List weaknesses] | [What sets them apart] |
+| [Competitor 2] | [List strengths] | [List weaknesses] | [What sets them apart] |
+| [Competitor 3] | [List strengths] | [List weaknesses] | [What sets them apart] |
 
-**Nossa Posição Competitiva:**
+**Our Competitive Position:**
 
-[Como nos diferenciamos da competição]
+[How we differentiate ourselves from the competition]
 
 ### 2.2 Market Insight
 
-**Tamanho do Mercado:**
+**Market Size:**
 
-| Métrica | Valor | Fonte |
-|---------|-------|-------|
-| TAM (Total Addressable Market) | [Valor] | [Fonte] |
-| SAM (Serviceable Addressable Market) | [Valor] | [Fonte] |
-| SOM (Serviceable Obtainable Market) | [Valor] | [Fonte] |
+| Metric                               | Value   | Source   |
+| ------------------------------------ | ------- | -------- |
+| TAM (Total Addressable Market)       | [Value] | [Source] |
+| SAM (Serviceable Addressable Market) | [Value] | [Source] |
+| SOM (Serviceable Obtainable Market)  | [Value] | [Source] |
 
-**Oportunidade:**
+**Opportunity:**
 
-[Descreva a oportunidade de mercado que você está perseguindo]
+[Describe the market opportunity you are pursuing]
 
 **Target Market:**
 
-[Defina seu mercado alvo específico]
+[Define your specific target market]
 
 ### 2.3 Market Trends
 
-**Tendências Relevantes:**
+**Relevant Trends:**
 
-1. **[Tendência 1]:** [Descrição e impacto no produto]
-2. **[Tendência 2]:** [Descrição e impacto no produto]
-3. **[Tendência 3]:** [Descrição e impacto no produto]
+1. **[Trend 1]:** [Description and impact on the product]
+2. **[Trend 2]:** [Description and impact on the product]
+3. **[Trend 3]:** [Description and impact on the product]
 
-**Como as Tendências Influenciam Nossa Strategy:**
+**How Trends Influence Our Strategy:**
 
-[Conecte as tendências com suas decisões estratégicas]
+[Connect the trends with your strategic decisions]
 
 ### 2.4 Customer Insights
 
-**Persona 1: [Nome/Tipo]**
+**Persona 1: [Name/Type]**
 
-| Atributo | Descrição |
-|----------|-----------|
-| **Dados Demográficos** | [Idade, cargo, localização, etc.] |
-| **Comportamentos** | [Como se comporta, frequência de uso, etc.] |
-| **Necessidades** | [O que precisa realizar] |
-| **Motivações** | [O que motiva suas decisões] |
-| **Pain Points** | [Frustrações atuais] |
+| Attribute        | Description                               |
+| ---------------- | ----------------------------------------- |
+| **Demographics** | [Age, role, location, etc.]               |
+| **Behaviors**    | [How they behave, frequency of use, etc.] |
+| **Needs**        | [What they need to accomplish]            |
+| **Motivations**  | [What motivates their decisions]          |
+| **Pain Points**  | [Current frustrations]                    |
 
-_"[Citação verbatim que captura a perspectiva desta persona]"_
-
----
-
-**Persona 2: [Nome/Tipo]**
-
-| Atributo | Descrição |
-|----------|-----------|
-| **Dados Demográficos** | [Idade, cargo, localização, etc.] |
-| **Comportamentos** | [Como se comporta, frequência de uso, etc.] |
-| **Necessidades** | [O que precisa realizar] |
-| **Motivações** | [O que motiva suas decisões] |
-| **Pain Points** | [Frustrações atuais] |
-
-_"[Citação verbatim que captura a perspectiva desta persona]"_
+_"[Verbatim quote that captures this persona's perspective]"_
 
 ---
 
-**Persona 3: [Nome/Tipo]** _(opcional)_
+**Persona 2: [Name/Type]**
 
-[Repita estrutura se necessário]
+| Attribute        | Description                               |
+| ---------------- | ----------------------------------------- |
+| **Demographics** | [Age, role, location, etc.]               |
+| **Behaviors**    | [How they behave, frequency of use, etc.] |
+| **Needs**        | [What they need to accomplish]            |
+| **Motivations**  | [What motivates their decisions]          |
+| **Pain Points**  | [Current frustrations]                    |
+
+_"[Verbatim quote that captures this persona's perspective]"_
+
+---
+
+**Persona 3: [Name/Type]** _(optional)_
+
+[Repeat structure if necessary]
 
 ---
 
 ## 3. Challenges
 
-Os **roadblocks** da sua product strategy. Obstáculos e riscos antecipados.
+The **roadblocks** of your product strategy. Anticipated obstacles and risks.
 
-### 3.1 Technical (Hurdles Técnicos)
+### 3.1 Technical (Technical Hurdles)
 
-**Desafio:** [Descrição do desafio técnico]
+**Challenge:** [Description of technical challenge]
 
-- **Impacto:** [Alto/Médio/Baixo]
-- **Complexidade:** [Alta/Média/Baixa]
-- **Descrição:** [Detalhes do desafio]
+- **Impact:** [High/Medium/Low]
+- **Complexity:** [High/Medium/Low]
+- **Description:** [Challenge details]
 
-**Desafio:** [Segundo desafio técnico, se houver]
+**Challenge:** [Second technical challenge, if applicable]
 
-- **Impacto:** [Alto/Médio/Baixo]
-- **Complexidade:** [Alta/Média/Baixa]
-- **Descrição:** [Detalhes do desafio]
+- **Impact:** [High/Medium/Low]
+- **Complexity:** [High/Medium/Low]
+- **Description:** [Challenge details]
 
 ### 3.2 Customer Pain Points
 
-**Desafio:** [Problema do cliente que enfrentaremos]
+**Challenge:** [Customer problem we will face]
 
-- **Tipo:** [Funcional/Emocional/Psicológico]
-- **Severidade:** [Alta/Média/Baixa]
-- **Descrição:** [Detalhes do problema]
+- **Type:** [Functional/Emotional/Psychological]
+- **Severity:** [High/Medium/Low]
+- **Description:** [Problem details]
 
-**Desafio:** [Segundo problema do cliente, se houver]
+**Challenge:** [Second customer problem, if applicable]
 
-- **Tipo:** [Funcional/Emocional/Psicológico]
-- **Severidade:** [Alta/Média/Baixa]
-- **Descrição:** [Detalhes do problema]
+- **Type:** [Functional/Emotional/Psychological]
+- **Severity:** [High/Medium/Low]
+- **Description:** [Problem details]
 
 ### 3.3 GTM Risks (Go-to-Market)
 
-**Risco:** [Risco de go-to-market]
+**Risk:** [Go-to-market risk]
 
-- **Probabilidade:** [Alta/Média/Baixa]
-- **Impacto:** [Alto/Médio/Baixo]
-- **Descrição:** [Detalhes do risco]
+- **Probability:** [High/Medium/Low]
+- **Impact:** [High/Medium/Low]
+- **Description:** [Risk details]
 
-**Risco:** [Segundo risco GTM, se houver]
+**Risk:** [Second GTM risk, if applicable]
 
-- **Probabilidade:** [Alta/Média/Baixa]
-- **Impacto:** [Alto/Médio/Baixo]
-- **Descrição:** [Detalhes do risco]
+- **Probability:** [High/Medium/Low]
+- **Impact:** [High/Medium/Low]
+- **Description:** [Risk details]
 
-### 3.4 Legal (Requisitos Regulatórios)
+### 3.4 Legal (Regulatory Requirements)
 
-**Requisito:** [Requisito legal/regulatório]
+**Requirement:** [Legal/regulatory requirement]
 
-- **Mandatório:** [Sim/Não]
-- **Prazo:** [Se houver deadline específico]
-- **Descrição:** [Detalhes do requisito]
+- **Mandatory:** [Yes/No]
+- **Deadline:** [If there is a specific deadline]
+- **Description:** [Requirement details]
 
-**Frameworks/Regulamentações Aplicáveis:**
+**Applicable Frameworks/Regulations:**
+
 - [ ] LGPD
 - [ ] GDPR
 - [ ] HIPAA
 - [ ] PCI-DSS
-- [ ] Regulamentação setorial: [Especificar]
-- [ ] Outro: [Especificar]
+- [ ] Sector regulation: [Specify]
+- [ ] Other: [Specify]
 
 ---
 
 ## 4. Approaches
 
-Os **caminhos** da sua product strategy. Como você vai alcançar a visão.
+The **paths** of your product strategy. How you will reach the vision.
 
-### 4.1 Approach (Estratégia Escolhida)
+### 4.1 Approach (Chosen Strategy)
 
-**Tipo de Abordagem:** [Single approach | Multi-prong approach]
+**Approach Type:** [Single approach | Multi-prong approach]
 
-**Estratégia Principal:**
+**Primary Strategy:**
 
-[Descreva a abordagem estratégica escolhida em 2-3 parágrafos]
+[Describe the chosen strategic approach in 2-3 paragraphs]
 
-**Se Multi-Prong, Liste as Abordagens:**
+**If Multi-Prong, List the Approaches:**
 
-1. **[Abordagem 1]:** [Descrição]
-2. **[Abordagem 2]:** [Descrição]
-3. **[Abordagem 3]:** [Descrição]
+1. **[Approach 1]:** [Description]
+2. **[Approach 2]:** [Description]
+3. **[Approach 3]:** [Description]
 
-**Justificativa:**
+**Justification:**
 
-[Por que esta abordagem foi escolhida em vez de alternativas]
+[Why this approach was chosen instead of alternatives]
 
 ### 4.2 Overcome Challenges
 
-**Como Superar Cada Desafio:**
+**How to Overcome Each Challenge:**
 
-| Desafio | Plano de Mitigação | Responsável |
-|---------|-------------------|-------------|
-| [Technical Challenge 1] | [Plano de alto nível] | [Time/Pessoa] |
-| [Customer Pain Point 1] | [Plano de alto nível] | [Time/Pessoa] |
-| [GTM Risk 1] | [Plano de alto nível] | [Time/Pessoa] |
-| [Legal Requirement 1] | [Plano de alto nível] | [Time/Pessoa] |
+| Challenge               | Mitigation Plan   | Responsible   |
+| ----------------------- | ----------------- | ------------- |
+| [Technical Challenge 1] | [High-level plan] | [Team/Person] |
+| [Customer Pain Point 1] | [High-level plan] | [Team/Person] |
+| [GTM Risk 1]            | [High-level plan] | [Team/Person] |
+| [Legal Requirement 1]   | [High-level plan] | [Team/Person] |
 
 ### 4.3 Do's & Don'ts (Guardrails)
 
-**O que FAREMOS (Do's):**
+**What we WILL DO (Do's):**
 
-- [ ] [Ação/comportamento que seguiremos]
-- [ ] [Ação/comportamento que seguiremos]
-- [ ] [Ação/comportamento que seguiremos]
-- [ ] [Ação/comportamento que seguiremos]
-- [ ] [Ação/comportamento que seguiremos]
+- [ ] [Action/behavior we will follow]
+- [ ] [Action/behavior we will follow]
+- [ ] [Action/behavior we will follow]
+- [ ] [Action/behavior we will follow]
+- [ ] [Action/behavior we will follow]
 
-**O que NÃO FAREMOS (Don'ts):**
+**What we WILL NOT DO (Don'ts):**
 
-- [ ] [Ação/comportamento que evitaremos]
-- [ ] [Ação/comportamento que evitaremos]
-- [ ] [Ação/comportamento que evitaremos]
-- [ ] [Ação/comportamento que evitaremos]
-- [ ] [Ação/comportamento que evitaremos]
+- [ ] [Action/behavior we will avoid]
+- [ ] [Action/behavior we will avoid]
+- [ ] [Action/behavior we will avoid]
+- [ ] [Action/behavior we will avoid]
+- [ ] [Action/behavior we will avoid]
 
 ---
 
 ## 5. Accountability
 
-A **medida** da sua product strategy. Como saber se está funcionando.
+The **measure** of your product strategy. How to know if it's working.
 
 ### 5.1 North Star Metric
 
-**Métrica:** [Nome da métrica]
+**Metric:** [Metric name]
 
-| Atributo | Valor |
-|----------|-------|
-| **Definição** | [Como é calculada] |
-| **Baseline Atual** | [Valor atual] |
-| **Meta (3 meses)** | [Valor alvo] |
-| **Meta (12 meses)** | [Valor alvo] |
-| **Por Que Esta Métrica** | [Por que isso mede sucesso] |
+| Attribute              | Value                       |
+| ---------------------- | --------------------------- |
+| **Definition**         | [How it is calculated]      |
+| **Current Baseline**   | [Current value]             |
+| **Target (3 months)**  | [Target value]              |
+| **Target (12 months)** | [Target value]              |
+| **Why This Metric**    | [Why this measures success] |
 
 ### 5.2 Supporting Metrics
 
-**Métricas Perceptuais:**
+**Perceptual Metrics:**
 
-| Métrica | Atual | Meta | Prazo |
-|---------|-------|------|-------|
-| [Ex: NPS] | [Valor] | [Valor] | [Quando] |
-| [Ex: CSAT] | [Valor] | [Valor] | [Quando] |
-| [Ex: Feature Adoption Rate] | [Valor] | [Valor] | [Quando] |
+| Metric                        | Current | Target  | Deadline |
+| ----------------------------- | ------- | ------- | -------- |
+| [e.g.: NPS]                   | [Value] | [Value] | [When]   |
+| [e.g.: CSAT]                  | [Value] | [Value] | [When]   |
+| [e.g.: Feature Adoption Rate] | [Value] | [Value] | [When]   |
 
-**Métricas de Valor:**
+**Value Metrics:**
 
-| Métrica | Atual | Meta | Prazo |
-|---------|-------|------|-------|
-| [Ex: Revenue] | [Valor] | [Valor] | [Quando] |
-| [Ex: Conversion Rate] | [Valor] | [Valor] | [Quando] |
-| [Ex: Churn Rate] | [Valor] | [Valor] | [Quando] |
+| Metric                  | Current | Target  | Deadline |
+| ----------------------- | ------- | ------- | -------- |
+| [e.g.: Revenue]         | [Value] | [Value] | [When]   |
+| [e.g.: Conversion Rate] | [Value] | [Value] | [When]   |
+| [e.g.: Churn Rate]      | [Value] | [Value] | [When]   |
 
 ### 5.3 Progress Tracking
 
-**Frequência de Review:** [Semanal/Quinzenal/Mensal]
+**Review Frequency:** [Weekly/Bi-weekly/Monthly]
 
-**Responsável pelo Tracking:** [Nome/Cargo]
+**Tracking Responsible:** [Name/Role]
 
-**Rituais de Review:**
+**Review Rituals:**
 
-- **[Ritual 1]:** [Frequência] - [Participantes] - [Objetivo]
-- **[Ritual 2]:** [Frequência] - [Participantes] - [Objetivo]
+- **[Ritual 1]:** [Frequency] - [Participants] - [Objective]
+- **[Ritual 2]:** [Frequency] - [Participants] - [Objective]
 
-**Dashboard/Ferramenta de Tracking:**
+**Dashboard/Tracking Tool:**
 
-[Link ou descrição de onde as métricas serão acompanhadas]
+[Link or description of where metrics will be tracked]
 
-### 5.4 Notas de Accountability
+### 5.4 Accountability Notes
 
-[Observações adicionais sobre como manter accountability e o que fazer se métricas não estiverem sendo atingidas]
+[Additional observations on how to maintain accountability and what to do if metrics are not being met]
 
 ---
 
 ## Sign-off
 
-### Aprovação de Stakeholders
+### Stakeholder Approval
 
-| Stakeholder | Cargo | Status da Review | Aprovado | Data |
-|-------------|-------|------------------|----------|------|
-| [Nome] | CPTO | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | Engineering Manager | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | GPM | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | Tech Lead | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | Design Lead | ⏳ Pendente / ✅ Completo | ☐ | - |
+| Stakeholder | Role                | Review Status            | Approved | Date |
+| ----------- | ------------------- | ------------------------ | -------- | ---- |
+| [Name]      | CPTO                | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | Engineering Manager | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | GPM                 | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | Tech Lead           | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | Design Lead         | ⏳ Pending / ✅ Complete | ☐        | -    |
 
-### Notas de Revisão
+### Review Notes
 
-[Capture feedback importante das revisões de stakeholders]
-
----
-
-## Apêndice
-
-### Referências
-
-- [Link para pesquisa de mercado]
-- [Link para análise competitiva detalhada]
-- [Link para pesquisa de usuário]
-- [Link para documentos relacionados]
-
-### Log de Alterações
-
-| Versão | Data | Autor | Alterações |
-|--------|------|-------|------------|
-| 1.0 | [YYYY-MM-DD] | [Nome] | Draft inicial |
-| 1.1 | [YYYY-MM-DD] | [Nome] | [Alterações feitas] |
+[Capture important feedback from stakeholder reviews]
 
 ---
 
-## Notas de Uso do Template
+## Appendix
 
-**Quando usar este template:**
-- Novas estratégias de produto
-- Pivots significativos
-- Planejamento anual de produto
-- Alinhamento de stakeholders
+### References
 
-**Quando usar o One-Pager:**
-- Iteração inicial rápida
-- Apresentações executivas
-- Alinhamentos rápidos
-- Features específicas
+- [Link to market research]
+- [Link to detailed competitive analysis]
+- [Link to user research]
+- [Link to related documents]
 
-**Dicas:**
-1. Não espere ter todas as respostas para começar
-2. Compartilhe rascunhos cedo e frequentemente
-3. Itere baseado em feedback
-4. Mantenha o documento vivo e atualizado
-5. Referencie a strategy em decisões do dia-a-dia
+### Change Log
+
+| Version | Date         | Author | Changes        |
+| ------- | ------------ | ------ | -------------- |
+| 1.0     | [YYYY-MM-DD] | [Name] | Initial draft  |
+| 1.1     | [YYYY-MM-DD] | [Name] | [Changes made] |
+
+---
+
+## Template Usage Notes
+
+**When to use this template:**
+
+- New product strategies
+- Significant pivots
+- Annual product planning
+- Stakeholder alignment
+
+**When to use the One-Pager:**
+
+- Initial rapid iteration
+- Executive presentations
+- Quick alignments
+- Specific features
+
+**Tips:**
+
+1. Don't wait to have all the answers to start
+2. Share drafts early and often
+3. Iterate based on feedback
+4. Keep the document live and updated
+5. Reference the strategy in day-to-day decisions

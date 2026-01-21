@@ -1,19 +1,20 @@
-# Template de Product Strategy - One-Pager
+---
+Product Strategy Template - One-Pager
 
-Versão resumida para iteração rápida e alinhamento executivo.
+Condensed version for rapid iteration and executive alignment.
+---
+
+## [Product Name]
+
+**Author:** [Name] | **Date:** [YYYY-MM-DD] | **Status:** [Draft | In Review | Approved]
 
 ---
 
-## [Nome do Produto]
-
-**Autor:** [Nome] | **Data:** [YYYY-MM-DD] | **Status:** [Draft | In Review | Approved]
-
----
-
-## A Fórmula
+## The Formula
 
 ```
 Product Strategy = Vision + Insights + Challenges + Approaches + Accountability
+
 ```
 
 ---
@@ -22,19 +23,19 @@ Product Strategy = Vision + Insights + Challenges + Approaches + Accountability
 
 ### Vision Statement
 
-> **For** [cliente alvo] **who** [necessidade/oportunidade],
-> **the** [nome do produto] **is a** [categoria]
-> **that** [benefício chave].
-> **Unlike** [alternativa principal],
-> **our product** [diferenciação].
+> **For** [target customer] **who** [need/opportunity],
+> **the** [product name] **is a** [category]
+> **that** [key benefit].
+> **Unlike** [primary alternative],
+> **our product** [differentiation].
 
 ### What | Who | Why Now
 
-| | |
-|---|---|
-| **What** | [Problema que resolvemos em 1 linha] |
-| **Who** | [Cliente alvo em 1 linha] |
-| **Why Now** | [Timing/urgência em 1 linha] |
+|             |                                  |
+| ----------- | -------------------------------- |
+| **What**    | [The problem we solve in 1 line] |
+| **Who**     | [The target customer in 1 line]  |
+| **Why Now** | [Timing/urgency in 1 line]       |
 
 ---
 
@@ -42,43 +43,43 @@ Product Strategy = Vision + Insights + Challenges + Approaches + Accountability
 
 ### Key Insights
 
-1. **Competidores:** [Insight principal sobre competição]
-2. **Mercado:** [TAM/oportunidade em 1 linha]
-3. **Tendência:** [Tendência mais relevante]
-4. **Cliente:** [Insight mais importante sobre o cliente]
+1. **Competitors:** [Main insight regarding competition]
+2. **Market:** [TAM/opportunity in 1 line]
+3. **Trend:** [Most relevant market trend]
+4. **Customer:** [Most important customer insight]
 
-### Persona Principal
+### Primary Persona
 
-**[Nome/Tipo]:** [Descrição em 1-2 linhas]
+**[Name/Type]:** [Description in 1-2 lines]
 
-_"[Citação que captura a essência]"_
+_"[Quote that captures the essence]"_
 
 ---
 
 ## 3. Challenges (ROADBLOCKS)
 
-| Categoria | Desafio Principal |
-|-----------|-------------------|
-| **Technical** | [Hurdle técnico mais crítico] |
-| **Customer** | [Pain point mais importante] |
-| **GTM** | [Risco go-to-market principal] |
-| **Legal** | [Requisito regulatório, se houver] |
+| Category      | Primary Challenge                       |
+| ------------- | --------------------------------------- |
+| **Technical** | [Most critical technical hurdle]        |
+| **Customer**  | [Most important pain point]             |
+| **GTM**       | [Primary go-to-market risk]             |
+| **Legal**     | [Regulatory requirement, if applicable] |
 
 ---
 
 ## 4. Approaches (PATHS)
 
-### Estratégia
+### Strategy
 
-**Abordagem:** [Single/Multi-prong] - [Descrição em 2-3 linhas]
+**Approach:** [Single/Multi-prong] - [Description in 2-3 lines]
 
 ### Guardrails
 
-| Do's | Don'ts |
-|------|--------|
-| [Faremos 1] | [Não faremos 1] |
-| [Faremos 2] | [Não faremos 2] |
-| [Faremos 3] | [Não faremos 3] |
+| Do's           | Don'ts             |
+| -------------- | ------------------ |
+| [We will do 1] | [We will not do 1] |
+| [We will do 2] | [We will not do 2] |
+| [We will do 3] | [We will not do 3] |
 
 ---
 
@@ -86,25 +87,29 @@ _"[Citação que captura a essência]"_
 
 ### North Star
 
-**[Nome da Métrica]:** [Baseline] → [Meta] em [Prazo]
+**[Metric Name]:** [Baseline] → [Target] by [Deadline]
 
 ### Supporting Metrics
 
-| Métrica | Atual | Meta |
-|---------|-------|------|
-| [Métrica 1] | [Valor] | [Valor] |
-| [Métrica 2] | [Valor] | [Valor] |
+| Metric     | Current | Target  |
+| ---------- | ------- | ------- |
+| [Metric 1] | [Value] | [Value] |
+| [Metric 2] | [Value] | [Value] |
 
 ---
 
 ## Sign-off
 
-| Stakeholder | Cargo | ✓ |
-|-------------|-------|---|
-| [Nome] | CPTO | ☐ |
-| [Nome] | EM | ☐ |
-| [Nome] | GPM | ☐ |
+| Stakeholder | Role | ✓   |
+| ----------- | ---- | --- |
+| [Name]      | CPTO | ☐   |
+| [Name]      | EM   | ☐   |
+| [Name]      | GPM  | ☐   |
 
 ---
 
-_Documento completo disponível em: `products/[produto]/strategy.md`_
+_Full document available at: `products/[product]/strategy.md_`
+
+---
+
+**Would you like me to translate any other templates, or perhaps help you fill this one out for a specific product idea?**

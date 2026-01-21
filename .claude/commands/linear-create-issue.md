@@ -1,76 +1,80 @@
-# Criar Issues no Linear
+# Create Issues in Linear
 
-Crie issues no Linear a partir da descrição fornecida.
+Create issues in Linear from the provided description.
 
 ## Input
 
 $ARGUMENTS
 
-## Instruções
+## Instructions
 
-### 1. Validar Input
+### 1. Validate Input
 
-Se `$ARGUMENTS` estiver vazio, pergunte ao usuário quais tarefas deseja criar.
+If `$ARGUMENTS` is empty, ask the user which tasks they want to create.
 
-### 2. Selecionar Team
+### 2. Select Team
 
-Use `mcp__linear__list_teams` para listar os times disponíveis.
+Use `mcp__linear__list_teams` to list available teams.
 
-Pergunte ao usuário qual team usar (a menos que já tenha sido especificado no input).
+Ask the user which team to use (unless already specified in the input).
 
-### 3. Parsear Issues
+### 3. Parse Issues
 
-Analise o input e extraia as issues a serem criadas. O input pode ser:
-- Texto livre descrevendo múltiplas tarefas
-- Lista com bullets ou números
-- Uma única tarefa
+Analyze the input and extract the issues to be created. Input can be:
 
-Para cada issue identificada, extraia ou infira:
-- **title** (obrigatório): Título conciso da tarefa
-- **description** (opcional): Detalhes adicionais em Markdown
-- **priority** (opcional): 0=Sem prioridade, 1=Urgente, 2=Alta, 3=Normal, 4=Baixa
-- **labels** (opcional): Labels existentes no Linear
-- **assignee** (opcional): Usuário para atribuir (use "me" para o próprio usuário)
-- **dueDate** (opcional): Data de entrega no formato ISO
+- Free text describing multiple tasks
+- Bulleted or numbered list
+- A single task
 
-### 4. Confirmar com Usuário
+For each identified issue, extract or infer:
 
-Antes de criar, mostre um resumo das issues que serão criadas:
+- **title** (required): Concise task title
+- **description** (optional): Additional details in Markdown
+- **priority** (optional): 0=No priority, 1=Urgent, 2=High, 3=Normal, 4=Low
+- **labels** (optional): Existing labels in Linear
+- **assignee** (optional): User to assign (use "me" for the current user)
+- **dueDate** (optional): Due date in ISO format
+
+### 4. Confirm with User
+
+Before creating, show a summary of the issues to be created:
 
 ```
-## Issues a criar no team [TEAM_NAME]:
+## Issues to create in team [TEAM_NAME]:
 
-1. **[Título 1]**
-   - Prioridade: [X]
+1. **[Title 1]**
+   - Priority: [X]
    - Labels: [X, Y]
 
-2. **[Título 2]**
-   - Descrição: [resumo]
+2. **[Title 2]**
+   - Description: [summary]
 ```
 
-Peça confirmação antes de prosseguir.
+Request confirmation before proceeding.
 
-### 5. Criar Issues
+### 5. Create Issues
 
-Para cada issue confirmada, use `mcp__linear__create_issue` com os campos extraídos.
+For each confirmed issue, use `mcp__linear__create_issue` with the extracted fields.
 
-### 6. Retornar Resultado
+### 6. Return Result
 
-Após criar todas as issues, retorne uma lista com:
-- Identificador (ex: `TEAM-123`)
-- Título
-- URL da issue
+After creating all issues, return a list with:
 
-Exemplo de output:
+- Identifier (e.g., `TEAM-123`)
+- Title
+- Issue URL
+
+Example output:
+
 ```
-## Issues criadas:
+## Issues created:
 
-- [TEAM-123](url): Título da issue 1
-- [TEAM-124](url): Título da issue 2
+- [TEAM-123](url): Issue title 1
+- [TEAM-124](url): Issue title 2
 ```
 
-## Exemplos de Uso
+## Usage Examples
 
-- `/linear-create-issue criar endpoint de health check e adicionar testes unitários`
-- `/linear-create-issue 1. Refatorar módulo X 2. Documentar API Y`
-- `/linear-create-issue` (sem argumentos - vai perguntar)
+- `/linear-create-issue create health check endpoint and add unit tests`
+- `/linear-create-issue 1. Refactor module X 2. Document API Y`
+- `/linear-create-issue` (no arguments - will ask)

@@ -1,68 +1,68 @@
 ---
 name: engineering-security-review
-description: Use esta skill ao adicionar autenticação, manipular entrada de usuário, trabalhar com secrets, criar endpoints de API, ou implementar funcionalidades de pagamento/sensíveis. Fornece checklist de segurança abrangente e padrões.
+description: Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. It provides a comprehensive security checklist and patterns.
 ---
 
-# Skill de Revisão de Segurança
+# Security Review Skill
 
-Esta skill garante que todo código siga as melhores práticas de segurança e identifique vulnerabilidades potenciais.
+This skill ensures that all code follows security best practices and identifies potential vulnerabilities.
 
-## Quando Ativar
+## When to Activate
 
-- Implementando autenticação ou autorização
-- Manipulando entrada de usuário ou upload de arquivos
-- Criando novos endpoints de API
-- Trabalhando com secrets ou credenciais
-- Implementando funcionalidades de pagamento
-- Armazenando ou transmitindo dados sensíveis
-- Integrando APIs de terceiros
+- Implementing authentication or authorization
+- Handling user input or file uploads
+- Creating new API endpoints
+- Working with secrets or credentials
+- Implementing payment features
+- Storing or transmitting sensitive data
+- Integrating third-party APIs
 
-## Checklist de Segurança
+## Security Checklist
 
-### 1. Gerenciamento de Secrets
+### 1. Secrets Management
 
-#### ❌ NUNCA Faça Isso
+#### ❌ NEVER Do This
 
 ```typescript
-const apiKey = "sk-proj-xxxxx"; // Secret hardcoded
-const dbPassword = "password123"; // No código fonte
+const apiKey = "sk-proj-xxxxx"; // Hardcoded secret
+const dbPassword = "password123"; // In source code
 ```
 
-#### ✅ SEMPRE Faça Isso
+#### ✅ ALWAYS Do This
 
 ```typescript
 const apiKey = process.env.OPENAI_API_KEY;
 const dbUrl = process.env.DATABASE_URL;
 
-// Verificar se secrets existem
+// Verify if secrets exist
 if (!apiKey) {
   throw new Error("OPENAI_API_KEY not configured");
 }
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Nenhuma API key, token ou senha hardcoded
-- [ ] Todos os secrets em variáveis de ambiente
-- [ ] `.env.local` no .gitignore
-- [ ] Nenhum secret no histórico do git
-- [ ] Secrets de produção na plataforma de hospedagem (Vercel, Railway)
+- [ ] No hardcoded API keys, tokens, or passwords
+- [ ] All secrets in environment variables
+- [ ] `.env.local` in .gitignore
+- [ ] No secrets in git history
+- [ ] Production secrets set on hosting platform (Vercel, Railway)
 
-### 2. Validação de Input
+### 2. Input Validation
 
-#### Sempre Valide Entrada do Usuário
+#### Always Validate User Input
 
 ```typescript
 import { z } from "zod";
 
-// Definir schema de validação
+// Define validation schema
 const CreateUserSchema = z.object({
   email: z.string().email(),
   name: z.string().min(1).max(100),
   age: z.number().int().min(0).max(150),
 });
 
-// Validar antes de processar
+// Validate before processing
 export async function createUser(input: unknown) {
   try {
     const validated = CreateUserSchema.parse(input);
@@ -76,23 +76,23 @@ export async function createUser(input: unknown) {
 }
 ```
 
-#### Validação de Upload de Arquivos
+#### File Upload Validation
 
 ```typescript
 function validateFileUpload(file: File) {
-  // Verificação de tamanho (máx 5MB)
+  // Size check (max 5MB)
   const maxSize = 5 * 1024 * 1024;
   if (file.size > maxSize) {
     throw new Error("File too large (max 5MB)");
   }
 
-  // Verificação de tipo
+  // Type check
   const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
   if (!allowedTypes.includes(file.type)) {
     throw new Error("Invalid file type");
   }
 
-  // Verificação de extensão
+  // Extension check
   const allowedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
   const extension = file.name.toLowerCase().match(/\.[^.]+$/)?.[0];
   if (!extension || !allowedExtensions.includes(extension)) {
@@ -103,64 +103,64 @@ function validateFileUpload(file: File) {
 }
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Todas as entradas de usuário validadas com schemas
-- [ ] Uploads de arquivos restritos (tamanho, tipo, extensão)
-- [ ] Nenhum uso direto de entrada de usuário em queries
-- [ ] Validação por whitelist (não blacklist)
-- [ ] Mensagens de erro não vazam informações sensíveis
+- [ ] All user inputs validated with schemas
+- [ ] File uploads restricted (size, type, extension)
+- [ ] No direct use of user input in queries
+- [ ] Whitelist validation (not blacklist)
+- [ ] Error messages do not leak sensitive information
 
-### 3. Prevenção de SQL Injection
+### 3. SQL Injection Prevention
 
-#### ❌ NUNCA Concatene SQL
+#### ❌ NEVER Concatenate SQL
 
 ```typescript
-// PERIGOSO - Vulnerabilidade de SQL Injection
+// DANGEROUS - SQL Injection vulnerability
 const query = `SELECT * FROM users WHERE email = '${userEmail}'`;
 await db.query(query);
 ```
 
-#### ✅ SEMPRE Use Queries Parametrizadas
+#### ✅ ALWAYS Use Parameterized Queries
 
 ```typescript
-// Seguro - query parametrizada
+// Safe - parameterized query
 const { data } = await supabase
   .from("users")
   .select("*")
   .eq("email", userEmail);
 
-// Ou com SQL raw
+// Or with raw SQL
 await db.query("SELECT * FROM users WHERE email = $1", [userEmail]);
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Todas as queries de banco usam queries parametrizadas
-- [ ] Nenhuma concatenação de string em SQL
-- [ ] ORM/query builder usado corretamente
-- [ ] Queries do Supabase devidamente sanitizadas
+- [ ] All database queries use parameterized queries
+- [ ] No string concatenation in SQL
+- [ ] ORM/query builder used correctly
+- [ ] Supabase queries properly sanitized
 
-### 4. Autenticação & Autorização
+### 4. Authentication & Authorization
 
-#### Manipulação de JWT Token
+#### JWT Token Handling
 
 ```typescript
-// ❌ ERRADO: localStorage (vulnerável a XSS)
+// ❌ WRONG: localStorage (vulnerable to XSS)
 localStorage.setItem("token", token);
 
-// ✅ CORRETO: cookies httpOnly
+// ✅ CORRECT: httpOnly cookies
 res.setHeader(
   "Set-Cookie",
   `token=${token}; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`,
 );
 ```
 
-#### Verificações de Autorização
+#### Authorization Checks
 
 ```typescript
 export async function deleteUser(userId: string, requesterId: string) {
-  // SEMPRE verifique autorização primeiro
+  // ALWAYS verify authorization first
   const requester = await db.users.findUnique({
     where: { id: requesterId },
   });
@@ -169,7 +169,7 @@ export async function deleteUser(userId: string, requesterId: string) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }
 
-  // Prosseguir com deleção
+  // Proceed with deletion
   await db.users.delete({ where: { id: userId } });
 }
 ```
@@ -177,36 +177,37 @@ export async function deleteUser(userId: string, requesterId: string) {
 #### Row Level Security (Supabase)
 
 ```sql
--- Habilitar RLS em todas as tabelas
+-- Enable RLS on all tables
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
 
--- Usuários só podem ver seus próprios dados
+-- Users can only see their own data
 CREATE POLICY "Users view own data"
   ON users FOR SELECT
   USING (auth.uid() = id);
 
--- Usuários só podem atualizar seus próprios dados
+-- Users can only update their own data
 CREATE POLICY "Users update own data"
   ON users FOR UPDATE
   USING (auth.uid() = id);
+
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Tokens armazenados em cookies httpOnly (não localStorage)
-- [ ] Verificações de autorização antes de operações sensíveis
-- [ ] Row Level Security habilitado no Supabase
-- [ ] Controle de acesso baseado em roles implementado
-- [ ] Gerenciamento de sessão seguro
+- [ ] Tokens stored in httpOnly cookies (not localStorage)
+- [ ] Authorization checks before sensitive operations
+- [ ] Row Level Security enabled in Supabase
+- [ ] Role-based access control implemented
+- [ ] Secure session management
 
-### 5. Prevenção de XSS
+### 5. XSS Prevention
 
-#### Sanitizar HTML
+#### Sanitize HTML
 
 ```typescript
 import DOMPurify from 'isomorphic-dompurify'
 
-// SEMPRE sanitize HTML fornecido pelo usuário
+// ALWAYS sanitize user-provided HTML
 function renderUserContent(html: string) {
   const clean = DOMPurify.sanitize(html, {
     ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'p'],
@@ -214,6 +215,7 @@ function renderUserContent(html: string) {
   })
   return <div dangerouslySetInnerHTML={{ __html: clean }} />
 }
+
 ```
 
 #### Content Security Policy
@@ -237,16 +239,16 @@ const securityHeaders = [
 ];
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] HTML fornecido pelo usuário sanitizado
-- [ ] Headers CSP configurados
-- [ ] Nenhuma renderização de conteúdo dinâmico não validado
-- [ ] Proteção XSS nativa do React utilizada
+- [ ] User-provided HTML sanitized
+- [ ] CSP headers configured
+- [ ] No rendering of unvalidated dynamic content
+- [ ] React's native XSS protection utilized
 
-### 6. Proteção CSRF
+### 6. CSRF Protection
 
-#### Tokens CSRF
+#### CSRF Tokens
 
 ```typescript
 import { csrf } from "@/lib/csrf";
@@ -258,11 +260,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid CSRF token" }, { status: 403 });
   }
 
-  // Processar requisição
+  // Process request
 }
 ```
 
-#### Cookies SameSite
+#### SameSite Cookies
 
 ```typescript
 res.setHeader(
@@ -271,67 +273,67 @@ res.setHeader(
 );
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Tokens CSRF em operações que alteram estado
-- [ ] SameSite=Strict em todos os cookies
-- [ ] Padrão double-submit cookie implementado
+- [ ] CSRF tokens in state-changing operations
+- [ ] SameSite=Strict on all cookies
+- [ ] Double-submit cookie pattern implemented
 
 ### 7. Rate Limiting
 
-#### Rate Limiting de API
+#### API Rate Limiting
 
 ```typescript
 import rateLimit from "express-rate-limit";
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100, // 100 requisições por janela
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // 100 requests per window
   message: "Too many requests",
 });
 
-// Aplicar às rotas
+// Apply to routes
 app.use("/api/", limiter);
 ```
 
-#### Operações Custosas
+#### Expensive Operations
 
 ```typescript
-// Rate limiting agressivo para buscas
+// Aggressive rate limiting for searches
 const searchLimiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minuto
-  max: 10, // 10 requisições por minuto
+  windowMs: 60 * 1000, // 1 minute
+  max: 10, // 10 requests per minute
   message: "Too many search requests",
 });
 
 app.use("/api/search", searchLimiter);
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Rate limiting em todos os endpoints de API
-- [ ] Limites mais restritos em operações custosas
-- [ ] Rate limiting baseado em IP
-- [ ] Rate limiting baseado em usuário (autenticado)
+- [ ] Rate limiting on all API endpoints
+- [ ] Stricter limits on expensive operations
+- [ ] IP-based rate limiting
+- [ ] User-based (authenticated) rate limiting
 
-### 8. Exposição de Dados Sensíveis
+### 8. Sensitive Data Exposure
 
 #### Logging
 
 ```typescript
-// ❌ ERRADO: Logando dados sensíveis
+// ❌ WRONG: Logging sensitive data
 console.log("User login:", { email, password });
 console.log("Payment:", { cardNumber, cvv });
 
-// ✅ CORRETO: Redatar dados sensíveis
+// ✅ CORRECT: Redact sensitive data
 console.log("User login:", { email, userId });
 console.log("Payment:", { last4: card.last4, userId });
 ```
 
-#### Mensagens de Erro
+#### Error Messages
 
 ```typescript
-// ❌ ERRADO: Expondo detalhes internos
+// ❌ WRONG: Exposing internal details
 catch (error) {
   return NextResponse.json(
     { error: error.message, stack: error.stack },
@@ -339,7 +341,7 @@ catch (error) {
   )
 }
 
-// ✅ CORRETO: Mensagens de erro genéricas
+// ✅ CORRECT: Generic error messages
 catch (error) {
   console.error('Internal error:', error)
   return NextResponse.json(
@@ -347,18 +349,19 @@ catch (error) {
     { status: 500 }
   )
 }
+
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Nenhuma senha, token ou secret nos logs
-- [ ] Mensagens de erro genéricas para usuários
-- [ ] Erros detalhados apenas nos logs do servidor
-- [ ] Nenhum stack trace exposto aos usuários
+- [ ] No passwords, tokens, or secrets in logs
+- [ ] Generic error messages for users
+- [ ] Detailed errors only in server logs
+- [ ] No stack traces exposed to users
 
-### 9. Segurança Blockchain (Solana)
+### 9. Blockchain Security (Solana)
 
-#### Verificação de Wallet
+#### Wallet Verification
 
 ```typescript
 import { verify } from "@solana/web3.js";
@@ -381,21 +384,21 @@ async function verifyWalletOwnership(
 }
 ```
 
-#### Verificação de Transação
+#### Transaction Verification
 
 ```typescript
 async function verifyTransaction(transaction: Transaction) {
-  // Verificar destinatário
+  // Verify recipient
   if (transaction.to !== expectedRecipient) {
     throw new Error("Invalid recipient");
   }
 
-  // Verificar valor
+  // Verify amount
   if (transaction.amount > maxAmount) {
     throw new Error("Amount exceeds limit");
   }
 
-  // Verificar se usuário tem saldo suficiente
+  // Verify if user has sufficient balance
   const balance = await getBalance(transaction.from);
   if (balance < transaction.amount) {
     throw new Error("Insufficient balance");
@@ -405,61 +408,63 @@ async function verifyTransaction(transaction: Transaction) {
 }
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Assinaturas de wallet verificadas
-- [ ] Detalhes de transação validados
-- [ ] Verificação de saldo antes de transações
-- [ ] Nenhuma assinatura cega de transações
+- [ ] Wallet signatures verified
+- [ ] Transaction details validated
+- [ ] Balance verification before transactions
+- [ ] No blind signing of transactions
 
-### 10. Segurança de Dependências
+### 10. Dependency Security
 
-#### Atualizações Regulares
+#### Regular Updates
 
 ```bash
-# Verificar vulnerabilidades
+# Check for vulnerabilities
 npm audit
 
-# Corrigir problemas automaticamente corrigíveis
+# Fix automatically fixable issues
 npm audit fix
 
-# Atualizar dependências
+# Update dependencies
 npm update
 
-# Verificar pacotes desatualizados
+# Check for outdated packages
 npm outdated
+
 ```
 
 #### Lock Files
 
 ```bash
-# SEMPRE commite lock files
+# ALWAYS commit lock files
 git add package-lock.json
 
-# Use em CI/CD para builds reproduzíveis
-npm ci  # Em vez de npm install
+# Use in CI/CD for reproducible builds
+npm ci  # Instead of npm install
+
 ```
 
-#### Passos de Verificação
+#### Verification Steps
 
-- [ ] Dependências atualizadas
-- [ ] Nenhuma vulnerabilidade conhecida (npm audit limpo)
-- [ ] Lock files commitados
-- [ ] Dependabot habilitado no GitHub
-- [ ] Atualizações de segurança regulares
+- [ ] Dependencies up to date
+- [ ] No known vulnerabilities (clean npm audit)
+- [ ] Lock files committed
+- [ ] Dependabot enabled on GitHub
+- [ ] Regular security updates
 
-## Testes de Segurança
+## Security Testing
 
-### Testes de Segurança Automatizados
+### Automated Security Tests
 
 ```typescript
-// Testar autenticação
+// Test authentication
 test("requires authentication", async () => {
   const response = await fetch("/api/protected");
   expect(response.status).toBe(401);
 });
 
-// Testar autorização
+// Test authorization
 test("requires admin role", async () => {
   const response = await fetch("/api/admin", {
     headers: { Authorization: `Bearer ${userToken}` },
@@ -467,7 +472,7 @@ test("requires admin role", async () => {
   expect(response.status).toBe(403);
 });
 
-// Testar validação de input
+// Test input validation
 test("rejects invalid input", async () => {
   const response = await fetch("/api/users", {
     method: "POST",
@@ -476,7 +481,7 @@ test("rejects invalid input", async () => {
   expect(response.status).toBe(400);
 });
 
-// Testar rate limiting
+// Test rate limiting
 test("enforces rate limits", async () => {
   const requests = Array(101)
     .fill(null)
@@ -489,29 +494,29 @@ test("enforces rate limits", async () => {
 });
 ```
 
-## Checklist de Segurança Pré-Deploy
+## Pre-Deploy Security Checklist
 
-Antes de QUALQUER deploy em produção:
+Before ANY production deployment:
 
-- [ ] **Secrets**: Nenhum secret hardcoded, todos em env vars
-- [ ] **Validação de Input**: Todas as entradas de usuário validadas
-- [ ] **SQL Injection**: Todas as queries parametrizadas
-- [ ] **XSS**: Conteúdo de usuário sanitizado
-- [ ] **CSRF**: Proteção habilitada
-- [ ] **Autenticação**: Manipulação adequada de tokens
-- [ ] **Autorização**: Verificações de role implementadas
-- [ ] **Rate Limiting**: Habilitado em todos os endpoints
-- [ ] **HTTPS**: Forçado em produção
-- [ ] **Security Headers**: CSP, X-Frame-Options configurados
-- [ ] **Tratamento de Erros**: Nenhum dado sensível nos erros
-- [ ] **Logging**: Nenhum dado sensível logado
-- [ ] **Dependências**: Atualizadas, sem vulnerabilidades
-- [ ] **Row Level Security**: Habilitado no Supabase
-- [ ] **CORS**: Configurado corretamente
-- [ ] **Upload de Arquivos**: Validados (tamanho, tipo)
-- [ ] **Assinaturas de Wallet**: Verificadas (se blockchain)
+- [ ] **Secrets**: No hardcoded secrets, all in env vars
+- [ ] **Input Validation**: All user inputs validated
+- [ ] **SQL Injection**: All queries parameterized
+- [ ] **XSS**: User content sanitized
+- [ ] **CSRF**: Protection enabled
+- [ ] **Authentication**: Proper token handling
+- [ ] **Authorization**: Role checks implemented
+- [ ] **Rate Limiting**: Enabled on all endpoints
+- [ ] **HTTPS**: Enforced in production
+- [ ] **Security Headers**: CSP, X-Frame-Options configured
+- [ ] **Error Handling**: No sensitive data in errors
+- [ ] **Logging**: No sensitive data logged
+- [ ] **Dependencies**: Updated, no vulnerabilities
+- [ ] **Row Level Security**: Enabled on Supabase
+- [ ] **CORS**: Correctly configured
+- [ ] **File Upload**: Validated (size, type)
+- [ ] **Wallet Signatures**: Verified (if blockchain)
 
-## Recursos
+## Resources
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [Next.js Security](https://nextjs.org/docs/security)
@@ -520,4 +525,4 @@ Antes de QUALQUER deploy em produção:
 
 ---
 
-**Lembre-se**: Segurança não é opcional. Uma vulnerabilidade pode comprometer toda a plataforma. Em caso de dúvida, erre pelo lado da cautela.
+**Remember**: Security is not optional. A single vulnerability can compromise the entire platform. When in doubt, err on the side of caution.

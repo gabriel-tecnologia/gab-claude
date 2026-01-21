@@ -1,193 +1,193 @@
 ---
-description: Executar revisão de acessibilidade, design visual e boas práticas de UI
-argument-hint: <arquivo-ou-padrão>
+description: Run accessibility, visual design, and UI best practices review
+argument-hint: <file-or-pattern>
 ---
 
-# Revisão de Interface Frontend
+# Frontend Interface Review
 
-Você é um engenheiro de design especialista revisando código para problemas de acessibilidade, design visual e boas práticas de UI.
+You are an expert design engineer reviewing code for accessibility, visual design, and UI best practices issues.
 
-## Modo
+## Mode
 
-Se `$ARGUMENTS` for fornecido, analise esse arquivo específico.
-Se `$ARGUMENTS` estiver vazio, pergunte ao usuário quais arquivos revisar ou ofereça escanear o projeto.
-
----
-
-## 1. Acessibilidade (WCAG 2.1)
-
-### Crítico (Deve Corrigir)
-
-| Verificação             | WCAG  | O que procurar                                                          | Correção                                             |
-| ----------------------- | ----- | ----------------------------------------------------------------------- | ---------------------------------------------------- |
-| Imagens sem alt         | 1.1.1 | `<img>` sem atributo `alt`                                              | Adicionar `alt` descritivo ou `alt=""` se decorativa |
-| Botões só com ícone     | 4.1.2 | `<button>` com apenas SVG/ícone, sem `aria-label`                       | Adicionar `aria-label="Ação"`                        |
-| Inputs sem labels       | 1.3.1 | `<input>`, `<select>`, `<textarea>` sem `<label>` ou `aria-label`       | Associar `<label htmlFor>` ou adicionar `aria-label` |
-| Handlers não semânticos | 2.1.1 | `<div onClick>` ou `<span onClick>` sem `role`, `tabIndex`, `onKeyDown` | Usar `<button>` em vez de `<div>`                    |
-| Links sem destino       | 2.1.1 | `<a>` sem `href` usando apenas `onClick`                                | Usar `href` ou converter para `<button>`             |
-| Zoom desabilitado       | 1.4.4 | `user-scalable=no` ou `maximum-scale=1`                                 | Remover restrições de zoom                           |
-| Mismatch de hidratação  | N/A   | Inputs com `value` sem `onChange`                                       | Usar `defaultValue` ou adicionar `onChange`          |
-
-### Sério (Deveria Corrigir)
-
-| Verificação            | WCAG  | O que procurar                                          | Correção                                   |
-| ---------------------- | ----- | ------------------------------------------------------- | ------------------------------------------ |
-| Outline removido       | 2.4.7 | `outline-none` sem substituição de foco visível         | Adicionar `focus-visible:ring-*`           |
-| Sem handler de teclado | 2.1.1 | Elementos interativos com `onClick` mas sem `onKeyDown` | Adicionar `onKeyDown`                      |
-| Informação só por cor  | 1.4.1 | Status/erro indicado apenas por cor                     | Adicionar ícone ou texto                   |
-| Alvo touch pequeno     | 2.5.5 | Elementos clicáveis menores que 44x44px                 | Aumentar área clicável                     |
-| Paste bloqueado        | N/A   | `onPaste` com `preventDefault`                          | Remover bloqueio de paste                  |
-| Sem reduced-motion     | N/A   | Animações sem `prefers-reduced-motion`                  | Adicionar variante reduzida ou desabilitar |
-
-### Moderado (Considerar Corrigir)
-
-| Verificação            | WCAG  | O que procurar                     | Correção                             |
-| ---------------------- | ----- | ---------------------------------- | ------------------------------------ |
-| Hierarquia de headings | 1.3.1 | Níveis pulados (h1 → h3)           | Manter sequência h1 → h2 → h3        |
-| tabIndex positivo      | 2.4.3 | `tabIndex` > 0                     | Usar `tabIndex="0"` ou ordem natural |
-| Role sem atributos     | 4.1.2 | `role="button"` sem `tabIndex="0"` | Adicionar atributos requeridos       |
+If `$ARGUMENTS` is provided, analyze that specific file.
+If `$ARGUMENTS` is empty, ask the user which files to review or offer to scan the project.
 
 ---
 
-## 2. Formulários
+## 1. Accessibility (WCAG 2.1)
 
-| Verificação              | O que procurar                              | Correção                                  |
-| ------------------------ | ------------------------------------------- | ----------------------------------------- |
-| Sem autocomplete         | Inputs sem `autocomplete`                   | Adicionar `autocomplete` apropriado       |
-| Tipo incorreto           | Input de email sem `type="email"`           | Usar tipo correto (`email`, `tel`, `url`) |
-| Labels não clicáveis     | `<label>` sem `htmlFor`                     | Adicionar `htmlFor` ou envolver o input   |
-| Spellcheck em emails     | Email/código sem `spellCheck={false}`       | Desabilitar spellcheck                    |
-| Placeholder sem padrão   | Placeholder sem exemplo                     | Adicionar exemplo: `"nome@email.com…"`    |
-| Submit desabilitado cedo | Botão submit desabilitado antes do envio    | Manter habilitado até request iniciar     |
-| Sem aviso de saída       | Navegação sem aviso com mudanças não salvas | Adicionar `beforeunload`                  |
+### Critical (Must Fix)
 
----
+| Check                     | WCAG  | What to look for                                                            | Fix                                             |
+| ------------------------- | ----- | --------------------------------------------------------------------------- | ----------------------------------------------- |
+| Images without alt        | 1.1.1 | `<img>` without `alt` attribute                                             | Add descriptive `alt` or `alt=""` if decorative |
+| Icon-only buttons         | 4.1.2 | `<button>` with only SVG/icon, no `aria-label`                              | Add `aria-label="Action"`                       |
+| Inputs without labels     | 1.3.1 | `<input>`, `<select>`, `<textarea>` without `<label>` or `aria-label`       | Associate `<label htmlFor>` or add `aria-label` |
+| Non-semantic handlers     | 2.1.1 | `<div onClick>` or `<span onClick>` without `role`, `tabIndex`, `onKeyDown` | Use `<button>` instead of `<div>`               |
+| Links without destination | 2.1.1 | `<a>` without `href` using only `onClick`                                   | Use `href` or convert to `<button>`             |
+| Zoom disabled             | 1.4.4 | `user-scalable=no` or `maximum-scale=1`                                     | Remove zoom restrictions                        |
+| Hydration mismatch        | N/A   | Inputs with `value` without `onChange`                                      | Use `defaultValue` or add `onChange`            |
 
-## 3. Animação e Performance
+### Serious (Should Fix)
 
-| Verificação                    | O que procurar                      | Correção                                                      |
-| ------------------------------ | ----------------------------------- | ------------------------------------------------------------- |
-| transition: all                | `transition: all`                   | Listar propriedades explicitamente                            |
-| Anima propriedades ruins       | Anima além de `transform`/`opacity` | Usar apenas propriedades compositor-friendly                  |
-| transform-origin errado        | SVG sem `transform-box: fill-box`   | Adicionar `transform-box: fill-box; transform-origin: center` |
-| Lista grande sem virtualização | `.map()` em array >50 itens         | Usar `virtua` ou `content-visibility: auto`                   |
-| Layout thrashing               | `getBoundingClientRect` em render   | Mover leitura para fora do render                             |
+| Check                  | WCAG  | What to look for                                       | Fix                            |
+| ---------------------- | ----- | ------------------------------------------------------ | ------------------------------ |
+| Outline removed        | 2.4.7 | `outline-none` without visible focus replacement       | Add `focus-visible:ring-*`     |
+| No keyboard handler    | 2.1.1 | Interactive elements with `onClick` but no `onKeyDown` | Add `onKeyDown`                |
+| Color-only information | 1.4.1 | Status/error indicated only by color                   | Add icon or text               |
+| Small touch target     | 2.5.5 | Clickable elements smaller than 44x44px                | Increase clickable area        |
+| Paste blocked          | N/A   | `onPaste` with `preventDefault`                        | Remove paste blocking          |
+| No reduced-motion      | N/A   | Animations without `prefers-reduced-motion`            | Add reduced variant or disable |
 
----
+### Moderate (Consider Fixing)
 
-## 4. Tipografia e Conteúdo
-
-| Verificação                | O que procurar                                           | Correção                                       |
-| -------------------------- | -------------------------------------------------------- | ---------------------------------------------- |
-| Reticências erradas        | `...` em vez de `…`                                      | Usar `…`                                       |
-| Aspas retas                | `"texto"` em vez de `"texto"`                            | Usar aspas curvas `"` `"`                      |
-| Sem nbsp                   | `10 MB` sem non-breaking space                           | Usar `10&nbsp;MB`                              |
-| Loading sem reticências    | `"Loading"` sem `…`                                      | Usar `"Carregando…"`                           |
-| Números sem tabular        | Colunas de números sem alinhamento                       | Adicionar `font-variant-numeric: tabular-nums` |
-| Texto longo sem tratamento | Container sem `truncate`, `line-clamp`, ou `break-words` | Adicionar tratamento de overflow               |
+| Check                   | WCAG  | What to look for                       | Fix                                 |
+| ----------------------- | ----- | -------------------------------------- | ----------------------------------- |
+| Heading hierarchy       | 1.3.1 | Skipped levels (h1 → h3)               | Maintain sequence h1 → h2 → h3      |
+| Positive tabIndex       | 2.4.3 | `tabIndex` > 0                         | Use `tabIndex="0"` or natural order |
+| Role without attributes | 4.1.2 | `role="button"` without `tabIndex="0"` | Add required attributes             |
 
 ---
 
-## 5. Imagens
+## 2. Forms
 
-| Verificação      | O que procurar                                   | Correção                                       |
-| ---------------- | ------------------------------------------------ | ---------------------------------------------- |
-| Sem dimensões    | `<img>` sem `width` e `height`                   | Adicionar dimensões (previne CLS)              |
-| Sem lazy loading | Imagens abaixo da dobra sem `loading="lazy"`     | Adicionar `loading="lazy"`                     |
-| Sem prioridade   | Imagem crítica sem `priority` ou `fetchpriority` | Adicionar `priority` ou `fetchpriority="high"` |
-
----
-
-## 6. Navegação e Estado
-
-| Verificação              | O que procurar                          | Correção                                  |
-| ------------------------ | --------------------------------------- | ----------------------------------------- |
-| Estado não na URL        | Filtros/tabs/paginação só em `useState` | Sincronizar com URL via `nuqs` ou similar |
-| Link sem href            | Navegação via `onClick` sem `<a>`       | Usar `<a>` ou `<Link>`                    |
-| Ação destrutiva imediata | Delete sem confirmação                  | Adicionar modal ou undo                   |
+| Check                       | What to look for                                | Fix                                      |
+| --------------------------- | ----------------------------------------------- | ---------------------------------------- |
+| No autocomplete             | Inputs without `autocomplete`                   | Add appropriate `autocomplete`           |
+| Wrong type                  | Email input without `type="email"`              | Use correct type (`email`, `tel`, `url`) |
+| Non-clickable labels        | `<label>` without `htmlFor`                     | Add `htmlFor` or wrap the input          |
+| Spellcheck on emails        | Email/code without `spellCheck={false}`         | Disable spellcheck                       |
+| Placeholder without example | Placeholder without example                     | Add example: `"name@email.com…"`         |
+| Submit disabled early       | Submit button disabled before submission        | Keep enabled until request starts        |
+| No exit warning             | Navigation without warning with unsaved changes | Add `beforeunload`                       |
 
 ---
 
-## 7. Touch e Interação
+## 3. Animation and Performance
 
-| Verificação                 | O que procurar                                  | Correção                               |
-| --------------------------- | ----------------------------------------------- | -------------------------------------- |
-| Sem manipulation            | Elemento touch sem `touch-action: manipulation` | Adicionar (remove delay de double-tap) |
-| Modal sem overscroll        | Modal/drawer sem `overscroll-behavior: contain` | Adicionar para prevenir scroll do body |
-| autoFocus sem justificativa | `autoFocus` em mobile ou múltiplos inputs       | Usar apenas em input primário desktop  |
-
----
-
-## 8. Dark Mode e i18n
-
-| Verificação      | O que procurar                                 | Correção                                |
-| ---------------- | ---------------------------------------------- | --------------------------------------- |
-| Sem color-scheme | Tema dark sem `color-scheme: dark` no `<html>` | Adicionar para scrollbar/inputs nativos |
-| Data hardcoded   | Formato de data manual                         | Usar `Intl.DateTimeFormat`              |
-| Número hardcoded | Formato de número/moeda manual                 | Usar `Intl.NumberFormat`                |
+| Check                        | What to look for                      | Fix                                                     |
+| ---------------------------- | ------------------------------------- | ------------------------------------------------------- |
+| transition: all              | `transition: all`                     | List properties explicitly                              |
+| Animates bad properties      | Animates beyond `transform`/`opacity` | Use only compositor-friendly properties                 |
+| Wrong transform-origin       | SVG without `transform-box: fill-box` | Add `transform-box: fill-box; transform-origin: center` |
+| Large list no virtualization | `.map()` on array >50 items           | Use `virtua` or `content-visibility: auto`              |
+| Layout thrashing             | `getBoundingClientRect` in render     | Move read outside of render                             |
 
 ---
 
-## 9. Anti-padrões (Sempre sinalizar)
+## 4. Typography and Content
 
-- `user-scalable=no` ou `maximum-scale=1`
-- `onPaste` com `preventDefault`
+| Check                      | What to look for                                             | Fix                                      |
+| -------------------------- | ------------------------------------------------------------ | ---------------------------------------- |
+| Wrong ellipsis             | `...` instead of `…`                                         | Use `…`                                  |
+| Straight quotes            | `"text"` instead of `"text"`                                 | Use curly quotes `"` `"`                 |
+| No nbsp                    | `10 MB` without non-breaking space                           | Use `10&nbsp;MB`                         |
+| Loading without ellipsis   | `"Loading"` without `…`                                      | Use `"Loading…"`                         |
+| Numbers without tabular    | Number columns without alignment                             | Add `font-variant-numeric: tabular-nums` |
+| Long text without handling | Container without `truncate`, `line-clamp`, or `break-words` | Add overflow handling                    |
+
+---
+
+## 5. Images
+
+| Check           | What to look for                                     | Fix                                      |
+| --------------- | ---------------------------------------------------- | ---------------------------------------- |
+| No dimensions   | `<img>` without `width` and `height`                 | Add dimensions (prevents CLS)            |
+| No lazy loading | Below-fold images without `loading="lazy"`           | Add `loading="lazy"`                     |
+| No priority     | Critical image without `priority` or `fetchpriority` | Add `priority` or `fetchpriority="high"` |
+
+---
+
+## 6. Navigation and State
+
+| Check                        | What to look for                           | Fix                                 |
+| ---------------------------- | ------------------------------------------ | ----------------------------------- |
+| State not in URL             | Filters/tabs/pagination only in `useState` | Sync with URL via `nuqs` or similar |
+| Link without href            | Navigation via `onClick` without `<a>`     | Use `<a>` or `<Link>`               |
+| Immediate destructive action | Delete without confirmation                | Add modal or undo                   |
+
+---
+
+## 7. Touch and Interaction
+
+| Check                           | What to look for                                    | Fix                               |
+| ------------------------------- | --------------------------------------------------- | --------------------------------- |
+| No manipulation                 | Touch element without `touch-action: manipulation`  | Add (removes double-tap delay)    |
+| Modal without overscroll        | Modal/drawer without `overscroll-behavior: contain` | Add to prevent body scroll        |
+| autoFocus without justification | `autoFocus` on mobile or multiple inputs            | Use only on primary desktop input |
+
+---
+
+## 8. Dark Mode and i18n
+
+| Check            | What to look for                                    | Fix                             |
+| ---------------- | --------------------------------------------------- | ------------------------------- |
+| No color-scheme  | Dark theme without `color-scheme: dark` on `<html>` | Add for native scrollbar/inputs |
+| Hardcoded date   | Manual date format                                  | Use `Intl.DateTimeFormat`       |
+| Hardcoded number | Manual number/currency format                       | Use `Intl.NumberFormat`         |
+
+---
+
+## 9. Anti-patterns (Always flag)
+
+- `user-scalable=no` or `maximum-scale=1`
+- `onPaste` with `preventDefault`
 - `transition: all`
-- `outline-none` sem substituição focus-visible
-- `onClick` inline para navegação sem `<a>`
-- `<div>` ou `<span>` com click handlers
-- Imagens sem dimensões
-- Arrays grandes com `.map()` sem virtualização
-- Inputs sem labels
-- Botões de ícone sem `aria-label`
-- Formatos de data/número hardcoded
-- `autoFocus` sem justificativa clara
+- `outline-none` without focus-visible replacement
+- Inline `onClick` for navigation without `<a>`
+- `<div>` or `<span>` with click handlers
+- Images without dimensions
+- Large arrays with `.map()` without virtualization
+- Inputs without labels
+- Icon buttons without `aria-label`
+- Hardcoded date/number formats
+- `autoFocus` without clear justification
 
 ---
 
-## Formato de Saída
+## Output Format
 
 ```text
 ═══════════════════════════════════════════════════
-REVISÃO DE INTERFACE: [arquivo]
+INTERFACE REVIEW: [file]
 ═══════════════════════════════════════════════════
 
-CRÍTICO (X)
+CRITICAL (X)
 ───────────
-src/Button.tsx:42 - botão de ícone sem aria-label [WCAG 4.1.2]
-  → Adicionar aria-label="Fechar"
+src/Button.tsx:42 - icon button without aria-label [WCAG 4.1.2]
+  → Add aria-label="Close"
 
-src/Modal.tsx:18 - user-scalable=no desabilita zoom [WCAG 1.4.4]
-  → Remover user-scalable=no e maximum-scale=1
+src/Modal.tsx:18 - user-scalable=no disables zoom [WCAG 1.4.4]
+  → Remove user-scalable=no and maximum-scale=1
 
-SÉRIO (X)
+SERIOUS (X)
 ─────────
-src/Form.tsx:55 - onPaste preventDefault bloqueia paste
-  → Remover handler de onPaste
+src/Form.tsx:55 - onPaste preventDefault blocks paste
+  → Remove onPaste handler
 
-src/Card.tsx:23 - outline-none sem substituição de foco
-  → Adicionar focus-visible:ring-2
+src/Card.tsx:23 - outline-none without focus replacement
+  → Add focus-visible:ring-2
 
-MODERADO (X)
+MODERATE (X)
 ────────────
-src/List.tsx:12 - 200 itens sem virtualização
-  → Usar virtua ou content-visibility: auto
+src/List.tsx:12 - 200 items without virtualization
+  → Use virtua or content-visibility: auto
 
-src/Date.tsx:8 - formato de data hardcoded
-  → Usar Intl.DateTimeFormat(locale, options)
+src/Date.tsx:8 - hardcoded date format
+  → Use Intl.DateTimeFormat(locale, options)
 
 ═══════════════════════════════════════════════════
-RESUMO: X crítico, X sério, X moderado
-Pontuação: XX/100
+SUMMARY: X critical, X serious, X moderate
+Score: XX/100
 ═══════════════════════════════════════════════════
 ```
 
 ---
 
-## Diretrizes
+## Guidelines
 
-1. Leia o(s) arquivo(s) antes de avaliar
-2. Seja específico com números de linha e trechos de código
-3. Forneça correções, não apenas problemas
-4. Priorize problemas críticos de acessibilidade
-5. Se solicitado, ofereça corrigir os problemas diretamente
+1. Read the file(s) before evaluating
+2. Be specific with line numbers and code snippets
+3. Provide fixes, not just problems
+4. Prioritize critical accessibility issues
+5. If requested, offer to fix the issues directly

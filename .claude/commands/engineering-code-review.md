@@ -1,43 +1,43 @@
 # Code Review
 
-Revisão abrangente de segurança e qualidade de mudanças não commitadas:
+Comprehensive security and quality review of uncommitted changes:
 
-1. Obter arquivos alterados: git diff --name-only HEAD
+1. Get changed files: git diff --name-only HEAD
 
-2. Para cada arquivo alterado, verificar:
+2. For each changed file, check:
 
-**Problemas de Segurança (CRÍTICO):**
+**Security Issues (CRITICAL):**
 
-- Credenciais hardcoded, API keys, tokens
-- Vulnerabilidades de SQL injection
-- Vulnerabilidades de XSS
-- Validação de input ausente
-- Dependências inseguras
-- Riscos de path traversal
+- Hardcoded credentials, API keys, tokens
+- SQL injection vulnerabilities
+- XSS vulnerabilities
+- Missing input validation
+- Insecure dependencies
+- Path traversal risks
 
-**Qualidade de Código (ALTO):**
+**Code Quality (HIGH):**
 
-- Funções > 50 linhas
-- Arquivos > 800 linhas
-- Profundidade de aninhamento > 4 níveis
-- Tratamento de erro ausente
-- Statements console.log
-- Comentários TODO/FIXME
-- JSDoc ausente para APIs públicas
+- Functions > 50 lines
+- Files > 800 lines
+- Nesting depth > 4 levels
+- Missing error handling
+- console.log statements
+- TODO/FIXME comments
+- Missing JSDoc for public APIs
 
-**Melhores Práticas (MÉDIO):**
+**Best Practices (MEDIUM):**
 
-- Padrões de mutação (usar imutável em vez disso)
-- Uso de emojis em código/comentários
-- Testes ausentes para código novo
-- Problemas de acessibilidade (a11y)
+- Mutation patterns (use immutable instead)
+- Emoji usage in code/comments
+- Missing tests for new code
+- Accessibility (a11y) issues
 
-3. Gerar relatório com:
-   - Severidade: CRÍTICO, ALTO, MÉDIO, BAIXO
-   - Localização do arquivo e números de linha
-   - Descrição do problema
-   - Correção sugerida
+3. Generate report with:
+   - Severity: CRITICAL, HIGH, MEDIUM, LOW
+   - File location and line numbers
+   - Problem description
+   - Suggested fix
 
-4. Bloquear commit se problemas CRÍTICOS ou ALTOS forem encontrados
+4. Block commit if CRITICAL or HIGH issues are found
 
-Nunca aprove código com vulnerabilidades de segurança!
+Never approve code with security vulnerabilities!

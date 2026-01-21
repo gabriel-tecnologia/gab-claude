@@ -3,639 +3,669 @@ name: product-discovery
 description: Conducts discovery sessions for features/products. Explores concept definition, business model, user journeys, competitive analysis, scoping decisions, and data modeling. Use when you need to explore "what is X", "let's understand", "discovery for", or the /discovery command.
 ---
 
-# Skill de Discovery
+# Discovery Skill
 
-Conduzir sessões de discovery estruturadas para features e produtos. Esta skill ajuda PMs a explorar e documentar um espaço de problema antes de escrever PRDs ou criar user stories.
+Conduct structured discovery sessions for features and products. This skill helps PMs explore and document a problem space before writing PRDs or creating user stories.
 
 ## Triggers
 
-**Comando explícito:**
+**Explicit command:**
 
-- `/discovery [nome-da-feature]`
+- `/discovery [feature-name]`
 
-**Padrões de auto-detecção:**
+**Auto-detection patterns:**
 
-- "o que é [X]"
-- "vamos explorar [X]"
-- "discovery para [X]"
-- "quero entender [X]"
-- "vamos debater sobre [X]"
-
----
-
-## Visão Geral do Workflow
-
-O processo de discovery tem **7 fases flexíveis**. Todas as fases são opcionais - pergunte ao usuário quais aspectos ele quer explorar no início.
-
-```
-Fase 1: Definição de Conceito   → O que é?
-Fase 2: Modelo de Negócio       → Quem gerencia, para quem, como monetiza?
-Fase 3: Mapeamento de Jornada   → Como as personas interagem?
-Fase 4: Análise Competitiva     → Como concorrentes resolvem isso? (OPCIONAL)
-Fase 5: Decisões de Escopo      → O que entra no v1 vs depois?
-Fase 6: Modelo de Dados         → Quais entidades e comportamentos? (OPCIONAL)
-Fase 7: Documentação            → Compilar em documento de pesquisa
-```
+- "what is [X]"
+- "let's explore [X]"
+- "discovery for [X]"
+- "I want to understand [X]"
+- "let's debate/discuss [X]"
 
 ---
 
-## Fase 1: Definição de Conceito
+## Workflow Overview
 
-**Objetivo:** Estabelecer entendimento compartilhado do que é o conceito/feature.
-
-**Abordagem:** Perguntas abertas primeiro, depois estruturar.
-
-### Passos
+The discovery process has **7 flexible phases**. All phases are optional—ask the user which aspects they want to explore at the start.
 
 ```
-1.1 Pergunta inicial aberta
-    └── "O que você entende por [X]?"
-    └── "Me conta mais sobre [X]"
+Phase 1: Concept Definition   → What is it?
+Phase 2: Business Model       → Who manages it, for whom, how is it monetized?
+Phase 3: Journey Mapping      → How do personas interact?
+Phase 4: Competitive Analysis → How do competitors solve this? (OPTIONAL)
+Phase 5: Scoping Decisions    → What goes into v1 vs. later?
+Phase 6: Data Model           → What entities and behaviors? (OPTIONAL)
+Phase 7: Documentation        → Compile into a research document
 
-1.2 Escuta ativa + síntese
-    └── Reformular o que o usuário disse
-    └── "Então [X] é [minha interpretação]. Está correto?"
-
-1.3 Iterar até alinhamento
-    └── Quantas perguntas forem necessárias
-    └── Não prosseguir com dúvidas
-
-1.4 Checkpoint de conceito
-    └── Resumir definição acordada
-    └── "Antes de seguir, confirmo: [X] é [definição final]"
-```
-
-### Exemplo 1: Hotlist (Segurança Pública)
-
-```
-Claude: "O que você sabe sobre hotlists no seu contexto?"
-→ Propõe hipótese: "listas de vigilância de placas de veículos"
-Usuário: "Vamos debater para enriquecer esse contexto"
-→ Série de perguntas sobre tipos de entidade, propriedade, ações de match
-→ Resultado: "Hotlist = listas de vigilância de placas de veículos que disparam
-   alertas em tempo real quando detectadas por câmeras LPR"
-```
-
-### Exemplo 2: Tag de Urgência (Marketplace)
-
-```
-Claude: "O que você quer dizer com feature de 'tag de urgência'?"
-Usuário: "Uma forma de vendedores marcarem itens que precisam vender rápido"
-Claude: "Então compradores poderiam filtrar por urgência, e vendedores pagam premium
-   por visibilidade. É sobre monetização do vendedor ou UX do comprador?"
-Usuário: "Ambos - vendedores pagam, compradores encontram ofertas urgentes mais rápido"
-→ Resultado: "Tag de urgência = feature paga para vendedores destacarem
-   listagens sensíveis ao tempo, melhorando descoberta para compradores"
-```
-
-### Exemplo 3: Configurações de Customização (SaaS)
-
-```
-Usuário: "Usuários querem mais opções de customização"
-Claude: "O que eles querem customizar especificamente?"
-Usuário: "Layout do dashboard, preferências de notificação, integrações"
-Claude: "Analytics mostra que 80% nunca mudam os padrões. O problema real
-   é que os padrões não combinam com as necessidades do workflow deles?"
-→ Resultado: "O problema não é falta de customização - é que os padrões
-   não servem os principais casos de uso. Focar em padrões mais inteligentes,
-   não mais opções."
 ```
 
 ---
 
-## Fase 2: Modelo de Negócio
+## Phase 1: Concept Definition
 
-**Objetivo:** Entender quem gerencia, para quem, e impacto no negócio.
+**Objective:** Establish a shared understanding of what the concept/feature is.
 
-**Abordagem:** Perguntas emergem do contexto (não fixas). SEMPRE distinguir segmentos primários vs futuros.
+**Approach:** Open-ended questions first, then structuring.
 
-### Passos
+### Steps
 
 ```
-2.1 Propriedade
-    └── "Quem cria/gerencia [X]?"
-    └── Opções típicas: empresa, cliente, usuário final, híbrido
+1.1 Initial open-ended question
+    └── "What do you understand by [X]?"
+    └── "Tell me more about [X]"
 
-2.2 Segmentos (SEMPRE distinguir timing)
-    └── "Quem é o cliente primário agora?"
-    └── "Há potencial expansão para outros segmentos?"
+1.2 Active listening + synthesis
+    └── Rephrase what the user said
+    └── "So [X] is [my interpretation]. Is that correct?"
 
-2.3 Perguntas contextuais (exemplos)
-    ├── Se envolve dados: "Quem é dono dos dados?"
-    ├── Se envolve pagamento: "Como é monetizado?"
-    ├── Se envolve terceiros: "Quem paga quem?"
-    └── Se envolve compliance: "Quais regulamentações se aplicam?"
+1.3 Iterate until alignment
+    └── As many questions as necessary
+    └── Do not proceed with doubts
+
+1.4 Concept checkpoint
+    └── Summarize agreed definition
+    └── "Before moving on, I confirm: [X] is [final definition]"
+
+```
+
+### Example 1: Hotlist (Public Safety)
+
+```
+Claude: "What do you know about hotlists in your context?"
+→ Proposes hypothesis: "vehicle license plate watchlists"
+User: "Let's discuss to enrich this context"
+→ Series of questions about entity types, ownership, match actions
+→ Result: "Hotlist = vehicle license plate watchlists that trigger
+   real-time alerts when detected by LPR cameras"
+
+```
+
+### Example 2: Urgency Tag (Marketplace)
+
+```
+Claude: "What do you mean by 'urgency tag' feature?"
+User: "A way for sellers to mark items they need to sell fast"
+Claude: "So buyers could filter by urgency, and sellers pay premium
+   for visibility. Is this about seller monetization or buyer UX?"
+User: "Both - sellers pay, buyers find urgent deals faster"
+→ Result: "Urgency tag = paid feature for sellers to highlight
+   time-sensitive listings, improving discovery for buyers"
+
+```
+
+### Example 3: Customization Settings (SaaS)
+
+```
+User: "Users want more customization options"
+Claude: "What specifically do they want to customize?"
+User: "Dashboard layout, notification preferences, integrations"
+Claude: "Analytics show that 80% never change defaults. Is the real
+   problem that defaults don't match their workflow needs?"
+→ Result: "The problem isn't lack of customization—it's that defaults
+   don't serve the primary use cases. Focus on smarter defaults,
+   not more options."
+
+```
+
+---
+
+## Phase 2: Business Model
+
+**Objective:** Understand who manages it, for whom, and business impact.
+
+**Approach:** Questions emerge from context (not fixed). ALWAYS distinguish primary vs. future segments.
+
+### Steps
+
+```
+2.1 Ownership
+    └── "Who creates/manages [X]?"
+    └── Typical options: company, client, end-user, hybrid
+
+2.2 Segments (ALWAYS distinguish timing)
+    └── "Who is the primary customer now?"
+    └── "Is there potential expansion to other segments?"
+
+2.3 Contextual questions (examples)
+    ├── If data is involved: "Who owns the data?"
+    ├── If payment is involved: "How is it monetized?"
+    ├── If third parties are involved: "Who pays whom?"
+    └── If compliance is involved: "What regulations apply?"
 
 2.4 Checkpoint
-    └── Resumir modelo em tabela: | Dimensão | Primário | Futuro |
-```
-
-### Exemplo 1: Hotlist (Segurança Pública)
+    └── Summarize model in table: | Dimension | Primary | Future |
 
 ```
-| Dimensão     | Primário           | Futuro               |
-|--------------|--------------------|----------------------|
-| Propriedade  | Admin Gabriel      | Self-service B2B     |
-| Segmento     | Polícia/GCM        | Estacionamento, Seg. |
-| Monetização  | Incluído no produto| Nova fonte de receita|
-```
 
-### Exemplo 2: Features Premium de Vendedor (Marketplace)
+### Example 1: Hotlist (Public Safety)
 
 ```
-| Dimensão     | Primário             | Futuro                  |
-|--------------|----------------------|-------------------------|
-| Propriedade  | Vendedor compra      | Pacotes de assinatura   |
-| Segmento     | Power sellers        | Todos os vendedores     |
-| Monetização  | Taxa por listagem    | Assinatura mensal       |
-```
-
-### Exemplo 3: Sistema de Notificações (SaaS)
+| Dimension     | Primary             | Future                |
+|--------------|---------------------|-----------------------|
+| Ownership    | Admin Gabriel       | B2B Self-service      |
+| Segment      | Police/City Guard   | Parking, Security     |
+| Monetization | Included in product | New revenue stream    |
 
 ```
-| Dimensão     | Primário             | Futuro                   |
-|--------------|----------------------|--------------------------|
-| Propriedade  | Empresa define regras| Regras configuráveis     |
-| Segmento     | Clientes enterprise  | SMB self-service         |
-| Monetização  | Incluído no plano    | Add-on por uso           |
+
+### Example 2: Seller Premium Features (Marketplace)
+
+```
+| Dimension     | Primary             | Future                 |
+|--------------|---------------------|------------------------|
+| Ownership    | Seller buys         | Subscription bundles   |
+| Segment      | Power sellers       | All sellers            |
+| Monetization | Fee per listing     | Monthly subscription   |
+
+```
+
+### Example 3: Notification System (SaaS)
+
+```
+| Dimension     | Primary             | Future                 |
+|--------------|---------------------|------------------------|
+| Ownership    | Company defines rules| Configurable rules     |
+| Segment      | Enterprise clients  | SMB self-service       |
+| Monetization | Included in plan    | Usage-based add-on     |
+
 ```
 
 ---
 
-## Fase 3: Mapeamento de Jornada do Usuário
+## Phase 3: User Journey Mapping
 
-**Objetivo:** Mapear como personas interagem com a feature.
+**Objective:** Map how personas interact with the feature.
 
-**Abordagem:** Focar em 2-3 personas, fluxo em texto simples.
+**Approach:** Focus on 2-3 personas, flow in simple text.
 
-### Passos
+### Steps
 
 ```
-3.1 Identificar personas (focar em 2-3, permitir mais)
-    └── "Quem são os principais usuários de [X]?"
-    └── Sugerir opções baseadas no contexto
-    └── Permitir usuário adicionar outras
+3.1 Identify personas (focus on 2-3, allow more)
+    └── "Who are the primary users of [X]?"
+    └── Suggest options based on context
+    └── Allow user to add others
 
-3.2 Escolher estágio da jornada
-    ├── Setup/Onboarding - configuração inicial
-    ├── Uso principal - fluxo core
-    └── Pós-ação - o que acontece depois
+3.2 Choose journey stage
+    ├── Setup/Onboarding - initial configuration
+    ├── Main use - core flow
+    └── Post-action - what happens after
 
-3.3 Mapear fluxo (texto simples)
-    └── Passos numerados ou bullets
-    └── Distinguir ações por persona se relevante
+3.3 Map flow (simple text)
+    └── Numbered steps or bullets
+    └── Distinguish actions by persona if relevant
 
-3.4 Permissões (se aplicável)
-    └── "O que cada persona pode fazer?"
-    └── Tabela: Persona | Pode criar? | Pode editar? | Pode deletar?
+3.4 Permissions (if applicable)
+    └── "What can each persona do?"
+    └── Table: Persona | Can create? | Can edit? | Can delete?
 
 3.5 Checkpoint
-    └── Validar fluxo com usuário antes de prosseguir
-```
-
-### Exemplo 1: Jornada de Setup de Hotlist
+    └── Validate flow with user before proceeding
 
 ```
-Personas: Operador de Polícia, Comandante de Polícia
 
-Jornada de Setup:
-1. Admin Gabriel cria tipos de hotlist para cliente
-2. Admin Gabriel configura webhooks por tipo
-3. Operador/Comandante visualiza hotlists disponíveis
-4. Operador/Comandante adiciona placa + motivo
-5. Sistema registra trilha de auditoria (quem adicionou)
-
-Permissões:
-| Persona    | Adicionar placa | Ver lista | Remover placa |
-|------------|-----------------|-----------|---------------|
-| Operador   | Sim             | Sim       | Sim           |
-| Comandante | Sim             | Sim       | Sim           |
-```
-
-### Exemplo 2: Jornada de Otimização de Checkout
+### Example 1: Hotlist Setup Journey
 
 ```
-Personas: Comprador Convidado, Cliente Recorrente
+Personas: Police Operator, Police Commander
 
-Jornada de Compra:
-1. Comprador adiciona itens ao carrinho
-2. Comprador vai para checkout
-3. Convidado: Insere info de entrega OU Recorrente: Usa endereço salvo
-4. Convidado: Insere pagamento OU Recorrente: Usa pagamento salvo
-5. Sistema calcula impostos/frete
-6. Comprador revisa resumo do pedido
-7. Comprador confirma compra
-8. Sistema envia email de confirmação
+Setup Journey:
+1. Admin Gabriel creates hotlist types for client
+2. Admin Gabriel configures webhooks per type
+3. Operator/Commander views available hotlists
+4. Operator/Commander adds plate + reason
+5. System records audit trail (who added it)
 
-Pontos de abandono a investigar:
-- Passo 3: Abandono de convidado (fricção)
-- Passo 6: Choque de preço (taxas inesperadas)
-```
-
-### Exemplo 3: Jornada de Gestão de Leads no CRM
+Permissions:
+| Persona    | Add plate | View list | Remove plate |
+|------------|-----------|-----------|--------------|
+| Operator   | Yes       | Yes       | Yes          |
+| Commander  | Yes       | Yes       | Yes          |
 
 ```
-Personas: Rep de Vendas, Gerente de Vendas
 
-Processamento de Lead:
-1. Marketing cria lead de submissão de formulário
-2. Sistema auto-atribui para Rep baseado em território
-3. Rep qualifica lead (critérios BANT)
-4. Rep registra touchpoints na timeline
-5. Gerente revisa pipeline no dashboard
-6. Rep converte para oportunidade ou arquiva
+### Example 2: Checkout Optimization Journey
 
-Permissões:
-| Persona   | Criar lead | Editar lead | Deletar lead | Ver relatórios |
-|-----------|------------|-------------|--------------|----------------|
-| Rep       | Não (auto) | Sim         | Não          | Só próprios    |
-| Gerente   | Sim        | Sim         | Sim          | Time todo      |
+```
+Personas: Guest Buyer, Recurring Customer
+
+Purchase Journey:
+1. Buyer adds items to cart
+2. Buyer goes to checkout
+3. Guest: Enters shipping info OR Recurring: Uses saved address
+4. Guest: Enters payment OR Recurring: Uses saved payment
+5. System calculates taxes/shipping
+6. Buyer reviews order summary
+7. Buyer confirms purchase
+8. System sends confirmation email
+
+Drop-off points to investigate:
+- Step 3: Guest abandonment (friction)
+- Step 6: Price shock (unexpected fees)
+
+```
+
+### Example 3: Lead Management Journey in CRM
+
+```
+Personas: Sales Rep, Sales Manager
+
+Lead Processing:
+1. Marketing creates lead from form submission
+2. System auto-assigns to Rep based on territory
+3. Rep qualifies lead (BANT criteria)
+4. Rep logs touchpoints on timeline
+5. Manager reviews pipeline on dashboard
+6. Rep converts to opportunity or archives
+
+Permissions:
+| Persona   | Create lead | Edit lead | Delete lead | View reports |
+|-----------|-------------|-----------|-------------|--------------|
+| Rep       | No (auto)   | Yes       | No          | Own only     |
+| Manager   | Yes         | Yes       | Yes         | Entire team  |
+
 ```
 
 ---
 
-## Fase 4: Análise Competitiva (OPCIONAL)
+## Phase 4: Competitive Analysis (OPTIONAL)
 
-**Objetivo:** Entender como concorrentes resolvem o mesmo problema.
+**Objective:** Understand how competitors solve the same problem.
 
-**Abordagem:** 2-3 principais concorrentes, tabela + destaques qualitativos.
+**Approach:** 2-3 main competitors, table + qualitative highlights.
 
-### Passos
-
-```
-4.1 Perguntar se usuário quer incluir
-    └── "Quer incluir análise competitiva?"
-    └── Se não, pular para Fase 5
-
-4.2 Identificar concorrentes (2-3 principais)
-    └── "Você conhece concorrentes para analisar?"
-    └── Se não: fazer web search para o domínio
-
-4.3 Pesquisar cada concorrente
-    └── WebSearch: "[concorrente] + [feature] + features"
-    └── WebFetch: documentação se disponível
-    └── G2/Capterra: tabelas de comparação de features
-
-4.4 Criar tabela de comparação
-    └── Features identificadas vs cada concorrente
-    └── Coluna: Nossa decisão + justificativa
-
-4.5 Destaques qualitativos
-    └── Diferenciais de cada concorrente
-    └── Gaps/oportunidades para nós
-
-4.6 Salvar referências com links
-    └── URLs das fontes pesquisadas
-```
-
-### Exemplo 1: Análise Competitiva de Hotlist
+### Steps
 
 ```
-Concorrentes analisados: Flock Safety, Genetec AutoVu, Vigilant
+4.1 Ask if user wants to include it
+    └── "Do you want to include competitive analysis?"
+    └── If no, skip to Phase 5
 
-| Feature       | Gabriel v1 | Flock           | Justificativa           |
+4.2 Identify competitors (2-3 main ones)
+    └── "Do you know any competitors to analyze?"
+    └── If no: perform web search for the domain
+
+4.3 Research each competitor
+    └── WebSearch: "[competitor] + [feature] + features"
+    └── WebFetch: documentation if available
+    └── G2/Capterra: feature comparison tables
+
+4.4 Create comparison table
+    └── Identified features vs. each competitor
+    └── Column: Our decision + justification
+
+4.5 Qualitative highlights
+    └── Differentiators for each competitor
+    └── Gaps/opportunities for us
+
+4.6 Save references with links
+    └── URLs of researched sources
+
+```
+
+### Example 1: Hotlist Competitive Analysis
+
+```
+Competitors analyzed: Flock Safety, Genetec AutoVu, Vigilant
+
+| Feature       | Gabriel v1 | Flock           | Justification           |
 |---------------|------------|-----------------|-------------------------|
-| Metadados     | Mínimos    | Ricos (cor,tipo)| Clonagem invalida dados |
-| Canal alerta  | Webhooks   | Mobile+RTCC     | Simplicidade v1         |
-| TTL           | Por hotlist| Por placa       | Simples, extensível     |
+| Metadata      | Minimal    | Rich (color,type)| Cloning invalidates data|
+| Alert channel | Webhooks   | Mobile+RTCC     | v1 Simplicity           |
+| TTL           | Per hotlist| Per plate       | Simple, extensible      |
 
-Diferenciais Flock:
-- Modo de turno (alertas apenas quando em serviço)
-- Alertas por raio (baseado em distância)
-- Fingerprinting de veículo além de placas
-```
-
-### Exemplo 2: Análise Competitiva de CRM
+Flock Differentiators:
+- Shift mode (alerts only when on duty)
+- Radius alerts (distance-based)
+- Vehicle fingerprinting beyond plates
 
 ```
-Concorrentes analisados: Salesforce, HubSpot, Pipedrive
 
-| Feature          | Nosso CRM | Salesforce | HubSpot   | Justificativa         |
-|------------------|-----------|------------|-----------|----------------------|
-| Modelo de preço  | Por seat  | Por seat   | Freemium  | SMB precisa + simples|
-| Customização     | Templates | Full custom| Limitado  | Balancear flexibil.  |
-| App mobile       | Básico    | Completo   | Completo  | Prioridade para v2   |
-| Features de IA   | Nenhuma   | Einstein   | Preditivo | Item de roadmap      |
-
-Diferenciais HubSpot:
-- Tier gratuito impulsiona adoção
-- Integração seamless com marketing
-- Melhor gestão de conteúdo
-
-Diferenciais Salesforce:
-- Customização enterprise-grade
-- Ecossistema massivo de apps
-- Clouds específicos por indústria
-```
-
-### Exemplo 3: Análise Competitiva de Gestão de Projetos
+### Example 2: CRM Competitive Analysis
 
 ```
-Concorrentes analisados: Asana, Monday.com, Notion
+Competitors analyzed: Salesforce, HubSpot, Pipedrive
 
-| Feature       | Nossa Tool | Asana      | Monday     | Notion     |
-|---------------|------------|------------|------------|------------|
-| Views         | Só lista   | Lista,Board| 8+ views   | Flexível   |
-| Automações    | Básico     | Avançado   | Extensivo  | Limitado   |
-| Docs          | Separado   | Mínimo     | Mínimo     | Nativo     |
-| Preço         | Simples    | Em tiers   | Por seat   | Generoso   |
+| Feature          | Our CRM   | Salesforce  | HubSpot   | Justification         |
+|------------------|-----------|-------------|-----------|----------------------|
+| Pricing model    | Per seat  | Per seat    | Freemium  | SMB needs + simple   |
+| Customization    | Templates | Full custom | Limited   | Balance flexibility  |
+| Mobile app       | Basic     | Full        | Full      | v2 Priority          |
+| AI Features      | None      | Einstein    | Predictive| Roadmap item         |
 
-Insight chave:
-- Monday ganha em apelo visual e templates
-- Asana ganha em automação de workflow
-- Notion ganha em flexibilidade mas perde em estrutura
-- Nossa oportunidade: Simplicidade opinativa para times pequenos
+HubSpot Differentiators:
+- Free tier drives adoption
+- Seamless marketing integration
+- Better content management
+
+Salesforce Differentiators:
+- Enterprise-grade customization
+- Massive app ecosystem
+- Industry-specific clouds
+
+```
+
+### Example 3: Project Management Competitive Analysis
+
+```
+Competitors analyzed: Asana, Monday.com, Notion
+
+| Feature       | Our Tool  | Asana      | Monday     | Notion     |
+|---------------|-----------|------------|------------|------------|
+| Views         | List only | List,Board | 8+ views   | Flexible   |
+| Automations   | Basic     | Advanced   | Extensive  | Limited    |
+| Docs          | Separate  | Minimal    | Minimal    | Native     |
+| Price         | Simple    | Tiered     | Per seat   | Generous   |
+
+Key Insight:
+- Monday wins on visual appeal and templates
+- Asana wins on workflow automation
+- Notion wins on flexibility but loses on structure
+- Our opportunity: Opinionated simplicity for small teams
+
 ```
 
 ---
 
-## Fase 5: Decisões de Escopo
+## Phase 5: Scoping Decisions
 
-**Objetivo:** Definir o que entra no v1 e o que vem depois.
+**Objective:** Define what goes into v1 and what comes later.
 
-**Abordagem:** Listar features da competição + jornada, decidir cada uma.
+**Approach:** List features from competition + journey, decide on each.
 
-### Passos
+### Steps
 
 ```
-5.1 Compilar lista de features
-    └── Extrair da análise competitiva (se feita)
-    └── Derivar da jornada do usuário
-    └── Consolidar em lista única
+5.1 Compile feature list
+    └── Extract from competitive analysis (if done)
+    └── Derive from user journey
+    └── Consolidate into a single list
 
-5.2 Perguntar nível de análise
-    └── "Quer analisar linha a linha ou decisão geral?"
-    └── Se linha a linha: discutir cada feature individualmente
-    └── Se geral: resumir decisões em tabela
+5.2 Ask for analysis level
+    └── "Do you want to analyze line-by-line or general decision?"
+    └── If line-by-line: discuss each feature individually
+    └── If general: summarize decisions in a table
 
-5.3 Para cada feature (se linha a linha)
-    └── "Por que [decisão]? Qual a justificativa?"
-    └── Capturar raciocínio do usuário
-    └── Documentar trade-off
+5.3 For each feature (if line-by-line)
+    └── "Why [decision]? What is the justification?"
+    └── Capture user's reasoning
+    └── Document trade-off
 
-5.4 Documentar em tabela
-    └── | # | Feature | Decisão v1 | Justificativa |
-    └── Adicionar coluna "Futuro" se relevante
+5.4 Document in table
+    └── | # | Feature | v1 Decision | Justification |
+    └── Add "Future" column if relevant
 
 5.5 Checkpoint
-    └── Validar tabela completa antes de prosseguir
-```
-
-### Exemplo 1: Escopo de Features de Hotlist
+    └── Validate complete table before proceeding
 
 ```
-| # | Feature          | Gabriel v1       | Concorrente   | Justificativa          |
+
+### Example 1: Hotlist Feature Scope
+
+```
+| # | Feature          | Gabriel v1       | Competitor    | Justification          |
 |---|------------------|------------------|---------------|------------------------|
-| 1 | Criação hotlist  | Só admin         | Self-service  | API core flexível      |
-| 2 | Metadados placa  | Mínimos          | Ricos         | Clonagem invalida      |
-| 3 | Canal alerta     | Só webhooks      | Multi-canal   | Simplicidade v1        |
-| 4 | Import em lote   | Só API           | CSV + API     | CSV no roadmap         |
-| 5 | Compartilhar org | Não no v1        | Federação     | Baixa demanda + LGPD   |
-```
-
-### Exemplo 2: Escopo de Sistema de Notificações
+| 1 | Hotlist creation | Admin only       | Self-service  | Flexible core API      |
+| 2 | Plate metadata   | Minimal          | Rich          | Cloning invalidates    |
+| 3 | Alert channel    | Webhooks only    | Multi-channel | v1 Simplicity          |
+| 4 | Bulk import      | API only         | CSV + API     | CSV on roadmap         |
+| 5 | Org sharing      | Not in v1        | Federation    | Low demand + GDPR      |
 
 ```
-| # | Feature          | Decisão v1        | Justificativa                    |
+
+### Example 2: Notification System Scope
+
+```
+| # | Feature          | v1 Decision       | Justification                    |
 |---|------------------|-------------------|----------------------------------|
-| 1 | Canais entrega   | Só email          | Menor fricção para começar       |
-| 2 | Controle freq.   | Digest diário     | Prevenir fadiga de notificação   |
-| 3 | Triggers custom  | Só pré-definidos  | Regras de usuário adicionam compl|
-| 4 | UI preferências  | Toggles simples   | Prefs avançadas v2               |
-| 5 | Analytics        | Taxas de abertura | Analytics profundo precisa dados |
+| 1 | Delivery channels| Email only        | Lowest friction to start         |
+| 2 | Freq. control    | Daily digest      | Prevent notification fatigue     |
+| 3 | Custom triggers  | Pre-defined only  | User rules add complexity        |
+| 4 | Prefs UI         | Simple toggles    | Advanced prefs in v2             |
+| 5 | Analytics        | Open rates        | Deep analytics needs data        |
 
-Roadmap futuro:
+Future Roadmap:
 - Push notifications (mobile)
-- Integração Slack/Teams
-- Regras de trigger definidas pelo usuário
-- Teste A/B para copy de notificação
-```
-
-### Exemplo 3: Escopo de Otimização de Checkout
+- Slack/Teams integration
+- User-defined trigger rules
+- A/B testing for notification copy
 
 ```
-| # | Feature           | Decisão v1       | Impacto  | Justificativa          |
+
+### Example 3: Checkout Optimization Scope
+
+```
+| # | Feature           | v1 Decision      | Impact   | Justification          |
 |---|-------------------|------------------|----------|------------------------|
-| 1 | Checkout guest    | Sim              | +30% CR  | Reduz fricção          |
-| 2 | Pagamento salvo   | Sim              | +15% CR  | Velocidade usuário rec.|
-| 3 | Indicador progr.  | Sim              | +5% CR   | Reduz incerteza        |
-| 4 | Compre agora pague| Não no v1        | Desconh. | Precisa parceiro vendor|
-| 5 | Login social      | Não no v1        | +10% CR  | Preocupações privacidade|
-| 6 | Autocomplete end. | Sim              | +8% CR   | API Google disponível  |
+| 1 | Guest checkout    | Yes              | +30% CR  | Reduces friction       |
+| 2 | Saved payment     | Yes              | +15% CR  | Speed for recurring user|
+| 3 | Progress indicator| Yes              | +5% CR   | Reduces uncertainty    |
+| 4 | Buy now pay later | Not in v1        | Unkn.    | Needs vendor partner   |
+| 5 | Social login      | Not in v1        | +10% CR  | Privacy concerns       |
+| 6 | Address autocomp. | Yes              | +8% CR   | Google API available   |
 
-Decisão: Focar em #1, #2, #3, #6 para v1 (melhoria esperada de +58% CR)
+Decision: Focus on #1, #2, #3, #6 for v1 (expected +58% CR improvement)
+
 ```
 
 ---
 
-## Fase 6: Modelo de Dados (OPCIONAL)
+## Phase 6: Data Model (OPTIONAL)
 
-**Objetivo:** Definir entidades, atributos e comportamentos.
+**Objective:** Define entities, attributes, and behaviors.
 
-**Abordagem:** Perspectiva de PM (não técnica), perguntar sobre cada comportamento.
+**Approach:** PM perspective (non-technical), ask about each behavior.
 
-### Passos
+### Steps
 
 ```
-6.1 Perguntar se usuário quer definir modelo
-    └── "Quer definir o modelo de dados agora?"
-    └── Se não, pular para Fase 7
+6.1 Ask if user wants to define model
+    └── "Do you want to define the data model now?"
+    └── If no, skip to Phase 7
 
-6.2 Identificar entidades principais
-    └── "Quais são os principais 'objetos' de [X]?"
-    └── Derivar da jornada e features
+6.2 Identify main entities
+    └── "What are the main 'objects' of [X]?"
+    └── Derive from journey and features
 
-6.3 Para cada entidade
-    ├── Atributos (linguagem de PM)
-    │   └── "O que precisa ser armazenado sobre [entidade]?"
-    │   └── Evitar jargão: "campo de texto" não "string"
-    ├── Comportamentos (perguntar cada um)
-    │   └── "Pode criar? Pode editar? Pode deletar?"
-    │   └── "O que acontece quando [ação]?"
-    │   └── "Há regras especiais?" (TTL, validações)
-    └── Relacionamentos
-        └── "Como [A] se relaciona com [B]?"
-        └── Linguagem simples: "pertence a", "tem muitos"
+6.3 For each entity
+    ├── Attributes (PM language)
+    │   └── "What needs to be stored about [entity]?"
+    │   └── Avoid jargon: "text field" not "string"
+    ├── Behaviors (ask about each)
+    │   └── "Can it be created? Edited? Deleted?"
+    │   └── "What happens when [action]?"
+    │   └── "Are there special rules?" (TTL, validations)
+    └── Relationships
+        └── "How does [A] relate to [B]?"
+        └── Simple language: "belongs to", "has many"
 
 6.4 Checkpoint
-    └── Resumir modelo em formato visual simples
+    └── Summarize model in simple visual format
+
 ```
 
-### Exemplo 1: Modelo de Dados de Hotlist (linguagem de PM)
+### Example 1: Hotlist Data Model (PM language)
 
 ```
 HOTLIST:
-- Nome, descrição, status ativo/inativo
-- Regra de expiração para placas (TTL)
-- Lista de webhooks para alertas
-- Organização proprietária
-- Pode criar, editar todos os campos, deletar
-- Deletar apenas se não houver placas
+- Name, description, active/inactive status
+- Expiration rule for plates (TTL)
+- List of webhooks for alerts
+- Owning organization
+- Can create, edit all fields, delete
+- Delete only if there are no plates
 
-ENTRADA DE PLACA:
-- Placa (normalizada maiúscula), motivo
-- Fonte: manual, API, ou import
-- Expira automaticamente pela regra da hotlist
-- Pode criar e deletar, NÃO PODE editar (deletar + re-adicionar)
-- Mesma placa pode estar em múltiplas hotlists
+PLATE ENTRY:
+- Plate (normalized uppercase), reason
+- Source: manual, API, or import
+- Expires automatically based on hotlist rule
+- Can create and delete, CANNOT edit (delete + re-add)
+- Same plate can be in multiple hotlists
 
-LOG DE AUDITORIA:
-- Registro de quem adicionou/removeu cada placa
-- Mantido mesmo após remoção da placa
-- Somente leitura (não pode alterar histórico)
-```
-
-### Exemplo 2: Modelo de Dados de Notificação (linguagem de PM)
+AUDIT LOG:
+- Record of who added/removed each plate
+- Maintained even after plate removal
+- Read-only (cannot alter history)
 
 ```
-TEMPLATE DE NOTIFICAÇÃO:
-- Nome, linha de assunto, conteúdo do corpo
-- Evento trigger (o que causa)
-- Status ativo/inativo
-- Pode criar, editar, deletar
 
-LOG DE NOTIFICAÇÃO:
-- Qual usuário, qual template, quando enviado
-- Status de entrega (enviado, entregue, aberto, clicado)
-- Somente leitura após criação
-- Retido por 90 dias
+### Example 2: Notification Data Model (PM language)
 
-PREFERÊNCIAS DO USUÁRIO:
-- Quais tipos de notificação habilitados
-- Frequência preferida (imediata, diária, semanal)
-- Pode editar, não pode deletar (apenas desabilitar)
+```
+NOTIFICATION TEMPLATE:
+- Name, subject line, body content
+- Trigger event (what causes it)
+- Active/inactive status
+- Can create, edit, delete
+
+NOTIFICATION LOG:
+- Which user, which template, when sent
+- Delivery status (sent, delivered, opened, clicked)
+- Read-only after creation
+- Retained for 90 days
+
+USER PREFERENCES:
+- Which notification types enabled
+- Preferred frequency (immediate, daily, weekly)
+- Can edit, cannot delete (only disable)
+
 ```
 
-### Exemplo 3: Modelo de Dados de Lead (linguagem de PM)
+### Example 3: Lead Data Model (PM language)
 
 ```
 LEAD:
-- Info de contato (nome, email, empresa)
-- Fonte (formulário, indicação, import)
-- Status (novo, contatado, qualificado, convertido, arquivado)
-- Rep de vendas atribuído
-- Pode criar, editar status/atribuição, apenas soft-delete
+- Contact info (name, email, company)
+- Source (form, referral, import)
+- Status (new, contacted, qualified, converted, archived)
+- Assigned sales rep
+- Can create, edit status/assignment, soft-delete only
 
 TOUCHPOINT:
-- Tipo (email, ligação, reunião, nota)
-- Resumo, timestamp
-- Lead associado
-- Pode criar, não pode editar ou deletar (trilha de auditoria)
+- Type (email, call, meeting, note)
+- Summary, timestamp
+- Associated lead
+- Can create, cannot edit or delete (audit trail)
 
-SCORE DO LEAD:
-- Valor calculado baseado em engajamento
-- Auto-atualizado pelo sistema
-- Somente leitura para usuários
+LEAD SCORE:
+- Calculated value based on engagement
+- Auto-updated by system
+- Read-only for users
+
 ```
 
 ---
 
-## Fase 7: Documentação
+## Phase 7: Documentation
 
-**Objetivo:** Compilar tudo em documento de pesquisa.
+**Objective:** Compile everything into a research document.
 
-**Abordagem:** Preview antes de salvar, documento salva na pasta de pesquisa do squad.
+**Approach:** Preview before saving, document saves in the squad's research folder.
 
-### Passos
+### Steps
 
 ```
-7.1 Compilar documento
-    └── Estrutura padrão baseada nas fases completadas
-    └── Incluir apenas seções que foram exploradas
+7.1 Compile document
+    └── Standard structure based on completed phases
+    └── Include only sections that were explored
 
-7.2 Mostrar preview para usuário
-    └── Exibir documento formatado
-    └── Perguntar: "Algo para ajustar antes de salvar?"
+7.2 Show preview to user
+    └── Display formatted document
+    └── Ask: "Anything to adjust before saving?"
 
-7.3 Salvar documento
-    └── Local: {squad}/{produto}/research/research-{feature}.md
-    └── Confirmar salvamento com caminho completo
+7.3 Save document
+    └── Location: {squad}/{product}/research/research-{feature}.md
+    └── Confirm saving with full path
 
-7.4 Finalizar
-    └── "Discovery completo. Documento salvo em [caminho]."
+7.4 Wrap up
+    └── "Discovery complete. Document saved at [path]."
+
 ```
 
-### Estrutura do Documento
+### Document Structure
 
 ```markdown
-# [Feature] - Pesquisa & Discovery
+# [Feature] - Research & Discovery
 
-**Autor:** [usuário]
-**Data:** [hoje]
-**Status:** Discovery completo
+**Author:** [user]
+**Date:** [today]
+**Status:** Discovery complete
 
-## 1. Contexto
+## 1. Context
 
-(da Fase 1 + 2)
+(from Phase 1 + 2)
 
-## 2. Decisões de Produto
+## 2. Product Decisions
 
-(da Fase 5 - tabela)
+(from Phase 5 - table)
 
-## 3. Jornadas do Usuário
+## 3. User Journeys
 
-(da Fase 3)
+(from Phase 3)
 
-## 4. Modelo de Dados
+## 4. Data Model
 
-(da Fase 6, se feito)
+(from Phase 6, if done)
 
-## 5. Análise Competitiva
+## 5. Competitive Analysis
 
-(da Fase 4, se feito)
+(from Phase 4, if done)
 
-## 6. Próximos Passos
+## 6. Next Steps
 
-- [ ] Checklist de ações identificadas
+- [ ] Checklist of identified actions
 ```
 
 ---
 
-## Integrações
+## Integrations
 
-**Slack:** Buscar discussões existentes sobre o tópico antes de iniciar
-**Web Search:** Para análise competitiva na Fase 4
-**Linear:** Verificar se projeto/issues relacionados já existem
-
----
-
-## Dicas para PMs
-
-### Antes de Iniciar Discovery
-
-1. **Reunir contexto existente** - Verificar Slack, docs, discussões anteriores
-2. **Conhecer seus stakeholders** - Quem precisa estar envolvido?
-3. **Definir expectativas de tempo** - Discovery completo pode levar 30-60 min
-
-### Durante o Discovery
-
-1. **Seja paciente com iteração** - Boas definições levam múltiplas passagens
-2. **Desafie suposições** - "Por que achamos que usuários precisam disso?"
-3. **Documente trade-offs** - Você do futuro agradecerá ao você do presente
-4. **Pense em segmentos** - Primário vs futuro ajuda a priorizar
-
-### Após o Discovery
-
-1. **Compartilhe o documento** - Alinhamento requer visibilidade
-2. **Revisite conforme aprende** - Discovery não é evento único
-3. **Use para PRD** - Doc de pesquisa é input do PRD
+**Slack:** Search for existing discussions on the topic before starting.
+**Web Search:** For competitive analysis in Phase 4.
+**Linear:** Check if related projects/issues already exist.
 
 ---
 
-## Referências
+## Tips for PMs
 
-### Frameworks de Product Discovery
+### Before Starting Discovery
+
+1. **Gather existing context** - Check Slack, docs, previous discussions.
+2. **Know your stakeholders** - Who needs to be involved?
+3. **Set time expectations** - Full discovery can take 30-60 min.
+
+### During Discovery
+
+1. **Be patient with iteration** - Good definitions take multiple passes.
+2. **Challenge assumptions** - "Why do we think users need this?"
+3. **Document trade-offs** - Future you will thank present you.
+4. **Think in segments** - Primary vs. future helps prioritize.
+
+### After Discovery
+
+1. **Share the document** - Alignment requires visibility.
+2. **Revisit as you learn** - Discovery is not a one-time event.
+3. **Use for PRD** - The research doc is input for the PRD.
+
+---
+
+## References
+
+### Product Discovery Frameworks
 
 - [Teresa Torres' Opportunity Solution Tree](https://www.producttalk.org/)
 - [Dual-Track Development](https://www.productboard.com/blog/step-by-step-framework-for-better-product-discovery/)
 - [7 Product Discovery Examples - Zeda.io](https://zeda.io/blog/product-discovery-examples)
 
-### Melhores Práticas de Análise Competitiva
+### Competitive Analysis Best Practices
 
 - [B2B SaaS Competitive Analysis Guide](https://rampiq.agency/blog/saas-competitive-analysis/)
 - [Competitor Research Template - Kalungi](https://www.kalungi.com/blog/b2b-saas-competitor-research)
 
-### Estatísticas
+### Statistics
 
-- Microsoft: 70% das features raramente ou nunca são usadas
-- Subito.it Premium Features: +3% CR, +5% receita de abordagem guiada por discovery
+- Microsoft: 70% of features are rarely or never used.
+- Subito.it Premium Features: +3% CR, +5% revenue from discovery-led approach.
+
+---
+
+**Discovery complete. Would you like me to translate the next skill, or should we refine one of these further?**

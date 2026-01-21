@@ -3,524 +3,539 @@ name: product-prd
 description: Generate comprehensive Product Requirements Documents (PRDs) for product managers. Use this skill when users ask to "create a PRD", "write product requirements", "document a feature", or need help structuring product specifications.
 ---
 
-# Gerador de PRD
+# PRD Generator
 
-## Visão Geral
+## Overview
 
-Gerar Product Requirements Documents (PRDs) abrangentes e bem estruturados que seguem as melhores práticas da indústria. Esta skill ajuda product managers a criar documentos de requisitos claros e acionáveis que alinham stakeholders e guiam times de desenvolvimento.
+Generate comprehensive and well-structured Product Requirements Documents (PRDs) that follow industry best practices. This skill helps product managers create clear and actionable requirements documents that align stakeholders and guide development teams.
 
-## Workflow Principal
+## Main Workflow
 
-Quando um usuário solicitar criar um PRD (ex: "crie um PRD para uma feature de autenticação de usuário"), siga este workflow:
+When a user requests to create a PRD (e.g., "create a PRD for a user authentication feature"), follow this workflow:
 
-### Passo 1: Coletar Contexto
+### Step 1: Gather Context
 
-Antes de gerar o PRD, colete informações essenciais através de uma conversa de discovery:
+Before generating the PRD, collect essential information through a discovery conversation:
 
-**Informações Necessárias:**
+**Required Information:**
 
-- **Nome da Feature/Produto**: O que estamos construindo?
-- **Declaração do Problema**: Qual problema isso resolve?
-- **Usuários Alvo**: Para quem é isso?
-- **Objetivos de Negócio**: O que estamos tentando alcançar?
-- **Métricas de Sucesso**: Como mediremos sucesso?
-- **Timeline/Restrições**: Algum prazo ou limitação?
+- **Feature/Product Name**: What are we building?
+- **Problem Statement**: What problem does this solve?
+- **Target Users**: Who is this for?
+- **Business Goals**: What are we trying to achieve?
+- **Success Metrics**: How will we measure success?
+- **Timeline/Constraints**: Any deadlines or limitations?
 
-**Perguntas de Discovery a Fazer:**
-
-```
-1. Qual problema você está tentando resolver?
-2. Quem é o usuário/público primário para esta feature?
-3. Quais são os principais objetivos de negócio?
-4. Há restrições técnicas que devemos conhecer?
-5. Como é o sucesso? Como você vai medir?
-6. Qual é o timeline para esta feature?
-7. O que está explicitamente fora do escopo?
-```
-
-**Nota:** Se o usuário fornecer um brief detalhado ou requisitos de antemão, você pode pular algumas perguntas. Sempre peça esclarecimento sobre informações críticas faltantes.
-
-### Passo 2: Coletar Contexto do Slack
-
-Use a integração MCP do Slack para buscar discussões relevantes sobre a feature ou problema em todos os canais acessíveis. Isso enriquece o PRD com conhecimento e decisões existentes do time.
-
-**Estratégia de Busca:**
-
-1. **Buscar por nome da feature/produto**: Encontrar discussões mencionando a feature
-2. **Buscar por palavras-chave do problema**: Identificar conversas sobre os pain points
-3. **Buscar por termos relacionados**: Ampliar contexto com tópicos relacionados
-
-**O que Procurar:**
-
-- Discussões anteriores sobre a feature ou problema
-- Decisões já tomadas pelo time
-- Considerações técnicas mencionadas por engenheiros
-- Feedback de usuários compartilhado nos canais
-- Preocupações ou requisitos de stakeholders
-- Links/documentos relevantes compartilhados
-
-**Workflow de Busca no Slack:**
+**Discovery Questions to Ask:**
 
 ```
-1. Usar nome da feature e palavras-chave do Passo 1 para buscar em todos os canais acessíveis
-2. Buscar por palavras-chave relacionadas ao problema
-3. Procurar mensagens recentes (últimos 30-90 dias) por relevância
-4. Identificar participantes-chave nas discussões
-5. Extrair insights e linkar para mensagens originais quando relevante
+1. What problem are you trying to solve?
+2. Who is the primary user/audience for this feature?
+3. What are the main business goals?
+4. Are there technical constraints we should know about?
+5. What does success look like? How will you measure it?
+6. What is the timeline for this feature?
+7. What is explicitly out of scope?
+
 ```
 
-**Integração com PRD:**
+**Note:** If the user provides a detailed brief or requirements beforehand, you can skip some questions. Always ask for clarification on critical missing information.
 
-- Incluir citações ou referências relevantes no PRD
-- Notar decisões já tomadas
-- Sinalizar opiniões conflitantes para resolução
-- Referenciar stakeholders-chave identificados nas discussões
+### Step 2: Gather Slack Context
 
-**Nota:** Se nenhuma discussão relevante no Slack for encontrada, ou se acesso ao Slack não estiver disponível, prossiga diretamente para o Passo 3. Este passo enriquece contexto mas não é obrigatório.
+Use the Slack MCP integration to search for relevant discussions about the feature or problem across all accessible channels. This enriches the PRD with the team's existing knowledge and decisions.
 
-### Passo 3: Gerar Estrutura do PRD
+**Search Strategy:**
 
-Use o template padrão de PRD em `references/prd_template.md` para criar um documento bem estruturado. O PRD deve incluir:
+1. **Search by feature/product name**: Find discussions mentioning the feature.
+2. **Search by problem keywords**: Identify conversations about pain points.
+3. **Search by related terms**: Broaden context with related topics.
 
-1. **Resumo Executivo** - Visão geral de alto nível (2-3 parágrafos)
-2. **Declaração do Problema** - Articulação clara do problema
-3. **Objetivos & Metas** - O que estamos tentando alcançar
-4. **Personas de Usuário** - Para quem estamos construindo
-5. **User Stories & Requisitos** - Requisitos funcionais detalhados
-6. **Métricas de Sucesso** - KPIs e critérios de medição
-7. **Escopo** - O que está dentro e fora do escopo
-8. **Considerações Técnicas** - Arquitetura, dependências, restrições
-9. **Requisitos de Design & UX** - Considerações de UI/UX
-10. **Timeline & Milestones** - Datas-chave e fases
-11. **Riscos & Mitigação** - Problemas potenciais e soluções
-12. **Dependências & Premissas** - No que estamos confiando
-13. **Perguntas em Aberto** - Itens não resolvidos
+**What to Look For:**
 
-### Passo 4: Criar User Stories
+- Previous discussions about the feature or problem.
+- Decisions already made by the team.
+- Technical considerations mentioned by engineers.
+- User feedback shared in channels.
+- Stakeholder concerns or requirements.
+- Relevant links/documents shared.
 
-Para cada requisito principal, gere uma user story ou user stories usando o formato padrão que você pode encontrar em `references/user_story_examples.md` para padrões comuns e melhores práticas.
-Para cada story, revise se você tem os seguintes detalhes seguindo as melhores práticas abaixo.
+**Slack Search Workflow:**
 
-**FAÇA:**
+```
+1. Use feature name and keywords from Step 1 to search all accessible channels.
+2. Search for keywords related to the problem.
+3. Look for recent messages (last 30-90 days) for relevance.
+4. Identify key participants in the discussions.
+5. Extract insights and link to original messages when relevant.
 
-- Peça detalhes sobre a user story
-- Valide se você tem contexto suficiente para criar cada uma com critérios de aceite bem escritos
-- Peça ao usuário para verificar cada uma antes de definir a escrita da story como finalizada
+```
 
-### Passo 5: Definir Métricas de Sucesso
+**PRD Integration:**
 
-Use frameworks de métricas apropriados baseados no tipo de produto:
+- Include relevant quotes or references in the PRD.
+- Note decisions already made.
+- Flag conflicting opinions for resolution.
+- Reference key stakeholders identified in the discussions.
 
-- **AARRR (Pirate Metrics)**: Acquisition, Activation, Retention, Revenue, Referral
-- **HEART Framework**: Happiness, Engagement, Adoption, Retention, Task Success
-- **North Star Metric**: Métrica-chave única que representa valor core
-- **OKRs**: Objectives and Key Results
+**Note:** If no relevant Slack discussions are found, or if Slack access is unavailable, proceed directly to Step 3. This step enriches context but is not mandatory.
 
-Consulte `references/metrics_frameworks.md` para orientação detalhada sobre cada framework.
+### Step 3: Generate PRD Structure
 
-### Passo 6: Validar & Revisar
+Use the standard PRD template in `references/prd_template.md` to create a well-structured document. The PRD should include:
 
-Opcionalmente rode o script de validação para garantir completude do PRD:
+1. **Executive Summary** - High-level overview (2-3 paragraphs).
+2. **Problem Statement** - Clear articulation of the problem.
+3. **Goals & Objectives** - What we are trying to achieve.
+4. **User Personas** - Who we are building for.
+5. **User Stories & Requirements** - Detailed functional requirements.
+6. **Success Metrics** - KPIs and measurement criteria.
+7. **Scope** - What is in and out of scope.
+8. **Technical Considerations** - Architecture, dependencies, constraints.
+9. **Design & UX Requirements** - UI/UX considerations.
+10. **Timeline & Milestones** - Key dates and phases.
+11. **Risks & Mitigation** - Potential issues and solutions.
+12. **Dependencies & Assumptions** - What we are relying on.
+13. **Open Questions** - Unresolved items.
+
+### Step 4: Create User Stories
+
+For each main requirement, generate user stories using the standard format found in `references/user_story_examples.md` for common patterns and best practices.
+For each story, review whether you have the following details following the best practices below.
+
+**DO:**
+
+- Ask for details about the user story.
+- Validate if you have enough context to create each one with well-written acceptance criteria.
+- Ask the user to check each one before finalizing the story writing.
+
+### Step 5: Define Success Metrics
+
+Use appropriate metrics frameworks based on the product type:
+
+- **AARRR (Pirate Metrics)**: Acquisition, Activation, Retention, Revenue, Referral.
+- **HEART Framework**: Happiness, Engagement, Adoption, Retention, Task Success.
+- **North Star Metric**: Single key metric representing core value.
+- **OKRs**: Objectives and Key Results.
+
+Consult `references/metrics_frameworks.md` for detailed guidance on each framework.
+
+### Step 6: Validate & Review
+
+Optionally run the validation script to ensure PRD completeness:
 
 ```bash
-scripts/validate_prd.sh <arquivo_prd.md>
+scripts/validate_prd.sh <prd_file.md>
+
 ```
 
-Isso verifica:
+This checks:
 
-- Todas as seções requeridas presentes
-- User stories seguem formato adequado
-- Métricas de sucesso estão definidas
-- Escopo está claramente articulado
-- Nenhum texto placeholder permanece
+- All required sections are present.
+- User stories follow the proper format.
+- Success metrics are defined.
+- Scope is clearly articulated.
+- No placeholder text remains.
 
-## Padrões de Uso
+## Usage Patterns
 
-### Padrão 1: PRD de Nova Feature
+### Pattern 1: New Feature PRD
 
-**Solicitação do Usuário:** "Crie um PRD para adicionar dark mode ao nosso app mobile"
+**User Request:** "Create a PRD to add dark mode to our mobile app"
 
-**Execução:**
+**Execution:**
 
-1. Fazer perguntas de discovery sobre requisitos de dark mode
-2. Buscar no Slack discussões existentes sobre dark mode ou theming
-3. Gerar PRD usando template
-4. Criar user stories para:
-   - Troca de tema
-   - Persistência de preferência
-   - Sincronização com nível de sistema
-   - Atualizações de design tokens
-5. Definir métricas de sucesso (taxa de adoção, satisfação do usuário)
-6. Identificar dependências técnicas (design system, APIs de plataforma)
+1. Ask discovery questions about dark mode requirements.
+2. Search Slack for existing discussions about dark mode or theming.
+3. Generate PRD using the template.
+4. Create user stories for:
 
-### Padrão 2: PRD de Melhoria de Produto
+- Theme switching.
+- Preference persistence.
+- Synchronization with system level.
+- Design tokens updates.
 
-**Solicitação do Usuário:** "Escreva requisitos para melhorar nossa funcionalidade de busca"
+5. Define success metrics (adoption rate, user satisfaction).
+6. Identify technical dependencies (design system, platform APIs).
 
-**Execução:**
+### Pattern 2: Product Improvement PRD
 
-1. Coletar contexto sobre limitações atuais da busca
-2. Identificar pain points do usuário e melhorias desejadas
-3. Buscar no Slack discussões sobre problemas de busca e feedback
-4. Gerar PRD com foco em:
-   - Análise do estado atual
-   - Melhorias propostas
-   - Avaliação de impacto
-5. Criar user stories priorizadas
-6. Definir métricas antes/depois
+**User Request:** "Write requirements to improve our search functionality"
 
-### Padrão 3: PRD de Novo Produto
+**Execution:**
 
-**Solicitação do Usuário:** "Preciso de um PRD para um novo produto de dashboard de analytics"
+1. Gather context on current search limitations.
+2. Identify user pain points and desired improvements.
+3. Search Slack for discussions about search issues and feedback.
+4. Generate PRD focusing on:
 
-**Execução:**
+- Current state analysis.
+- Proposed improvements.
+- Impact assessment.
 
-1. Discovery abrangente (análise de mercado, pesquisa de usuário)
-2. Buscar no Slack discussões sobre necessidades de analytics e requisitos de dashboard
-3. Gerar PRD completo com:
-   - Oportunidade de mercado
-   - Análise competitiva
-   - Visão do produto
-   - Escopo de MVP
-   - Considerações de go-to-market
-4. User stories detalhadas para features core
-5. Plano de rollout em fases
-6. Métricas de sucesso alinhadas com objetivos de negócio
+5. Create prioritized user stories.
+6. Define before/after metrics.
 
-### Padrão 4: PRD Rápido / One-Pager
+### Pattern 3: New Product PRD
 
-**Solicitação do Usuário:** "Crie um PRD leve para uma feature de correção de bug pequena"
+**User Request:** "I need a PRD for a new analytics dashboard product"
 
-**Execução:**
+**Execution:**
 
-1. Gerar PRD simplificado focando em:
-   - Declaração do problema
-   - Abordagem da solução
-   - Critérios de aceite
-   - Métricas de sucesso
-2. Opcionalmente buscar no Slack por reports de bugs ou discussões relacionadas
-3. Pular seções não relevantes para escopo pequeno
-4. Manter documento conciso (1-2 páginas)
+1. Comprehensive discovery (market analysis, user research).
+2. Search Slack for discussions about analytics needs and dashboard requirements.
+3. Generate a full PRD with:
 
-## Melhores Práticas de PRD
+- Market opportunity.
+- Competitive analysis.
+- Product vision.
+- MVP scope.
+- Go-to-market considerations.
 
-### Escrevendo Requisitos de Qualidade
+4. Detailed user stories for core features.
+5. Phased rollout plan.
+6. Success metrics aligned with business goals.
 
-**Bons Requisitos São:**
+### Pattern 4: Quick PRD / One-Pager
 
-- **Específicos**: Claros e não ambíguos
-- **Mensuráveis**: Podem ser verificados/testados
-- **Alcançáveis**: Tecnicamente viáveis
-- **Relevantes**: Ligados a valor de usuário/negócio
-- **Temporais**: Têm timeline claro
+**User Request:** "Create a lightweight PRD for a small bug fix feature"
 
-**Evite:**
+**Execution:**
 
-- Linguagem vaga ("rápido", "fácil", "intuitivo")
-- Detalhes de implementação (deixe engenheiros decidir como)
-- Escopo creep (mantenha requisitos core)
-- Suposições sem validação
+1. Generate a simplified PRD focusing on:
 
-### Melhores Práticas de User Story
+- Problem statement.
+- Solution approach.
+- Acceptance criteria.
+- Success metrics.
 
-**FAÇA:**
+2. Optionally search Slack for bug reports or related discussions.
+3. Skip sections not relevant to a small scope.
+4. Keep the document concise (1-2 pages).
 
-- Foque em valor para o usuário, não features
-- Escreva da perspectiva do usuário
-- Inclua critérios de aceite claros
-- Mantenha stories independentes e pequenas
-- Use formato consistente
+## PRD Best Practices
 
-**NÃO FAÇA:**
+### Writing Quality Requirements
 
-- Escreva detalhes de implementação técnica
-- Crie dependências entre stories
-- Faça stories muito grandes (epics)
-- Use jargão interno
-- Pule critérios de aceite
+**Good Requirements Are:**
 
-### Gestão de Escopo
+- **Specific**: Clear and unambiguous.
+- **Measurable**: Can be verified/tested.
+- **Achievable**: Technically feasible.
+- **Relevant**: Tied to user/business value.
+- **Time-bound**: Have a clear timeline.
 
-**Seção In-Scope:**
+**Avoid:**
 
-- Liste features/capacidades específicas incluídas
-- Seja explícito e detalhado
-- Linke para user stories
+- Vague language ("fast", "easy", "intuitive").
+- Implementation details (let engineers decide how).
+- Scope creep (keep core requirements).
+- Assumptions without validation.
 
-**Seção Out-of-Scope:**
+### User Story Best Practices
 
-- Declare explicitamente o que NÃO está incluído
-- Previne scope creep
-- Gerencia expectativas de stakeholders
-- Pode incluir "considerações futuras"
+**DO:**
 
-### Diretrizes de Métricas de Sucesso
+- Focus on value to the user, not features.
+- Write from the user's perspective.
+- Include clear acceptance criteria.
+- Keep stories independent and small.
+- Use a consistent format.
 
-**Escolha Métricas Que:**
+**DON'T:**
 
-- Alinham com objetivos de negócio
-- São mensuráveis e rastreáveis
-- Têm targets/thresholds claros
-- Incluem indicadores leading e lagging
-- Consideram valor de usuário e negócio
+- Write technical implementation details.
+- Create dependencies between stories.
+- Create very large stories (epics).
+- Use internal jargon.
+- Skip acceptance criteria.
 
-**Categorias Típicas de Métricas:**
+### Scope Management
 
-- **Adoção**: Quantos usuários usam a feature?
-- **Engajamento**: Com que frequência eles usam?
-- **Satisfação**: Usuários gostam?
-- **Performance**: Funciona bem?
-- **Impacto de Negócio**: Impulsiona objetivos de negócio?
+**In-Scope Section:**
 
-## Features Avançadas
+- List specific features/capabilities included.
+- Be explicit and detailed.
+- Link to user stories.
 
-### Templates de PRD para Diferentes Contextos
+**Out-of-Scope Section:**
 
-A skill suporta diferentes formatos de PRD:
+- Explicitly state what is NOT included.
+- Prevents scope creep.
+- Manages stakeholder expectations.
+- May include "future considerations."
 
-**PRD Padrão** - Documento abrangente completo
-**PRD Lean** - Simplificado para times ágeis
-**One-Pager** - Formato de resumo executivo
-**PRD Técnico** - Requisitos focados em engenharia
-**PRD de Design** - Requisitos focados em UX/UI
+### Success Metrics Guidelines
 
-Especifique o formato ao solicitar: "Crie um PRD lean para..." ou "Gere um PRD técnico para..."
+**Choose Metrics That:**
 
-### Integração com Design
+- Align with business goals.
+- Are measurable and trackable.
+- Have clear targets/thresholds.
+- Include leading and lagging indicators.
+- Consider both user and business value.
 
-**Seção de Requisitos de Design Deve Incluir:**
+**Typical Metric Categories:**
 
-- Requisitos de design visual
-- Padrões de interação
-- Requisitos de acessibilidade (conformidade WCAG)
-- Considerações de design responsivo
-- Componentes do design system a usar
-- Diagramas de user flow
-- Referências de wireframe/mockup
+- **Adoption**: How many users use the feature?
+- **Engagement**: How often do they use it?
+- **Satisfaction**: Do users like it?
+- **Performance**: Does it work well?
+- **Business Impact**: Does it drive business goals?
 
-### Seção de Considerações Técnicas
+## Advanced Features
 
-**Deve Abordar:**
+### PRD Templates for Different Contexts
 
-- **Arquitetura**: Abordagem técnica de alto nível
-- **Dependências**: Serviços externos, bibliotecas, APIs
-- **Segurança**: Autenticação, autorização, proteção de dados
-- **Performance**: Tempos de carga, requisitos de escalabilidade
-- **Compatibilidade**: Suporte de browser, dispositivo, plataforma
-- **Dados**: Armazenamento, migração, considerações de privacidade
-- **Integração**: Como se encaixa com sistemas existentes
+The skill supports different PRD formats:
 
-### Alinhamento de Stakeholders
+**Standard PRD** - Full comprehensive document.
+**Lean PRD** - Simplified for agile teams.
+**One-Pager** - Executive summary format.
+**Technical PRD** - Engineering-focused requirements.
+**Design PRD** - UX/UI-focused requirements.
 
-**PRD Deve Ajudar a:**
+Specify the format when requesting: "Create a lean PRD for..." or "Generate a technical PRD for..."
 
-- Alinhar times cross-funcionais
-- Definir expectativas claras
-- Habilitar work streams paralelos
-- Facilitar tomada de decisão
-- Fornecer single source of truth
+### Design Integration
 
-**Checklist de Distribuição:**
+**Design Requirements Section Should Include:**
 
-- [ ] Engenharia revisou viabilidade técnica
-- [ ] Design revisou requisitos de UX
-- [ ] Liderança de produto aprovou escopo
-- [ ] Stakeholders entendem timeline
-- [ ] Métricas de sucesso acordadas
+- Visual design requirements.
+- Interaction patterns.
+- Accessibility requirements (WCAG compliance).
+- Responsive design considerations.
+- Design system components to use.
+- User flow diagrams.
+- Wireframe/mockup references.
 
-## Cenários Comuns de PRD
+### Technical Considerations Section
 
-### Cenário 1: Feature Request de Cliente
+**Should Address:**
 
-Ao criar um PRD baseado em feedback de cliente:
+- **Architecture**: High-level technical approach.
+- **Dependencies**: External services, libraries, APIs.
+- **Security**: Authentication, authorization, data protection.
+- **Performance**: Load times, scalability requirements.
+- **Compatibility**: Browser, device, platform support.
+- **Data**: Storage, migration, privacy considerations.
+- **Integration**: How it fits with existing systems.
 
-1. Documente o request do cliente verbatim
-2. Analise o problema subjacente
-3. Generalize a solução para todos os usuários
-4. Valide com estratégia de produto
-5. Escopeie apropriadamente (pode ser menor ou maior que o request)
+### Stakeholder Alignment
 
-### Cenário 2: Iniciativa Estratégica
+**PRD Should Help To:**
 
-Ao criar um PRD para uma iniciativa estratégica da empresa:
+- Align cross-functional teams.
+- Set clear expectations.
+- Enable parallel work streams.
+- Facilitate decision making.
+- Provide a single source of truth.
 
-1. Linke com OKRs/objetivos da empresa
-2. Inclua análise de mercado
-3. Considere landscape competitivo
-4. Pense em rollout multi-fase
-5. Inclua critérios de sucesso alinhados com estratégia
+**Distribution Checklist:**
 
-### Cenário 3: Technical Debt / Infraestrutura
+- [ ] Engineering reviewed technical feasibility.
+- [ ] Design reviewed UX requirements.
+- [ ] Product leadership approved scope.
+- [ ] Stakeholders understand timeline.
+- [ ] Success metrics agreed upon.
 
-Ao criar um PRD para melhorias técnicas:
+## Common PRD Scenarios
 
-1. Explique impacto no usuário (mesmo se indireto)
-2. Documente limitações atuais
-3. Articule benefícios (velocidade, confiabilidade, manutenibilidade)
-4. Inclua input de engenharia pesadamente
-5. Defina melhorias mensuráveis
+### Scenario 1: Customer Feature Request
 
-### Cenário 4: Compliance / Regulatório
+When creating a PRD based on customer feedback:
 
-Ao criar um PRD para requisitos de compliance:
+1. Document the customer request verbatim.
+2. Analyze the underlying problem.
+3. Generalize the solution for all users.
+4. Validate with product strategy.
+5. Scope appropriately (may be smaller or larger than the request).
 
-1. Referencie regulamentações específicas (LGPD, GDPR, etc.)
-2. Inclua revisão legal/compliance
-3. Deadline geralmente não é negociável
-4. Foque em compliance mínimo viável
-5. Documente requisitos de trilha de auditoria
+### Scenario 2: Strategic Initiative
 
-## Validação & Verificações de Qualidade
+When creating a PRD for a company strategic initiative:
 
-### Checklist de Auto-Revisão
+1. Link with company OKRs/goals.
+2. Include market analysis.
+3. Consider the competitive landscape.
+4. Think about multi-phase rollout.
+5. Include success criteria aligned with strategy.
 
-Antes de finalizar o PRD, verifique:
+### Scenario 3: Technical Debt / Infrastructure
 
-- [ ] **Problema está claro**: Qualquer um pode entender o que estamos resolvendo
-- [ ] **Usuários estão identificados**: Sabemos para quem é isso
-- [ ] **Sucesso é mensurável**: Podemos determinar se funcionou
-- [ ] **Escopo está limitado**: Claro o que está dentro e fora
-- [ ] **Requisitos são testáveis**: QA pode verificar completude
-- [ ] **Timeline é realista**: Estimativas validadas com engenharia
-- [ ] **Riscos estão identificados**: Pensamos no que pode dar errado
-- [ ] **Stakeholders alinhados**: Pessoas-chave revisaram e aprovaram
+When creating a PRD for technical improvements:
 
-### Usando o Script de Validação
+1. Explain the user impact (even if indirect).
+2. Document current limitations.
+3. Articulate benefits (speed, reliability, maintainability).
+4. Include heavy engineering input.
+5. Define measurable improvements.
+
+### Scenario 4: Compliance / Regulatory
+
+When creating a PRD for compliance requirements:
+
+1. Reference specific regulations (LGPD, GDPR, etc.).
+2. Include legal/compliance review.
+3. Deadlines are usually non-negotiable.
+4. Focus on minimum viable compliance.
+5. Document audit trail requirements.
+
+## Validation & Quality Checks
+
+### Self-Review Checklist
+
+Before finalizing the PRD, check:
+
+- [ ] **Problem is clear**: Anyone can understand what we are solving.
+- [ ] **Users are identified**: We know who this is for.
+- [ ] **Success is measurable**: We can determine if it worked.
+- [ ] **Scope is bounded**: Clear what is in and out.
+- [ ] **Requirements are testable**: QA can verify completeness.
+- [ ] **Timeline is realistic**: Estimates validated with engineering.
+- [ ] **Risks are identified**: We thought about what could go wrong.
+- [ ] **Stakeholders aligned**: Key people reviewed and approved.
+
+### Using the Validation Script
 
 ```bash
-# Validação básica
-scripts/validate_prd.sh meu_prd.md
+# Basic validation
+scripts/validate_prd.sh my_prd.md
 
-# Output detalhado com sugestões
-scripts/validate_prd.sh meu_prd.md --verbose
+# Detailed output with suggestions
+scripts/validate_prd.sh my_prd.md --verbose
 
-# Verificar apenas seções específicas
-scripts/validate_prd.sh meu_prd.md --sections "user-stories,metrics"
+# Check only specific sections
+scripts/validate_prd.sh my_prd.md --sections "user-stories,metrics"
+
 ```
 
-## Recursos
+## Resources
 
-Esta skill inclui recursos empacotados:
+This skill includes bundled resources:
 
 ### scripts/
 
-- **generate_prd.sh** - Workflow interativo de geração de PRD
-- **validate_prd.sh** - Valida completude e qualidade do PRD
+- **generate_prd.sh** - Interactive PRD generation workflow.
+- **validate_prd.sh** - Validates PRD completeness and quality.
 
 ### references/
 
-- **prd_template.md** - Estrutura de template de PRD padrão
-- **user_story_examples.md** - Padrões e exemplos de user story
-- **metrics_frameworks.md** - Guia de métricas de PM (AARRR, HEART, OKRs)
+- **prd_template.md** - Standard PRD template structure.
+- **user_story_examples.md** - User story patterns and examples.
+- **metrics_frameworks.md** - PM metrics guide (AARRR, HEART, OKRs).
 
-## Dicas para Product Managers
+## Tips for Product Managers
 
-### Antes de Escrever o PRD
+### Before Writing the PRD
 
-1. **Faça sua pesquisa**: Entrevistas com usuários, análise de dados, análise competitiva
-2. **Valide o problema**: Garanta que vale a pena resolver
-3. **Verifique alinhamento estratégico**: Isso se encaixa no nosso roadmap?
-4. **Estime esforço**: T-shirt size aproximado com engenharia
-5. **Considere alternativas**: Esta é a melhor solução?
+1. **Do your research**: User interviews, data analysis, competitive analysis.
+2. **Validate the problem**: Ensure it's worth solving.
+3. **Check strategic alignment**: Does this fit our roadmap?
+4. **Estimate effort**: Rough T-shirt size with engineering.
+5. **Consider alternatives**: Is this the best solution?
 
-### Durante Criação do PRD
+### During PRD Creation
 
-1. **Seja claro, não esperto**: Linguagem simples ganha
-2. **Mostre, não conte**: Use exemplos, mockups, diagramas
-3. **Pense em edge cases**: O que pode dar errado?
-4. **Priorize implacavelmente**: O que é MVP vs nice-to-have?
-5. **Colabore cedo**: Não trabalhe isolado
+1. **Be clear, not clever**: Simple language wins.
+2. **Show, don't tell**: Use examples, mockups, diagrams.
+3. **Think about edge cases**: What can go wrong?
+4. **Prioritize relentlessly**: What is MVP vs. nice-to-have?
+5. **Collaborate early**: Don't work in isolation.
 
-### Após Completar o PRD
+### After Completing the PRD
 
-1. **Revise com stakeholders**: Obtenha feedback cedo
-2. **Itere baseado em input**: PRDs são documentos vivos
-3. **Apresente, não apenas compartilhe**: Caminhe através do PRD
-4. **Obtenha sign-off formal**: Garanta compromisso
-5. **Mantenha atualizado**: Ajuste conforme entendimento evolui
+1. **Review with stakeholders**: Get feedback early.
+2. **Iterate based on input**: PRDs are living documents.
+3. **Present, don't just share**: Walk through the PRD.
+4. **Get formal sign-off**: Ensure commitment.
+5. **Keep updated**: Adjust as understanding evolves.
 
-## Exemplos
+## Examples
 
-### Exemplo 1: PRD de Feature Mobile
+### Example 1: Mobile Feature PRD
 
 ```bash
-# Usuário: "Crie um PRD para adicionar autenticação biométrica ao nosso app iOS"
+# User: "Create a PRD to add biometric authentication to our iOS app"
 
-# Assistente irá:
-# 1. Fazer perguntas de discovery sobre requisitos de segurança, personas, auth existente
-# 2. Gerar PRD cobrindo:
-#    - Problema: Fricção de senha, preocupações de segurança
-#    - Solução: Integração Face ID / Touch ID
-#    - User stories: Habilitar biométrico, fallback para senha, gestão de settings
-#    - Métricas: Taxa de adoção, taxa de sucesso de login, tickets de suporte
-#    - Técnico: iOS Keychain, LocalAuthentication framework
-#    - Riscos: Compatibilidade de dispositivo, preocupações de privacidade
-# 3. Output PRD formatado em markdown
+# Assistant will:
+# 1. Ask discovery questions about security requirements, personas, existing auth.
+# 2. Generate PRD covering:
+#    - Problem: Password friction, security concerns.
+#    - Solution: Face ID / Touch ID integration.
+#    - User stories: Enable biometric, fallback to password, manage settings.
+#    - Metrics: Adoption rate, login success rate, support tickets.
+#    - Technical: iOS Keychain, LocalAuthentication framework.
+#    - Risks: Device compatibility, privacy concerns.
+# 3. Output PRD formatted in markdown.
+
 ```
 
-### Exemplo 2: Melhoria de Plataforma Web
+### Example 2: Web Platform Improvement
 
 ```bash
-# Usuário: "Escreva requisitos para melhorar conversão do nosso checkout flow"
+# User: "Write requirements to improve our checkout flow conversion"
 
-# Assistente irá:
-# 1. Coletar dados sobre taxas de conversão atuais e pontos de abandono
-# 2. Gerar PRD incluindo:
-#    - Análise do estado atual com métricas
-#    - Melhorias propostas (guest checkout, pagamento salvo, indicador de progresso)
-#    - Plano de teste A/B
-#    - Métricas de sucesso: Aumento de taxa de conversão, tempo até checkout
-#    - User stories para cada melhoria
-# 3. Incluir abordagem de rollout em fases
+# Assistant will:
+# 1. Collect data on current conversion rates and drop-off points.
+# 2. Generate PRD including:
+#    - Current state analysis with metrics.
+#    - Proposed improvements (guest checkout, saved payment, progress indicator).
+#    - A/B test plan.
+#    - Success metrics: Conversion rate increase, time to checkout.
+#    - User stories for each improvement.
+# 3. Include phased rollout approach.
+
 ```
 
-### Exemplo 3: PRD de Produto B2B
+### Example 3: B2B Product PRD
 
 ```bash
-# Usuário: "Preciso de um PRD para um dashboard admin para clientes enterprise"
+# User: "I need a PRD for an admin dashboard for enterprise clients"
 
-# Assistente irá:
-# 1. Identificar requisitos específicos de B2B (multi-tenancy, permissões, relatórios)
-# 2. Gerar PRD abrangente com:
-#    - Personas de usuário enterprise (admin, gerente, analista)
-#    - Requisitos de controle de acesso baseado em roles
-#    - Necessidades de relatórios e analytics
-#    - Requisitos de integração (SSO, SCIM)
-#    - Métricas de sucesso: Adoção pelo cliente, eficiência do admin
-# 3. Incluir considerações específicas de enterprise (compliance, SLAs)
+# Assistant will:
+# 1. Identify B2B specific requirements (multi-tenancy, permissions, reporting).
+# 2. Generate comprehensive PRD with:
+#    - Enterprise user personas (admin, manager, analyst).
+#    - Role-based access control requirements.
+#    - Reporting and analytics needs.
+#    - Integration requirements (SSO, SCIM).
+#    - Success metrics: Client adoption, admin efficiency.
+# 3. Include specific enterprise considerations (compliance, SLAs).
+
 ```
 
 ## Troubleshooting
 
-**Problema: PRD está muito longo/detalhado**
+**Problem: PRD is too long/detailed**
 
-Solução: Crie um "PRD Lean" focando em problema, solução, critérios de aceite e métricas. Reserve PRD completo para iniciativas maiores.
+Solution: Create a "Lean PRD" focusing on problem, solution, acceptance criteria, and metrics. Reserve full PRD for larger initiatives.
 
-**Problema: Requisitos estão muito vagos**
+**Problem: Requirements are too vague**
 
-Solução: Adicione exemplos específicos, use números concretos, inclua referências visuais. Substitua "rápido" por "carrega em menos de 2 segundos."
+Solution: Add specific examples, use concrete numbers, include visual references. Replace "fast" with "loads in under 2 seconds."
 
-**Problema: Stakeholders não alinhados**
+**Problem: Stakeholders not aligned**
 
-Solução: Compartilhe PRD cedo como draft, incorpore feedback, apresente pessoalmente, obtenha sign-off explícito antes do desenvolvimento começar.
+Solution: Share PRD early as a draft, incorporate feedback, present in person, get explicit sign-off before development begins.
 
-**Problema: Escopo continua expandindo**
+**Problem: Scope keeps expanding**
 
-Solução: Use seção "Fora do Escopo" agressivamente, crie PRDs separados para fases futuras, amarre escopo a restrições de timeline.
+Solution: Use "Out of Scope" section aggressively, create separate PRDs for future phases, tie scope to timeline constraints.
 
-**Problema: Engenheiros dizem que não é viável**
+**Problem: Engineers say it's not feasible**
 
-Solução: Envolva engenharia mais cedo no processo, seja flexível na abordagem da solução, foque no problema não na implementação.
+Solution: Involve engineering earlier in the process, be flexible in the solution approach, focus on the problem not the implementation.
 
-## Resumo de Melhores Práticas
+## Best Practices Summary
 
-1. **Comece com o problema, não a solução**
-2. **Escreva para seu público** (execs precisam de resumo, engenheiros precisam de detalhes)
-3. **Seja específico e mensurável** (evite linguagem vaga)
-4. **Inclua visuais** (mockups, diagramas, fluxos)
-5. **Defina sucesso de antemão** (métricas, não features)
-6. **Escopeie agressivamente** (mentalidade MVP)
-7. **Colabore, não dite** (obtenha input de todas as funções)
-8. **Mantenha atualizado** (PRD é documento vivo)
-9. **Foque em "por que" e "o que", não "como"** (deixe engenheiros resolverem "como")
-10. **Torne escaneável** (headers, bullets, resumos)
+1. **Start with the problem, not the solution.**
+2. **Write for your audience** (execs need summary, engineers need details).
+3. **Be specific and measurable** (avoid vague language).
+4. **Include visuals** (mockups, diagrams, flows).
+5. **Define success upfront** (metrics, not features).
+6. **Scope aggressively** (MVP mindset).
+7. **Collaborate, don't dictate** (get input from all functions).
+8. **Keep updated** (PRD is a living document).
+9. **Focus on "why" and "what", not "how"** (let engineers solve "how").
+10. **Make it scannable** (headers, bullets, summaries).

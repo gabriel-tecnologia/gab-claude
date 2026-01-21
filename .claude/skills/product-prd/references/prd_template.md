@@ -1,572 +1,618 @@
-# Template de Product Requirements Document
+# Product Requirements Document Template
 
-Este template fornece uma estrutura abrangente para criar Product Requirements Documents (PRDs). Adapte as seções conforme suas necessidades e escopo do projeto.
+This template provides a comprehensive structure for creating Product Requirements Documents (PRDs). Adapt the sections according to your needs and project scope.
 
 ---
 
-## Cabeçalho do Documento
+## Document Header
 
-**Nome do Produto/Feature:** [Nome]
+**Product/Feature Name:** [Name]
 **Status:** [Draft | In Review | Approved]
-**Autor:** [Seu Nome]
-**Stakeholders:** [Liste stakeholders principais]
-**Data de Criação:** [YYYY-MM-DD]
-**Última Atualização:** [YYYY-MM-DD]
-**Versão:** [1.0]
+**Author:** [Your Name]
+**Stakeholders:** [List key stakeholders]
+**Creation Date:** [YYYY-MM-DD]
+**Last Updated:** [YYYY-MM-DD]
+**Version:** [1.0]
 
 ---
 
-## Sumário Executivo
+## Executive Summary
 
-**One-liner:** [Frase única descrevendo o produto/feature]
+**One-liner:** [A single sentence describing the product/feature]
 
-**Visão Geral:** [Resumo de 2-3 parágrafos do que você está construindo, por quê, e impacto esperado]
+**Overview:** [2-3 paragraph summary of what you are building, why, and the expected impact]
 
-**Fatos Rápidos:**
-- **Usuários Alvo:** [Segmento de usuário principal]
-- **Problema Resolvido:** [Problema central sendo endereçado]
-- **Métrica Chave:** [Métrica de sucesso principal]
-- **Lançamento Alvo:** [Data ou Trimestre]
+**Quick Facts:**
 
----
-
-## Índice
-
-1. [Declaração do Problema](#declaração-do-problema)
-2. [Objetivos & Metas](#objetivos--metas)
-3. [Personas de Usuário](#personas-de-usuário)
-4. [User Stories & Requisitos](#user-stories--requisitos)
-5. [Métricas de Sucesso](#métricas-de-sucesso)
-6. [Escopo](#escopo)
-7. [Considerações Técnicas](#considerações-técnicas)
-8. [Requisitos de Design & UX](#requisitos-de-design--ux)
-9. [Timeline & Milestones](#timeline--milestones)
-10. [Riscos & Mitigação](#riscos--mitigação)
-11. [Dependências & Premissas](#dependências--premissas)
-12. [Perguntas em Aberto](#perguntas-em-aberto)
-13. [Aprovação de Stakeholders](#aprovação-de-stakeholders)
+- **Target Users:** [Primary user segment]
+- **Problem Solved:** [Core problem being addressed]
+- **Key Metric:** [Primary success metric]
+- **Target Launch:** [Date or Quarter]
 
 ---
 
-## Declaração do Problema
+## Table of Contents
 
-### O Problema
-
-[Articule claramente o problema que você está resolvendo. Qual pain point existe hoje?]
-
-### Estado Atual
-
-[Descreva como usuários atualmente lidam com este problema, incluindo workarounds]
-
-### Impacto
-
-**Impacto no Usuário:**
-- [Como isso afeta usuários]
-- [Quantifique se possível: "Usuários gastam 30 minutos diários em workarounds"]
-
-**Impacto no Negócio:**
-- [Como isso afeta o negócio]
-- [Inclua métricas: "Custa $X em tickets de suporte mensalmente"]
-
-### Por Que Agora?
-
-[Explique a urgência ou importância estratégica de resolver isso agora]
+1. [Problem Statement](https://www.google.com/search?q=%23problem-statement)
+2. [Goals & Objectives](https://www.google.com/search?q=%23goals--objectives)
+3. [User Personas](https://www.google.com/search?q=%23user-personas)
+4. [User Stories & Requirements](https://www.google.com/search?q=%23user-stories--requirements)
+5. [Success Metrics](https://www.google.com/search?q=%23success-metrics)
+6. [Scope](https://www.google.com/search?q=%23scope)
+7. [Technical Considerations](https://www.google.com/search?q=%23technical-considerations)
+8. [Design & UX Requirements](https://www.google.com/search?q=%23design--ux-requirements)
+9. [Timeline & Milestones](https://www.google.com/search?q=%23timeline--milestones)
+10. [Risks & Mitigation](https://www.google.com/search?q=%23risks--mitigation)
+11. [Dependencies & Assumptions](https://www.google.com/search?q=%23dependencies--assumptions)
+12. [Open Questions](https://www.google.com/search?q=%23open-questions)
+13. [Stakeholder Approval](https://www.google.com/search?q=%23stakeholder-approval)
 
 ---
 
-## Objetivos & Metas
+## Problem Statement
 
-### Metas de Negócio
+### The Problem
 
-1. **[Meta 1]:** [Descrição e impacto esperado]
-2. **[Meta 2]:** [Descrição e impacto esperado]
-3. **[Meta 3]:** [Descrição e impacto esperado]
+[Clearly articulate the problem you are solving. What pain point exists today?]
 
-### Metas do Usuário
+### Current State
 
-1. **[Meta 1]:** [O que usuários querem alcançar]
-2. **[Meta 2]:** [O que usuários querem alcançar]
-3. **[Meta 3]:** [O que usuários querem alcançar]
+[Describe how users currently handle this problem, including workarounds]
 
-### Não-Metas
+### Impact
 
-[O que NÃO estamos tentando alcançar com este esforço]
+**User Impact:**
+
+- [How this affects users]
+- [Quantify if possible: "Users spend 30 minutes daily on workarounds"]
+
+**Business Impact:**
+
+- [How this affects the business]
+- [Include metrics: "It costs $X in support tickets monthly"]
+
+### Why Now?
+
+[Explain the urgency or strategic importance of solving this now]
 
 ---
 
-## Personas de Usuário
+## Goals & Objectives
 
-### Persona Primária: [Nome/Tipo]
+### Business Goals
 
-**Dados Demográficos:**
-- Faixa etária: [Faixa]
-- Cargo/Título: [Cargo]
-- Proficiência técnica: [Baixa/Média/Alta]
-- Localização: [Info geográfica se relevante]
+1. **[Goal 1]:** [Description and expected impact]
+2. **[Goal 2]:** [Description and expected impact]
+3. **[Goal 3]:** [Description and expected impact]
 
-**Comportamentos:**
-- [Padrão de comportamento chave 1]
-- [Padrão de comportamento chave 2]
-- [Padrão de comportamento chave 3]
+### User Goals
 
-**Necessidades & Motivações:**
-- [O que precisam realizar]
-- [O que motiva suas decisões]
+1. **[Goal 1]:** [What users want to achieve]
+2. **[Goal 2]:** [What users want to achieve]
+3. **[Goal 3]:** [What users want to achieve]
+
+### Non-Goals
+
+[What we are NOT trying to achieve with this effort]
+
+---
+
+## User Personas
+
+### Primary Persona: [Name/Type]
+
+**Demographics:**
+
+- Age range: [Range]
+- Job Title: [Role]
+- Technical proficiency: [Low/Medium/High]
+- Location: [Geographic info if relevant]
+
+**Behaviors:**
+
+- [Key behavior pattern 1]
+- [Key behavior pattern 2]
+- [Key behavior pattern 3]
+
+**Needs & Motivations:**
+
+- [What they need to accomplish]
+- [What motivates their decisions]
 
 **Pain Points:**
-- [Frustração atual 1]
-- [Frustração atual 2]
-- [Frustração atual 3]
 
-**Citação:** _"[Citação verbatim do usuário que captura sua perspectiva]"_
+- [Current frustration 1]
+- [Current frustration 2]
+- [Current frustration 3]
 
-### Persona Secundária: [Nome/Tipo]
+**Quote:** _"[Verbatim user quote that captures their perspective]"_
 
-[Repita a estrutura conforme necessário para personas adicionais]
+### Secondary Persona: [Name/Type]
+
+[Repeat structure as necessary for additional personas]
 
 ---
 
-## User Stories & Requisitos
+## User Stories & Requirements
 
-### Epic: [Nome do Epic]
+### Epic: [Epic Name]
 
-#### Histórias de Alta Prioridade
+#### High Priority Stories
 
-##### Story 1: [Nome da Feature]
+##### Story 1: [Feature Name]
 
 **User Story:**
+
 ```
-Como [tipo de usuário],
-Quero [realizar ação],
-Para que [alcançar benefício/valor].
+As a [user type],
+I want to [perform action],
+So that [achieve benefit/value].
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado [contexto], quando [ação], então [resultado esperado]
-- [ ] Dado [contexto], quando [ação], então [resultado esperado]
-- [ ] Edge case: [Cenário específico]
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
-**Esforço:** [T-shirt size: XS/S/M/L/XL]
-**Dependências:** [Liste quaisquer dependências]
+- [ ] Given [context], when [action], then [expected result]
+- [ ] Given [context], when [action], then [expected result]
+- [ ] Edge case: [Specific scenario]
 
----
-
-##### Story 2: [Nome da Feature]
-
-[Repita a estrutura]
+**Priority:** High
+**Effort:** [T-shirt size: XS/S/M/L/XL]
+**Dependencies:** [List any dependencies]
 
 ---
 
-#### Histórias de Média Prioridade
+##### Story 2: [Feature Name]
 
-[Liste histórias de Média prioridade usando mesmo formato]
-
----
-
-#### Histórias de Baixa Prioridade
-
-[Liste histórias de Baixa prioridade usando mesmo formato]
+[Repeat structure]
 
 ---
 
-### Requisitos Funcionais
+#### Medium Priority Stories
 
-| Req ID | Descrição | Prioridade | Status |
-|--------|-----------|------------|--------|
-| FR-001 | [Descrição do requisito] | Must Have | Open |
-| FR-002 | [Descrição do requisito] | Should Have | Open |
-| FR-003 | [Descrição do requisito] | Nice to Have | Open |
-
-### Requisitos Não-Funcionais
-
-| Req ID | Categoria | Descrição | Meta |
-|--------|-----------|-----------|------|
-| NFR-001 | Performance | Tempo de carregamento de página | < 2 segundos |
-| NFR-002 | Availability | SLA de uptime | 99.9% |
-| NFR-003 | Security | Criptografia de dados | AES-256 |
-| NFR-004 | Accessibility | Conformidade WCAG | Nível AA |
+[List Medium priority stories using the same format]
 
 ---
 
-## Métricas de Sucesso
+#### Low Priority Stories
+
+[List Low priority stories using the same format]
+
+---
+
+### Functional Requirements
+
+| Req ID | Description               | Priority     | Status |
+| ------ | ------------------------- | ------------ | ------ |
+| FR-001 | [Requirement description] | Must Have    | Open   |
+| FR-002 | [Requirement description] | Should Have  | Open   |
+| FR-003 | [Requirement description] | Nice to Have | Open   |
+
+### Non-Functional Requirements
+
+| Req ID  | Category      | Description     | Goal        |
+| ------- | ------------- | --------------- | ----------- |
+| NFR-001 | Performance   | Page load time  | < 2 seconds |
+| NFR-002 | Availability  | Uptime SLA      | 99.9%       |
+| NFR-003 | Security      | Data encryption | AES-256     |
+| NFR-004 | Accessibility | WCAG Compliance | Level AA    |
+
+---
+
+## Success Metrics
 
 ### Key Performance Indicators (KPIs)
 
-#### Métrica Primária (North Star)
+#### Primary Metric (North Star)
 
-**Métrica:** [Sua North Star Metric]
-**Definição:** [Como é calculada]
-**Baseline Atual:** [Valor atual]
-**Meta:** [Valor alvo em lançamento + X meses]
-**Por Que Esta Métrica:** [Por que isso mede sucesso]
+**Metric:** [Your North Star Metric]
+**Definition:** [How it is calculated]
+**Current Baseline:** [Current value]
+**Goal:** [Target value at launch + X months]
+**Why This Metric:** [Why this measures success]
 
-#### Métricas Secundárias
+#### Secondary Metrics
 
-| Métrica | Atual | Meta | Prazo |
-|---------|-------|------|-------|
-| [Métrica 1] | [Valor] | [Valor] | [Quando] |
-| [Métrica 2] | [Valor] | [Valor] | [Quando] |
-| [Métrica 3] | [Valor] | [Valor] | [Quando] |
+| Metric     | Current | Target  | Deadline |
+| ---------- | ------- | ------- | -------- |
+| [Metric 1] | [Value] | [Value] | [When]   |
+| [Metric 2] | [Value] | [Value] | [When]   |
+| [Metric 3] | [Value] | [Value] | [When]   |
 
-### Framework de Medição
+### Measurement Framework
 
-**Framework Usado:** [AARRR / HEART / Custom]
+**Framework Used:** [AARRR / HEART / Custom]
 
 **Acquisition:**
-- [Métrica e meta]
+
+- [Metric and goal]
 
 **Activation:**
-- [Métrica e meta]
+
+- [Metric and goal]
 
 **Retention:**
-- [Métrica e meta]
+
+- [Metric and goal]
 
 **Revenue:**
-- [Métrica e meta]
+
+- [Metric and goal]
 
 **Referral:**
-- [Métrica e meta]
 
-### Implementação de Analytics
+- [Metric and goal]
 
-**Eventos a Rastrear:**
-- `[event_name_1]` - [Quando disparado]
-- `[event_name_2]` - [Quando disparado]
-- `[event_name_3]` - [Quando disparado]
+### Analytics Implementation
+
+**Events to Track:**
+
+- `[event_name_1]` - [When triggered]
+- `[event_name_2]` - [When triggered]
+- `[event_name_3]` - [When triggered]
 
 **Dashboards:**
-- [Link para dashboard principal]
-- [Link para dashboard secundário]
+
+- [Link to primary dashboard]
+- [Link to secondary dashboard]
 
 ---
 
-## Escopo
+## Scope
 
-### Dentro do Escopo
+### In Scope
 
-**Fase 1 (MVP):**
-- [Feature/capacidade 1]
-- [Feature/capacidade 2]
-- [Feature/capacidade 3]
+**Phase 1 (MVP):**
 
-**Fase 2 (Pós-MVP):**
-- [Feature/capacidade 1]
-- [Feature/capacidade 2]
+- [Feature/capability 1]
+- [Feature/capability 2]
+- [Feature/capability 3]
 
-### Fora do Escopo
+**Phase 2 (Post-MVP):**
 
-**Explicitamente Excluído:**
-- [Item 1 e por que está excluído]
-- [Item 2 e por que está excluído]
-- [Item 3 e por que está excluído]
+- [Feature/capability 1]
+- [Feature/capability 2]
 
-### Considerações Futuras
+### Out of Scope
 
-**Potenciais Melhorias Futuras:**
-- [Melhoria 1]
-- [Melhoria 2]
-- [Melhoria 3]
+**Explicitly Excluded:**
+
+- [Item 1 and why it is excluded]
+- [Item 2 and why it is excluded]
+- [Item 3 and why it is excluded]
+
+### Future Considerations
+
+**Potential Future Enhancements:**
+
+- [Enhancement 1]
+- [Enhancement 2]
+- [Enhancement 3]
 
 ---
 
-## Considerações Técnicas
+## Technical Considerations
 
-### Arquitetura de Alto Nível
+### High-Level Architecture
 
-[Descreva a abordagem técnica, link para diagrama de arquitetura, ou decisões arquiteturais chave]
+[Describe the technical approach, link to architecture diagram, or key architectural decisions]
 
-### Stack Tecnológico
+### Tech Stack
 
 **Frontend:**
-- [Framework/biblioteca]
-- [Dependências chave]
+
+- [Framework/library]
+- [Key dependencies]
 
 **Backend:**
-- [Linguagem/framework]
-- [Serviços chave]
 
-**Infraestrutura:**
-- [Plataforma de hosting]
-- [Banco de dados]
-- [Camada de cache]
+- [Language/framework]
+- [Key services]
 
-### Requisitos de API
+**Infrastructure:**
 
-**Novos Endpoints:**
-- `GET /api/v1/[endpoint]` - [Descrição]
-- `POST /api/v1/[endpoint]` - [Descrição]
-- `PUT /api/v1/[endpoint]` - [Descrição]
+- [Hosting platform]
+- [Database]
+- [Caching layer]
 
-**APIs Externas:**
-- [API de terceiro 1]
-- [API de terceiro 2]
+### API Requirements
 
-### Requisitos de Segurança
+**New Endpoints:**
 
-- **Autenticação:** [Método: JWT, OAuth, etc.]
-- **Autorização:** [RBAC, ABAC, etc.]
-- **Criptografia de Dados:** [Em repouso e em trânsito]
+- `GET /api/v1/[endpoint]` - [Description]
+- `POST /api/v1/[endpoint]` - [Description]
+- `PUT /api/v1/[endpoint]` - [Description]
+
+**External APIs:**
+
+- [Third-party API 1]
+- [Third-party API 2]
+
+### Security Requirements
+
+- **Authentication:** [Method: JWT, OAuth, etc.]
+- **Authorization:** [RBAC, ABAC, etc.]
+- **Data Encryption:** [At rest and in transit]
 - **Compliance:** [GDPR, HIPAA, SOC 2, etc.]
-- **Rate Limiting:** [Limites e estratégia de throttling]
+- **Rate Limiting:** [Limits and throttling strategy]
 
-### Requisitos de Performance
+### Performance Requirements
 
-- **Tempo de Resposta:** [Meta: ex., < 200ms p95]
-- **Throughput:** [Requests por segundo]
-- **Concorrência:** [Usuários simultâneos suportados]
-- **Banco de Dados:** [Metas de performance de query]
-- **Cache:** [Metas de cache hit rate]
+- **Response Time:** [Goal: e.g., < 200ms p95]
+- **Throughput:** [Requests per second]
+- **Concurrency:** [Supported simultaneous users]
+- **Database:** [Query performance goals]
+- **Cache:** [Cache hit rate goals]
 
-### Escalabilidade
+### Scalability
 
-- **Carga Esperada:** [Usuários, requests, volume de dados]
-- **Projeções de Crescimento:** [Previsão de 12 meses]
-- **Estratégia de Escala:** [Horizontal/vertical, auto-scaling]
+- **Expected Load:** [Users, requests, data volume]
+- **Growth Projections:** [12-month forecast]
+- **Scaling Strategy:** [Horizontal/vertical, auto-scaling]
 
-### Considerações de Dados
+### Data Considerations
 
-**Modelo de Dados:**
-- [Entidades chave e relacionamentos]
+**Data Model:**
 
-**Requisitos de Armazenamento:**
-- [Necessidades estimadas de armazenamento]
-- [Políticas de retenção]
+- [Key entities and relationships]
 
-**Migração de Dados:**
-- [Plano de migração se atualizando dados existentes]
-- [Estratégia de rollback]
+**Storage Requirements:**
 
-**Privacidade & Compliance:**
-- Tratamento de PII: [Como dados pessoais são tratados]
-- Exclusão de dados: [Processo de exclusão de dados do usuário]
-- Audit logging: [O que é logado e retido]
+- [Estimated storage needs]
+- [Retention policies]
+
+**Data Migration:**
+
+- [Migration plan if updating existing data]
+- [Rollback strategy]
+
+**Privacy & Compliance:**
+
+- PII Handling: [How personal data is handled]
+- Data Deletion: [User data deletion process]
+- Audit logging: [What is logged and retained]
 
 ---
 
-## Requisitos de Design & UX
+## Design & UX Requirements
 
-### Princípios de Experiência do Usuário
+### User Experience Principles
 
-[Princípios de UX chave guiando esta feature]
+[Key UX principles guiding this feature]
 
-### Fluxos de Usuário
+### User Flows
 
-**Fluxo Principal:**
-1. [Passo 1]
-2. [Passo 2]
-3. [Passo 3]
-4. [Estado final]
+**Main Flow:**
 
-**Fluxos Alternativos:**
-- [Cenário alternativo 1]
-- [Fluxo de tratamento de erro]
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+4. [End state]
 
-### Design Visual
+**Alternative Flows:**
 
-**Assets de Design:**
-- [Link para arquivos Figma/Sketch]
-- [Link para design system]
+- [Alternative scenario 1]
+- [Error handling flow]
 
-**Telas Principais:**
-- [Tela 1]: [Link para mockup]
-- [Tela 2]: [Link para mockup]
-- [Tela 3]: [Link para mockup]
+### Visual Design
 
-**Componentes do Design System:**
-- [Componente 1 do design system]
-- [Componente 2 do design system]
-- [Novos componentes necessários]
+**Design Assets:**
 
-### Padrões de Interação
+- [Link to Figma/Sketch files]
+- [Link to design system]
 
-- [Padrão 1: ex., "Clique para expandir"]
-- [Padrão 2: ex., "Arraste para reordenar"]
-- [Padrão 3: ex., "Edição inline"]
+**Key Screens:**
 
-### Acessibilidade (a11y)
+- [Screen 1]: [Link to mockup]
+- [Screen 2]: [Link to mockup]
+- [Screen 3]: [Link to mockup]
 
-**Requisitos:**
-- Conformidade WCAG 2.1 Nível AA
-- Suporte a navegação por teclado
-- Compatibilidade com screen reader
-- Ratios de contraste de cor (4.5:1 para texto)
-- Indicadores de foco visíveis
-- Texto alternativo para imagens
-- Estrutura HTML semântica
+**Design System Components:**
 
-**Testes:**
-- [ ] Teste de navegação apenas por teclado
-- [ ] Teste com screen reader (NVDA/JAWS)
-- [ ] Verificação de contraste de cor
-- [ ] Teste automatizado de a11y (axe/Lighthouse)
+- [Design system component 1]
+- [Design system component 2]
+- [New components required]
 
-### Design Responsivo
+### Interaction Patterns
+
+- [Pattern 1: e.g., "Click to expand"]
+- [Pattern 2: e.g., "Drag to reorder"]
+- [Pattern 3: e.g., "Inline editing"]
+
+### Accessibility (a11y)
+
+**Requirements:**
+
+- WCAG 2.1 Level AA Compliance
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast ratios (4.5:1 for text)
+- Visible focus indicators
+- Alt text for images
+- Semantic HTML structure
+
+**Testing:**
+
+- [ ] Keyboard-only navigation test
+- [ ] Screen reader test (NVDA/JAWS)
+- [ ] Color contrast verification
+- [ ] Automated a11y test (axe/Lighthouse)
+
+### Responsive Design
 
 **Breakpoints:**
+
 - Mobile: 320px - 767px
 - Tablet: 768px - 1023px
 - Desktop: 1024px+
 
-**Considerações Específicas por Plataforma:**
-- [Requisitos específicos iOS]
-- [Requisitos específicos Android]
-- [Requisitos específicos Web]
+**Platform-Specific Considerations:**
+
+- [iOS specific requirements]
+- [Android specific requirements]
+- [Web specific requirements]
 
 ---
 
 ## Timeline & Milestones
 
-**Data de Lançamento Alvo:** [YYYY-MM-DD ou Q#]
+**Target Launch Date:** [YYYY-MM-DD or Q#]
 
-### Fases
+### Phases
 
-| Fase | Entregas | Responsável | Data Início | Data Fim |
-|------|----------|-------------|-------------|----------|
-| **Discovery** | Requisitos finalizados, design aprovado | PM/Design | [Data] | [Data] |
-| **Design** | Mockups high-fidelity, teste com usuários | Design | [Data] | [Data] |
-| **Desenvolvimento** | Implementação backend + frontend | Engenharia | [Data] | [Data] |
-| **QA** | Testes completos, bugs resolvidos | QA | [Data] | [Data] |
-| **Beta** | Teste beta com usuários selecionados | PM/QA | [Data] | [Data] |
-| **Lançamento** | Release para produção | Engenharia | [Data] | [Data] |
-| **Pós-Lançamento** | Monitoramento, iteração baseada em dados | PM/Engenharia | [Data] | [Data] |
+| Phase           | Deliverables                            | Owner          | Start Date | End Date |
+| --------------- | --------------------------------------- | -------------- | ---------- | -------- |
+| **Discovery**   | Finalized requirements, approved design | PM/Design      | [Date]     | [Date]   |
+| **Design**      | High-fidelity mockups, user testing     | Design         | [Date]     | [Date]   |
+| **Development** | Backend + frontend implementation       | Engineering    | [Date]     | [Date]   |
+| **QA**          | Full testing, bugs resolved             | QA             | [Date]     | [Date]   |
+| **Beta**        | Beta test with selected users           | PM/QA          | [Date]     | [Date]   |
+| **Launch**      | Production release                      | Engineering    | [Date]     | [Date]   |
+| **Post-Launch** | Monitoring, data-driven iteration       | PM/Engineering | [Date]     | [Date]   |
 
-### Milestones Principais
+### Key Milestones
 
-- **[Data]:** Reunião de kickoff
-- **[Data]:** Review de design
-- **[Data]:** Review de design técnico
-- **[Data]:** Desenvolvimento completo
-- **[Data]:** QA completo
-- **[Data]:** Lançamento beta
-- **[Data]:** General availability
-- **[Data]:** Review pós-lançamento
-
----
-
-## Riscos & Mitigação
-
-| Risco | Impacto | Probabilidade | Estratégia de Mitigação | Responsável |
-|-------|---------|---------------|------------------------|-------------|
-| [Risco 1: ex., "Atrasos do parceiro de API"] | Alto | Médio | [Estratégia: ex., "Construir com mock data, trocar quando pronto"] | [Nome] |
-| [Risco 2] | Médio | Alto | [Estratégia] | [Nome] |
-| [Risco 3] | Baixo | Baixo | [Estratégia] | [Nome] |
-
-### Planos de Contingência
-
-**Se [cenário ocorrer]:**
-- Plano de ação: [Passos a tomar]
-- Tomador de decisão: [Quem decide]
-- Gatilho: [O que indica este cenário]
+- **[Date]:** Kickoff meeting
+- **[Date]:** Design review
+- **[Date]:** Technical design review
+- **[Date]:** Development complete
+- **[Date]:** QA complete
+- **[Date]:** Beta launch
+- **[Date]:** General availability
+- **[Date]:** Post-launch review
 
 ---
 
-## Dependências & Premissas
+## Risks & Mitigation
 
-### Dependências
+| Risk                                 | Impact | Probability | Mitigation Strategy                                       | Owner  |
+| ------------------------------------ | ------ | ----------- | --------------------------------------------------------- | ------ |
+| [Risk 1: e.g., "API partner delays"] | High   | Medium      | [Strategy: e.g., "Build with mock data, swap when ready"] | [Name] |
+| [Risk 2]                             | Medium | High        | [Strategy]                                                | [Name] |
+| [Risk 3]                             | Low    | Low         | [Strategy]                                                | [Name] |
 
-**Internas:**
-- [ ] [Dependência 1: ex., "Atualização do design system"]
-- [ ] [Dependência 2: ex., "Conclusão da API v2"]
-- [ ] [Dependência 3]
+### Contingency Plans
 
-**Externas:**
-- [ ] [Dependência 1: ex., "Aprovação de API de terceiro"]
-- [ ] [Dependência 2]
+**If [scenario occurs]:**
 
-### Premissas
-
-- [Premissa 1: ex., "Usuários atualizaram para versão 2.0+ do app"]
-- [Premissa 2: ex., "Budget aprovado para custos de infraestrutura de $X"]
-- [Premissa 3]
+- Action plan: [Steps to take]
+- Decision maker: [Who decides]
+- Trigger: [What indicates this scenario]
 
 ---
 
-## Perguntas em Aberto
+## Dependencies & Assumptions
 
-Acompanhe itens não resolvidos que precisam de decisões:
+### Dependencies
 
-- [ ] **[Pergunta 1]**
-  - **Contexto:** [Por que isso importa]
-  - **Opções:** [Liste opções sendo consideradas]
-  - **Responsável:** [Quem decidirá]
-  - **Prazo:** [Quando a decisão é necessária]
+**Internal:**
 
-- [ ] **[Pergunta 2]**
-  - **Contexto:**
-  - **Opções:**
-  - **Responsável:**
-  - **Prazo:**
+- [ ] [Dependency 1: e.g., "Design system update"]
+- [ ] [Dependency 2: e.g., "API v2 completion"]
+- [ ] [Dependency 3]
 
----
+**External:**
 
-## Aprovação de Stakeholders
+- [ ] [Dependency 1: e.g., "Third-party API approval"]
+- [ ] [Dependency 2]
 
-| Stakeholder | Cargo | Status da Review | Aprovado | Data |
-|-------------|-------|------------------|----------|------|
-| [Nome] | Product Lead | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | Engineering Lead | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | Design Lead | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | QA Lead | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | Segurança | ⏳ Pendente / ✅ Completo | ☐ | - |
-| [Nome] | Jurídico/Compliance | ⏳ Pendente / ✅ Completo | ☐ | - |
+### Assumptions
+
+- [Assumption 1: e.g., "Users updated to version 2.0+ of the app"]
+- [Assumption 2: e.g., "Budget approved for infrastructure costs of $X"]
+- [Assumption 3]
 
 ---
 
-## Apêndice
+## Open Questions
 
-### Referências
+Track unresolved items that need decisions:
 
-- [Link para findings de pesquisa de usuário]
-- [Link para análise competitiva]
-- [Link para pesquisa de mercado]
-- [Link para doc de design técnico]
+- [ ] **[Question 1]**
+- **Context:** [Why this matters]
+- **Options:** [List options being considered]
+- **Owner:** [Who will decide]
+- **Deadline:** [When the decision is needed]
 
-### Documentos Relacionados
-
-- [Link para arquivos de design]
-- [Link para documentação de API]
-- [Link para plano de testes]
-
-### Glossário
-
-- **[Termo 1]:** [Definição]
-- **[Termo 2]:** [Definição]
-- **[Termo 3]:** [Definição]
-
-### Log de Alterações
-
-| Versão | Data | Autor | Alterações |
-|--------|------|-------|------------|
-| 1.0 | [YYYY-MM-DD] | [Nome] | Draft inicial |
-| 1.1 | [YYYY-MM-DD] | [Nome] | [Alterações feitas] |
+- [ ] **[Question 2]**
+- **Context:**
+- **Options:**
+- **Owner:**
+- **Deadline:**
 
 ---
 
-## Notas de Uso do Documento
+## Stakeholder Approval
 
-**Quando usar este template:**
-- Novas features principais
-- Novos produtos
-- Melhorias significativas de produto
-- Iniciativas cross-funcionais
+| Stakeholder | Role             | Review Status            | Approved | Date |
+| ----------- | ---------------- | ------------------------ | -------- | ---- |
+| [Name]      | Product Lead     | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | Engineering Lead | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | Design Lead      | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | QA Lead          | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | Security         | ⏳ Pending / ✅ Complete | ☐        | -    |
+| [Name]      | Legal/Compliance | ⏳ Pending / ✅ Complete | ☐        | -    |
 
-**Quando NÃO usar este template:**
-- Correções de bugs menores
-- Pequenos ajustes de UI
-- Tarefas de manutenção
-- Testes A/B simples
+---
 
-**Customização:**
-- Remova seções não relevantes para seu projeto
-- Adicione seções específicas para seu domínio
-- Ajuste nível de detalhe baseado no escopo do projeto
-- Use formato "Lean PRD" para projetos menores
+## Appendix
 
-**Melhores Práticas:**
-- Comece com o problema, não a solução
-- Mantenha conciso mas completo
-- Use linguagem específica e mensurável
-- Inclua auxílios visuais (mockups, diagramas)
-- Revise com todos os stakeholders
-- Mantenha atualizado conforme entendimento evolui
+### References
+
+- [Link to user research findings]
+- [Link to competitive analysis]
+- [Link to market research]
+- [Link to technical design doc]
+
+### Related Documents
+
+- [Link to design files]
+- [Link to API documentation]
+- [Link to test plan]
+
+### Glossary
+
+- **[Term 1]:** [Definition]
+- **[Term 2]:** [Definition]
+- **[Term 3]:** [Definition]
+
+### Change Log
+
+| Version | Date         | Author | Changes        |
+| ------- | ------------ | ------ | -------------- |
+| 1.0     | [YYYY-MM-DD] | [Name] | Initial draft  |
+| 1.1     | [YYYY-MM-DD] | [Name] | [Changes made] |
+
+---
+
+## Document Usage Notes
+
+**When to use this template:**
+
+- New major features
+- New products
+- Significant product enhancements
+- Cross-functional initiatives
+
+**When NOT to use this template:**
+
+- Minor bug fixes
+- Small UI tweaks
+- Maintenance tasks
+- Simple A/B tests
+
+**Customization:**
+
+- Remove sections not relevant to your project
+- Add specific sections for your domain
+- Adjust level of detail based on project scope
+- Use "Lean PRD" format for smaller projects
+
+**Best Practices:**
+
+- Start with the problem, not the solution
+- Keep it concise but complete
+- Use specific and measurable language
+- Include visual aids (mockups, diagrams)
+- Review with all stakeholders
+- Keep it updated as understanding evolves

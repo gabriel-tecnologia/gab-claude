@@ -1,75 +1,75 @@
-# Listar Issues de uma Pessoa
+# List Issues for a Person
 
-Liste todas as issues atribuídas a uma pessoa específica no Linear.
+List all issues assigned to a specific person in Linear.
 
 ## Input
 
 $ARGUMENTS
 
-## Instruções
+## Instructions
 
-### 1. Identificar Assignee
+### 1. Identify Assignee
 
-- Se `$ARGUMENTS` estiver vazio:
-  1. Use `mcp__linear__get_user` com `query: "me"` para obter o usuário atual
-  2. Use o email retornado como filtro de assignee
-- Se `$ARGUMENTS` fornecido, use o valor como filtro (nome ou email)
+- If `$ARGUMENTS` is empty:
+  1. Use `mcp__linear__get_user` with `query: "me"` to get the current user
+  2. Use the returned email as the assignee filter
+- If `$ARGUMENTS` is provided, use the value as filter (name or email)
 
-### 2. Buscar Issues
+### 2. Fetch Issues
 
-Use `mcp__linear__list_issues` com:
+Use `mcp__linear__list_issues` with:
 
-- `assignee`: valor identificado no passo 1
-- `limit`: 50 (ou mais se necessário)
+- `assignee`: value identified in step 1
+- `limit`: 50 (or more if necessary)
 
-**IMPORTANTE**: Ignore issues com estado "Completed", "Done", "Canceled" ou "Cancelled". Mostre apenas issues ativas.
+**IMPORTANT**: Ignore issues with state "Completed", "Done", "Canceled" or "Cancelled". Show only active issues.
 
-### 3. Ordenar e Exibir Resultado
+### 3. Sort and Display Result
 
-**Ordenação das linhas** (nesta ordem de prioridade):
+**Row ordering** (in this priority order):
 
-1. **Time** (alfabética)
-2. **Status** (In Progress > In Review > Refinamento > Detalhamento > Planejado > Todo > Backlog > Ideia)
-3. **Prioridade** (Urgent > High > Medium > Low > sem prioridade)
-4. **Due Date** (com data primeiro, sem data depois)
-5. **Título** (alfabética)
+1. **Team** (alphabetical)
+2. **Status** (In Progress > In Review > Refinement > Detailing > Planned > Todo > Backlog > Idea)
+3. **Priority** (Urgent > High > Medium > Low > no priority)
+4. **Due Date** (with date first, without date last)
+5. **Title** (alphabetical)
 
-**Formato** (tabela única com issues ordenadas):
+**Format** (single table with sorted issues):
 
-# Issues de [NOME_PESSOA]
+# Issues for [PERSON_NAME]
 
-| Time | Status      | Prioridade | Due Date   | Título                 | Labels | URL |
-| ---- | ----------- | ---------- | ---------- | ---------------------- | ------ | --- |
-| AAA  | In Progress | High       | 2025-01-25 | AAA-10 Título da issue | Label1 | url |
-| AAA  | Todo        | Medium     | -          | AAA-20 Título da issue | Label2 | url |
-| BBB  | In Progress | High       | -          | BBB-15 Título da issue | -      | url |
+| Team | Status      | Priority | Due Date   | Title              | Labels | URL |
+| ---- | ----------- | -------- | ---------- | ------------------ | ------ | --- |
+| AAA  | In Progress | High     | 2025-01-25 | AAA-10 Issue title | Label1 | url |
+| AAA  | Todo        | Medium   | -          | AAA-20 Issue title | Label2 | url |
+| BBB  | In Progress | High     | -          | BBB-15 Issue title | -      | url |
 
-**Colunas:**
+**Columns:**
 
-- Time: sigla do time
-- Status: estado atual
-- Prioridade: se não definida, usar `-`
-- Due Date: se não definida, usar `-`
-- Título: identificador + título da issue
-- Labels: se não existirem, usar `-`
-- URL: `[link](url)` (última coluna)
+- Team: team abbreviation
+- Status: current state
+- Priority: if not defined, use `-`
+- Due Date: if not defined, use `-`
+- Title: identifier + issue title
+- Labels: if none exist, use `-`
+- URL: `[link](url)` (last column)
 
-### 4. Resumo
+### 4. Summary
 
-Ao final, mostre um resumo em tabela com os status encontrados:
+At the end, show a summary table with the found statuses:
 
-## Resumo
+## Summary
 
-| Team      | Total  | In Progress | In Review | Detalhamento | Planejado | Ideia  |
-| --------- | ------ | ----------- | --------- | ------------ | --------- | ------ |
-| AAA       | X      | Y           | -         | Z            | W         | V      |
-| BBB       | X      | Y           | -         | Z            | W         | V      |
-| **Total** | **XX** | **YY**      | **-**     | **ZZ**       | **WW**    | **VV** |
+| Team      | Total  | In Progress | In Review | Detailing | Planned | Idea   |
+| --------- | ------ | ----------- | --------- | --------- | ------- | ------ |
+| AAA       | X      | Y           | -         | Z         | W       | V      |
+| BBB       | X      | Y           | -         | Z         | W       | V      |
+| **Total** | **XX** | **YY**      | **-**     | **ZZ**    | **WW**  | **VV** |
 
-**Nota:** Inclua apenas colunas de status que existam nas issues retornadas.
+**Note:** Include only status columns that exist in the returned issues.
 
-## Exemplos de Uso
+## Usage Examples
 
-- `/linear-my-issues` → lista issues ativas do usuário logado (detecta email automaticamente)
-- `/linear-my-issues joao@gabriel.com.br` → issues ativas do João
-- `/linear-my-issues Maria` → issues ativas da Maria
+- `/linear-my-issues` → list active issues for the logged-in user (detects email automatically)
+- `/linear-my-issues john@gabriel.com.br` → John's active issues
+- `/linear-my-issues Maria` → Maria's active issues

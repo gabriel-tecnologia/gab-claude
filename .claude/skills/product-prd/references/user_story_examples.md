@@ -1,684 +1,769 @@
-# Exemplos de User Stories & Melhores Práticas
+# User Story Examples & Best Practices
 
-Um guia abrangente para escrever user stories eficazes com exemplos do mundo real em diferentes domínios.
-
----
-
-## Índice
-
-1. [Formato de User Story](#formato-de-user-story)
-2. [Anatomia de Boas User Stories](#anatomia-de-boas-user-stories)
-3. [Exemplos por Domínio](#exemplos-por-domínio)
-4. [Padrões de Critérios de Aceitação](#padrões-de-critérios-de-aceitação)
-5. [Erros Comuns](#erros-comuns)
-6. [Divisão de Stories](#divisão-de-stories)
+A comprehensive guide to writing effective user stories with real-world examples across different domains.
 
 ---
 
-## Formato de User Story
+## Table of Contents
 
-### Template Padrão
+1. [User Story Format](https://www.google.com/search?q=%23user-story-format)
+2. [Anatomy of Good User Stories](https://www.google.com/search?q=%23anatomy-of-good-user-stories)
+3. [Examples by Domain](https://www.google.com/search?q=%23examples-by-domain)
+4. [Acceptance Criteria Patterns](https://www.google.com/search?q=%23acceptance-criteria-patterns)
+5. [Common Mistakes](https://www.google.com/search?q=%23common-mistakes)
+6. [Splitting Stories](https://www.google.com/search?q=%23splitting-stories)
 
-Aqui está o template padrão para nossas user stories
+---
+
+## User Story Format
+
+### Standard Template
+
+Here is the standard template for our user stories:
 
 ```
-# User Story: [Nome da US]
+# User Story: [US Name]
 
-> **Produto:** [nome do produto]
-> **Autor:** [Nome]
-> **Criado em:** YYYY-MM-DD
+> **Product:** [Product Name]
+> **Author:** [Name]
+> **Created on:** YYYY-MM-DD
 > **Status:** Draft | Under Review | Approved | In Development | Delivered
 
 ---
 
-## 1. Descrição do Problema
+## 1. Problem Description
 
-Contextualize o problema de negócio ou técnico que esta story resolve. Seja específico sobre o impacto atual (ex: taxa de erro, tempo perdido, reclamações) e o cenário desejado após implementação.
+Contextualize the business or technical problem this story solves. Be specific about the current impact (e.g., error rate, time lost, complaints) and the desired scenario after implementation.
 
-## 2. Caso de Uso
+## 2. Use Case
 
-Descreva uma situação real ou representativa de um usuário enfrentando o pain point. Inclua: quem é o usuário, o que ele estava tentando fazer, o que deu errado, e como isso o afetou. Isso humaniza o problema e alinha o time na motivação.
+Describe a real or representative situation of a user facing the pain point. Include: who the user is, what they were trying to do, what went wrong, and how it affected them. This humanizes the problem and aligns the team on the motivation.
 
 ## 3. Definition of Ready (DoR)
 
-Estes critérios tendem a não mudar. São checkboxes para garantir que a story está pronta para desenvolvimento.
+These criteria tend to remain constant. They are checkboxes to ensure the story is ready for development.
 
-- [ ] Requisitos claros e sem ambiguidade
-- [ ] Protótipos/wireframes aprovados (se aplicável)
-- [ ] Critérios de aceitação definidos e validados com stakeholders
-- [ ] Estimativa de esforço completada pelo time
+- [ ] Clear and unambiguous requirements
+- [ ] Approved prototypes/wireframes (if applicable)
+- [ ] Acceptance criteria defined and validated with stakeholders
+- [ ] Effort estimation completed by the team
 
-## 4. Critérios de Aceitação
+## 4. Acceptance Criteria
 
-Expectativas específicas que definem o comportamento correto da feature, escritas da perspectiva do usuário. Aqui, definimos o que determina que a tarefa está completa.
+Specific expectations that define the correct behavior of the feature, written from the user's perspective. Here, we define what determines that the task is complete.
 
-- [ ] Dado [contexto inicial], quando [ação do usuário], então [resultado esperado]
-- [ ] Cenários de erro e edge cases cobertos
-- [ ] Requisitos de performance (se aplicável)
+- [ ] Given [initial context], when [user action], then [expected result]
+- [ ] Error scenarios and edge cases covered
+- [ ] Performance requirements (if applicable)
 
 ## 5. Definition of Done (DoD)
 
-Estes critérios tendem a não mudar. São checkboxes para garantir que a story está verdadeiramente completa em todas suas dimensões, não apenas na escrita do código:
+These criteria tend to remain constant. They are checkboxes to ensure the story is truly complete in all its dimensions, not just code-wise:
 
-- [ ] Código revisado (code review aprovado)
-- [ ] Testes automatizados implementados (unit/integration)
-- [ ] Documentação atualizada (API, README, Notion)
-- [ ] Deploy em ambiente de staging validado
-- [ ] Stakeholders da story notificados / release notes escritas
+- [ ] Code reviewed (approved code review)
+- [ ] Automated tests implemented (unit/integration)
+- [ ] Documentation updated (API, README, Notion)
+- [ ] Deployment to staging environment validated
+- [ ] Story stakeholders notified / release notes written
+
 
 ```
 
 ---
 
-## Anatomia de Boas User Stories
+## Anatomy of Good User Stories
 
-### Critérios INVEST
+### INVEST Criteria
 
-Boas user stories são:
+Good user stories are:
 
-- **Independent:** Podem ser desenvolvidas e entregues separadamente
-- **Negotiable:** Detalhes podem ser discutidos e ajustados
-- **Valuable:** Entregam valor claro para usuários ou negócio
-- **Estimable:** Podem ser dimensionadas/estimadas pelo time
-- **Small:** Podem ser completadas em uma iteração/sprint
-- **Testable:** Têm critérios de aceitação claros
+- **Independent:** Can be developed and delivered separately
+- **Negotiable:** Details can be discussed and adjusted
+- **Valuable:** Deliver clear value to users or the business
+- **Estimable:** Can be sized/estimated by the team
+- **Small:** Can be completed in one iteration/sprint
+- **Testable:** Have clear acceptance criteria
 
-### Componentes Chave
+### Key Components
 
-1. **Tipo de Usuário:** Quem é o usuário? Seja específico.
-2. **Ação:** O que eles querem fazer? Uma ação clara.
-3. **Valor:** Por que eles querem isso? O benefício ou resultado.
-4. **Critérios de Aceitação:** Como sabemos que está pronto? Condições testáveis.
+1. **User Type:** Who is the user? Be specific.
+2. **Action:** What do they want to do? A clear action.
+3. **Value:** Why do they want it? The benefit or result.
+4. **Acceptance Criteria:** How do we know it's ready? Testable conditions.
 
 ---
 
-## Exemplos por Domínio
+## Examples by Domain
 
 ### E-Commerce
 
-#### Exemplo 1: Busca de Produto
+#### Example 1: Product Search
 
 **User Story:**
+
 ```
-Como comprador online,
-Quero filtrar produtos por faixa de preço,
-Para que eu possa encontrar itens dentro do meu orçamento.
+As an online shopper,
+I want to filter products by price range,
+So that I can find items within my budget.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que estou na página de listagem de produtos, quando defino um preço mínimo e máximo, então apenas produtos dentro dessa faixa são exibidos
-- [ ] Dado que apliquei um filtro de preço, quando limpo o filtro, então todos os produtos são mostrados novamente
-- [ ] Dado que defino uma faixa de preço inválida (min > max), quando aplico o filtro, então vejo uma mensagem de erro
-- [ ] Filtro de preço persiste quando navego entre páginas de resultados
-- [ ] Filtro exibe contagem de produtos correspondentes aos critérios
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I am on the product listing page, when I set a minimum and maximum price, then only products within that range are displayed.
+- [ ] Given I have applied a price filter, when I clear the filter, then all products are shown again.
+- [ ] Given I set an invalid price range (min > max), when I apply the filter, then I see an error message.
+- [ ] Price filter persists when navigating between results pages.
+- [ ] Filter displays the count of products matching the criteria.
+
+**Priority:** High
 
 ---
 
-#### Exemplo 2: Checkout como Convidado
+#### Example 2: Guest Checkout
 
 **User Story:**
+
 ```
-Como cliente de primeira vez,
-Quero fazer checkout sem criar uma conta,
-Para que eu possa completar minha compra rapidamente.
+As a first-time customer,
+I want to check out without creating an account,
+So that I can complete my purchase quickly.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que tenho itens no carrinho, quando clico em checkout, então vejo opções para "Checkout como Convidado" e "Entrar"
-- [ ] Dado que escolho checkout como convidado, quando insiro informações de envio e pagamento, então posso completar o pedido
-- [ ] Dado que completo um checkout como convidado, quando o pedido é feito, então recebo um email de confirmação
-- [ ] Após checkout como convidado, vejo uma opção para criar uma conta com minhas informações do pedido
-- [ ] Fluxo de checkout como convidado leva no máximo 3 telas
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I have items in the cart, when I click on checkout, then I see options for "Guest Checkout" and "Log In".
+- [ ] Given I choose guest checkout, when I enter shipping and payment information, then I can complete the order.
+- [ ] Given I complete a guest checkout, when the order is placed, then I receive a confirmation email.
+- [ ] After guest checkout, I see an option to create an account using my order information.
+- [ ] Guest checkout flow takes a maximum of 3 screens.
+
+**Priority:** High
 
 ---
 
-### SaaS / Plataforma B2B
+### SaaS / B2B Platform
 
-#### Exemplo 3: Colaboração em Time
+#### Example 3: Team Collaboration
 
 **User Story:**
+
 ```
-Como gerente de projeto,
-Quero atribuir tarefas a membros do time,
-Para que todos saibam suas responsabilidades.
+As a project manager,
+I want to assign tasks to team members,
+So that everyone knows their responsibilities.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que estou visualizando uma tarefa, quando clico em "Atribuir", então vejo uma lista de membros do time
-- [ ] Dado que seleciono um membro do time, quando confirmo a atribuição, então ele recebe uma notificação
-- [ ] Dado que uma tarefa está atribuída, quando visualizo a lista de tarefas, então posso ver quem está atribuído a cada tarefa
-- [ ] Dado que sou um membro do time, quando sou atribuído a uma tarefa, então ela aparece na minha visualização "Minhas Tarefas"
-- [ ] Posso atribuir múltiplas pessoas a uma única tarefa
-- [ ] Posso mudar ou remover atribuições de tarefas
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I am viewing a task, when I click "Assign," then I see a list of team members.
+- [ ] Given I select a team member, when I confirm the assignment, then they receive a notification.
+- [ ] Given a task is assigned, when I view the task list, then I can see who is assigned to each task.
+- [ ] Given I am a team member, when I am assigned to a task, then it appears in my "My Tasks" view.
+- [ ] I can assign multiple people to a single task.
+- [ ] I can change or remove task assignments.
+
+**Priority:** High
 
 ---
 
-#### Exemplo 4: Analytics de Uso
+#### Example 4: Usage Analytics
 
 **User Story:**
+
 ```
-Como administrador SaaS,
-Quero visualizar analytics de uso do time,
-Para que eu possa otimizar nosso plano de assinatura.
+As a SaaS administrator,
+I want to view team usage analytics,
+So that I can optimize our subscription plan.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que tenho permissões de admin, quando navego para analytics, então vejo métricas de uso dos últimos 30 dias
-- [ ] Dashboard mostra: usuários ativos, uso de features, chamadas de API, e storage usado
-- [ ] Dado que seleciono um intervalo de datas, quando aplico o filtro, então métricas atualizam conforme
-- [ ] Posso exportar dados de analytics como CSV
-- [ ] Métricas atualizam em tempo real (máximo 5 minutos de delay)
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I have admin permissions, when I navigate to analytics, then I see usage metrics for the last 30 days.
+- [ ] Dashboard shows: active users, feature usage, API calls, and storage used.
+- [ ] Given I select a date range, when I apply the filter, then metrics update accordingly.
+- [ ] I can export analytics data as a CSV.
+- [ ] Metrics update in real-time (maximum 5-minute delay).
+
+**Priority:** High
 
 ---
 
-### App Mobile
+### Mobile App
 
-#### Exemplo 5: Push Notifications
+#### Example 5: Push Notifications
 
 **User Story:**
+
 ```
-Como usuário de app mobile,
-Quero customizar quais notificações recebo,
-Para que eu veja apenas atualizações relevantes.
+As a mobile app user,
+I want to customize which notifications I receive,
+So that I only see relevant updates.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que estou nas configurações, quando navego para notificações, então vejo toggles para cada tipo de notificação
-- [ ] Tipos de notificação incluem: mensagens, menções, atualizações, promoções
-- [ ] Dado que desabilito um tipo de notificação, quando esse evento ocorre, então não recebo uma push notification
-- [ ] Configurações sincronizam entre dispositivos usando a mesma conta
-- [ ] Configurações padrão são: mensagens ON, menções ON, atualizações ON, promoções OFF
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I am in settings, when I navigate to notifications, then I see toggles for each notification type.
+- [ ] Notification types include: messages, mentions, updates, promotions.
+- [ ] Given I disable a notification type, when that event occurs, then I do not receive a push notification.
+- [ ] Settings sync across devices using the same account.
+- [ ] Default settings are: messages ON, mentions ON, updates ON, promotions OFF.
+
+**Priority:** High
 
 ---
 
-#### Exemplo 6: Modo Offline
+#### Example 6: Offline Mode
 
 **User Story:**
+
 ```
-Como usuário mobile com conectividade instável,
-Quero acessar meu conteúdo visualizado recentemente offline,
-Para que eu possa continuar usando o app sem internet.
+As a mobile user with unstable connectivity,
+I want to access my recently viewed content offline,
+So that I can continue using the app without internet.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que visualizei conteúdo enquanto online, quando fico offline, então ainda posso acessar os últimos 50 itens visualizados
-- [ ] Dado que estou offline, quando tento acessar novo conteúdo, então vejo uma mensagem "Sem conexão" com conteúdo em cache
-- [ ] Dado que estou offline e faço alterações, quando reconecto, então alterações sincronizam automaticamente
-- [ ] Indicador de offline aparece no app quando conectividade é perdida
-- [ ] Conteúdo em cache é automaticamente limpo após 7 dias
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I viewed content while online, when I go offline, then I can still access the last 50 viewed items.
+- [ ] Given I am offline, when I try to access new content, then I see a "No connection" message with cached content.
+- [ ] Given I am offline and make changes, when I reconnect, then changes sync automatically.
+- [ ] Offline indicator appears in the app when connectivity is lost.
+- [ ] Cached content is automatically cleared after 7 days.
+
+**Priority:** High
 
 ---
 
-### Autenticação & Segurança
+### Authentication & Security
 
-#### Exemplo 7: Autenticação de Dois Fatores
+#### Example 7: Two-Factor Authentication
 
 **User Story:**
+
 ```
-Como usuário consciente de segurança,
-Quero habilitar autenticação de dois fatores,
-Para que minha conta seja protegida de acesso não autorizado.
+As a security-conscious user,
+I want to enable two-factor authentication,
+So that my account is protected from unauthorized access.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que estou nas configurações de segurança, quando habilito 2FA, então posso escolher entre SMS e app autenticador
-- [ ] Dado que escolho app autenticador, quando escaneio o QR code, então devo inserir um código de verificação para ativar
-- [ ] Dado que 2FA está habilitado, quando faço login, então sou solicitado pelo meu segundo fator
-- [ ] Recebo códigos de backup quando ativo 2FA
-- [ ] Posso desabilitar 2FA com minha senha atual + código 2FA
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I am in security settings, when I enable 2FA, then I can choose between SMS and an authenticator app.
+- [ ] Given I choose an authenticator app, when I scan the QR code, then I must enter a verification code to activate.
+- [ ] Given 2FA is enabled, when I log in, then I am prompted for my second factor.
+- [ ] I receive backup codes when I activate 2FA.
+- [ ] I can disable 2FA with my current password + 2FA code.
+
+**Priority:** High
 
 ---
 
-#### Exemplo 8: Reset de Senha
+#### Example 8: Password Reset
 
 **User Story:**
+
 ```
-Como usuário que esqueceu minha senha,
-Quero resetá-la via email,
-Para que eu possa recuperar acesso à minha conta.
+As a user who forgot my password,
+I want to reset it via email,
+So that I can regain access to my account.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que clico em "Esqueci Senha", quando insiro meu email, então recebo um link de reset em até 5 minutos
-- [ ] Link de reset expira após 24 horas
-- [ ] Dado que clico no link de reset, quando insiro uma nova senha, então ela deve atender aos requisitos de senha (mostrados na tela)
-- [ ] Após reset bem-sucedido, sou logado automaticamente
-- [ ] Se email não existe no sistema, mostrar mensagem genérica (não revelar se conta existe)
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I click on "Forgot Password," when I enter my email, then I receive a reset link within 5 minutes.
+- [ ] Reset link expires after 24 hours.
+- [ ] Given I click the reset link, when I enter a new password, then it must meet the password requirements (shown on screen).
+- [ ] After a successful reset, I am logged in automatically.
+- [ ] If the email does not exist in the system, show a generic message (do not reveal if the account exists).
+
+**Priority:** High
 
 ---
 
-### Conteúdo & Mídia
+### Content & Media
 
-#### Exemplo 9: Upload de Vídeo
+#### Example 9: Video Upload
 
 **User Story:**
+
 ```
-Como criador de conteúdo,
-Quero fazer upload de vídeos com acompanhamento de progresso,
-Para que eu saiba quando meu upload está completo.
+As a content creator,
+I want to upload videos with progress tracking,
+So that I know when my upload is complete.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que seleciono um arquivo de vídeo, quando clico em upload, então vejo uma barra de progresso mostrando porcentagem completa
-- [ ] Formatos suportados: MP4, MOV, AVI (máx 2GB)
-- [ ] Dado que upload está em progresso, quando navego para fora, então upload continua em background
-- [ ] Dado que upload completa, quando processamento termina, então recebo uma notificação
-- [ ] Dado que upload falha, quando erro ocorre, então vejo mensagem de erro específica e posso tentar novamente
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I select a video file, when I click upload, then I see a progress bar showing percentage complete.
+- [ ] Supported formats: MP4, MOV, AVI (max 2GB).
+- [ ] Given an upload is in progress, when I navigate away, then the upload continues in the background.
+- [ ] Given the upload completes, when processing finishes, then I receive a notification.
+- [ ] Given the upload fails, when an error occurs, then I see a specific error message and can try again.
+
+**Priority:** High
 
 ---
 
-### Admin & Configuração
+### Admin & Configuration
 
-#### Exemplo 10: Permissões de Usuário
+#### Example 10: User Permissions
 
 **User Story:**
+
 ```
-Como administrador,
-Quero atribuir permissões baseadas em role a usuários,
-Para que membros do time tenham níveis de acesso apropriados.
+As an administrator,
+I want to assign role-based permissions to users,
+So that team members have appropriate access levels.
+
 ```
 
-**Critérios de Aceitação:**
-- [ ] Dado que estou visualizando um perfil de usuário, quando clico em "Mudar Role", então vejo roles disponíveis: Admin, Editor, Viewer
-- [ ] Dado que atribuo uma role, quando salvo, então usuário imediatamente ganha/perde permissões associadas
-- [ ] Admin: acesso total; Editor: criar/editar conteúdo; Viewer: somente leitura
-- [ ] Posso criar roles customizadas com combinações específicas de permissões
-- [ ] Audit log registra todas as mudanças de permissão com timestamp e admin que fez a mudança
+**Acceptance Criteria:**
 
-**Prioridade:** Alta
+- [ ] Given I am viewing a user profile, when I click "Change Role," then I see available roles: Admin, Editor, Viewer.
+- [ ] Given I assign a role, when I save, then the user immediately gains/loses associated permissions.
+- [ ] Admin: full access; Editor: create/edit content; Viewer: read-only.
+- [ ] I can create custom roles with specific combinations of permissions.
+- [ ] Audit log records all permission changes with a timestamp and the admin who made the change.
+
+**Priority:** High
 
 ---
 
-## Padrões de Critérios de Aceitação
+## Acceptance Criteria Patterns
 
-### Formato Given-When-Then
+### Given-When-Then Format
 
-Formato mais estruturado, excelente para lógica complexa:
-
-```
-Dado [contexto/estado inicial],
-Quando [ação/evento],
-Então [resultado esperado].
-```
-
-**Exemplo:**
-```
-Dado que sou um usuário logado com itens no meu carrinho,
-Quando aplico um código de desconto de 20%,
-Então o total do carrinho é reduzido em 20% e exibe o desconto.
-```
-
-### Formato Checklist
-
-Mais simples, bom para requisitos diretos:
+A more structured format, excellent for complex logic:
 
 ```
-- [ ] Requisito 1
-- [ ] Requisito 2
-- [ ] Tratamento de edge case
+Given [initial context/state],
+When [action/event],
+Then [expected result].
+
 ```
 
-### Formato Tabela
+**Example:**
 
-Ótimo para múltiplos cenários:
+```
+Given I am a logged-in user with items in my cart,
+When I apply a 20% discount code,
+Then the cart total is reduced by 20% and displays the discount.
 
-| Condição | Ação | Resultado Esperado |
-|----------|------|-------------------|
-| Email válido | Clicar "Enviar" | Mensagem de confirmação |
-| Email inválido | Clicar "Enviar" | Mensagem de erro |
-| Campo vazio | Clicar "Enviar" | Erro "Campo obrigatório" |
+```
+
+### Checklist Format
+
+Simpler, good for direct requirements:
+
+```
+- [ ] Requirement 1
+- [ ] Requirement 2
+- [ ] Edge case handling
+
+```
+
+### Table Format
+
+Great for multiple scenarios:
+
+| Condition     | Action       | Expected Result        |
+| ------------- | ------------ | ---------------------- |
+| Valid email   | Click "Send" | Confirmation message   |
+| Invalid email | Click "Send" | Error message          |
+| Empty field   | Click "Send" | "Required field" error |
 
 ---
 
-## Erros Comuns a Evitar
+## Common Mistakes to Avoid
 
-### ❌ Muito Técnico
+### ❌ Too Technical
 
-**Ruim:**
-```
-Como usuário,
-Quero que o sistema use cache Redis com TTL de 10 minutos,
-Para que carregamentos de página sejam rápidos.
-```
+**Bad:**
 
-**Bom:**
 ```
-Como usuário,
-Quero que páginas carreguem em menos de 2 segundos,
-Para que eu possa navegar eficientemente.
+As a user,
+I want the system to use Redis cache with a 10-minute TTL,
+So that page loads are fast.
+
 ```
 
-**Por quê:** User stories focam em valor do usuário, não implementação. Deixe engenheiros escolherem a solução.
+**Good:**
+
+```
+As a user,
+I want pages to load in less than 2 seconds,
+So that I can navigate efficiently.
+
+```
+
+**Why:** User stories focus on user value, not implementation. Let engineers choose the solution.
 
 ---
 
-### ❌ Muito Vago
+### ❌ Too Vague
 
-**Ruim:**
-```
-Como usuário,
-Quero que o app seja rápido,
-Para que eu tenha uma boa experiência.
-```
+**Bad:**
 
-**Bom:**
 ```
-Como usuário,
-Quero que resultados de busca apareçam em menos de 1 segundo,
-Para que eu possa rapidamente encontrar o que preciso.
+As a user,
+I want the app to be fast,
+So that I have a good experience.
+
 ```
 
-**Por quê:** "Rápido" é subjetivo. Seja específico e mensurável.
+**Good:**
+
+```
+As a user,
+I want search results to appear in less than 1 second,
+So that I can quickly find what I need.
+
+```
+
+**Why:** "Fast" is subjective. Be specific and measurable.
 
 ---
 
-### ❌ Faltando o "Por Quê"
+### ❌ Missing the "Why"
 
-**Ruim:**
-```
-Como usuário,
-Quero fazer upload de fotos de perfil.
-```
+**Bad:**
 
-**Bom:**
 ```
-Como usuário,
-Quero fazer upload de uma foto de perfil,
-Para que outros usuários possam me reconhecer na comunidade.
+As a user,
+I want to upload profile photos.
+
 ```
 
-**Por quê:** Entender o "por quê" ajuda o time a tomar melhores decisões.
+**Good:**
+
+```
+As a user,
+I want to upload a profile photo,
+So that other users can recognize me in the community.
+
+```
+
+**Why:** Understanding the "why" helps the team make better decisions.
 
 ---
 
-### ❌ Múltiplas Ações em Uma Story
+### ❌ Multiple Actions in One Story
 
-**Ruim:**
-```
-Como usuário,
-Quero criar uma conta, configurar meu perfil e convidar membros do time,
-Para que eu possa começar a usar a plataforma.
-```
+**Bad:**
 
-**Bom:** Divida em três stories:
 ```
-Story 1: Como usuário, quero criar uma conta...
-Story 2: Como usuário, quero configurar meu perfil...
-Story 3: Como dono de conta, quero convidar membros do time...
+As a user,
+I want to create an account, set up my profile, and invite team members,
+So that I can start using the platform.
+
 ```
 
-**Por quê:** Stories devem ser pequenas e focadas em uma capacidade.
+**Good:** Split into three stories:
+
+```
+Story 1: As a user, I want to create an account...
+Story 2: As a user, I want to set up my profile...
+Story 3: As an account owner, I want to invite team members...
+
+```
+
+**Why:** Stories should be small and focused on one capability.
 
 ---
 
-### ❌ Sem Critérios de Aceitação
+### ❌ No Acceptance Criteria
 
-**Ruim:**
-```
-Como usuário,
-Quero buscar por produtos,
-Para que eu possa encontrar o que preciso.
-```
+**Bad:**
 
-**Bom:** Adicione critérios específicos:
 ```
-Critérios de Aceitação:
-- [ ] Busca funciona em nome e descrição do produto
-- [ ] Resultados exibem em menos de 2 segundos
-- [ ] Exibe "Nenhum resultado encontrado" quando não há correspondências
-- [ ] Mostra top 20 resultados com paginação
+As a user,
+I want to search for products,
+So that I can find what I need.
+
 ```
 
-**Por quê:** Critérios de aceitação definem "pronto" e permitem testes.
+**Good:** Add specific criteria:
+
+```
+Acceptance Criteria:
+- [ ] Search works on product name and description.
+- [ ] Results display in less than 2 seconds.
+- [ ] Displays "No results found" when there are no matches.
+- [ ] Shows top 20 results with pagination.
+
+```
+
+**Why:** Acceptance criteria define "done" and enable testing.
 
 ---
 
-## Técnicas de Divisão de Stories
+## Story Splitting Techniques
 
-Quando uma story é muito grande, use estas técnicas para dividi-la:
+When a story is too large, use these techniques to split it:
 
-### 1. Por Etapas do Workflow
+### 1. By Workflow Steps
 
-**Story Grande:**
+**Large Story:**
+
 ```
-Como usuário, quero reservar um voo online.
+As a user, I want to book a flight online.
+
 ```
 
-**Stories Divididas:**
-- Buscar por voos
-- Selecionar voo
-- Inserir dados do passageiro
-- Escolher assento
-- Fazer pagamento
-- Receber confirmação
+**Split Stories:**
+
+- Search for flights
+- Select flight
+- Enter passenger data
+- Choose seat
+- Make payment
+- Receive confirmation
 
 ---
 
-### 2. Por Persona de Usuário
+### 2. By User Persona
 
-**Story Grande:**
+**Large Story:**
+
 ```
-Como usuário, quero gerenciar minhas assinaturas.
+As a user, I want to manage my subscriptions.
+
 ```
 
-**Stories Divididas:**
-- Como usuário gratuito, quero ver planos disponíveis
-- Como usuário pago, quero fazer upgrade do meu plano
-- Como admin, quero gerenciar assinaturas do time
+**Split Stories:**
+
+- As a free user, I want to see available plans.
+- As a paid user, I want to upgrade my plan.
+- As an admin, I want to manage team subscriptions.
 
 ---
 
-### 3. Por Regras de Negócio
+### 3. By Business Rules
 
-**Story Grande:**
+**Large Story:**
+
 ```
-Como usuário, quero aplicar códigos de desconto.
+As a user, I want to apply discount codes.
+
 ```
 
-**Stories Divididas:**
-- Aplicar desconto percentual (ex: 20% off)
-- Aplicar desconto de valor fixo (ex: R$10 off)
-- Aplicar desconto de frete grátis
-- Tratar códigos de desconto expirados
-- Limitar um desconto por pedido
+**Split Stories:**
+
+- Apply percentage discount (e.g., 20% off)
+- Apply fixed amount discount (e.g., $10 off)
+- Apply free shipping discount
+- Handle expired discount codes
+- Limit one discount per order
 
 ---
 
-### 4. Por Variações de Dados
+### 4. By Data Variations
 
-**Story Grande:**
+**Large Story:**
+
 ```
-Como usuário, quero importar contatos.
+As a user, I want to import contacts.
+
 ```
 
-**Stories Divididas:**
-- Importar de arquivo CSV
-- Importar do Google Contacts
-- Importar do Microsoft Outlook
-- Importar do LinkedIn
+**Split Stories:**
+
+- Import from CSV file
+- Import from Google Contacts
+- Import from Microsoft Outlook
+- Import from LinkedIn
 
 ---
 
-### 5. Por Operações CRUD
+### 5. By CRUD Operations
 
-**Story Grande:**
+**Large Story:**
+
 ```
-Como usuário, quero gerenciar meus projetos.
+As a user, I want to manage my projects.
+
 ```
 
-**Stories Divididas:**
-- Criar um novo projeto
-- Visualizar detalhes do projeto
-- Atualizar configurações do projeto
-- Excluir um projeto
+**Split Stories:**
+
+- Create a new project
+- View project details
+- Update project settings
+- Delete a project
 
 ---
 
-### 6. Por Happy Path / Edge Cases
+### 6. By Happy Path / Edge Cases
 
-**Story MVP (Happy Path):**
+**MVP Story (Happy Path):**
+
 ```
-Como usuário, quero fazer upload de uma foto de perfil (JPG, < 5MB).
+As a user, I want to upload a profile photo (JPG, < 5MB).
+
 ```
 
-**Stories de Follow-up:**
-- Suportar formatos adicionais (PNG, GIF)
-- Tratar arquivos maiores que 5MB com mensagem de erro
-- Auto-crop/redimensionar imagens
-- Permitir exclusão de foto
+**Follow-up Stories:**
+
+- Support additional formats (PNG, GIF)
+- Handle files larger than 5MB with an error message
+- Auto-crop/resize images
+- Allow photo deletion
 
 ---
 
-## Diretrizes de Dimensionamento de Stories
+## Story Sizing Guidelines
 
+**1-2 Points (A few hours):**
 
+- Simple UI change
+- Copy update
+- Minor configuration
 
-**1-2 Pontos (Poucas horas):**
-- Mudança simples de UI
-- Atualização de copy
-- Configuração menor
+**3-5 Points (1-2 days):**
 
-**3-5 Pontos (1-2 dias):**
-- Novo formulário com validação
-- Endpoint de API simples
-- Feature toggle básico
+- New form with validation
+- Simple API endpoint
+- Basic feature toggle
 
-**8 Pontos (3-5 dias):**
-- Formulário complexo com lógica de negócio
-- Integração com serviço de terceiro
-- Novo schema de banco de dados com migração
+**8 Points (3-5 days):**
 
-**13+ Pontos (1+ semanas):**
-- Muito grande! Divida a story
-- Considere como um Epic
+- Complex form with business logic
+- Integration with third-party service
+- New database schema with migration
 
----
+**13+ Points (1+ weeks):**
 
-## Templates para Cenários Comuns
-
-### Registro/Sign-Up
-
-```
-Como novo visitante,
-Quero criar uma conta com meu email,
-Para que eu possa acessar features personalizadas.
-
-Critérios de Aceitação:
-- [ ] Email e senha obrigatórios (senha: min 8 caracteres, 1 número, 1 caractere especial)
-- [ ] Validação de email e verificação de duplicidade
-- [ ] Email de confirmação enviado após registro
-- [ ] Logado automaticamente após confirmação de email
-- [ ] Opção de cadastrar com Google/Apple (social auth)
-```
-
-### Exportação de Dados
-
-```
-Como usuário,
-Quero exportar meus dados como CSV,
-Para que eu possa analisá-los no Excel.
-
-Critérios de Aceitação:
-- [ ] Botão de exportação nas configurações
-- [ ] Inclui todos os dados do usuário (especificar campos)
-- [ ] Arquivo baixa imediatamente (ou email se > 10MB)
-- [ ] Formato do nome do arquivo: "export_[username]_[data].csv"
-- [ ] Respeita regulamentações de privacidade de dados (apenas dados próprios do usuário)
-```
-
-### Tratamento de Erros
-
-```
-Como usuário,
-Quero ver mensagens de erro úteis,
-Para que eu saiba como corrigir problemas.
-
-Critérios de Aceitação:
-- [ ] Mensagens de erro são específicas (não genéricas "Erro ocorrido")
-- [ ] Sugerem próximos passos acionáveis
-- [ ] Exibem no idioma do usuário
-- [ ] Não expõem detalhes técnicos (stack traces)
-- [ ] Logam erros para debugging (backend)
-```
+- Too large! Split the story.
+- Consider it an Epic.
 
 ---
 
-## Resumo de Melhores Práticas
+## Templates for Common Scenarios
 
-1. **Escreva da perspectiva do usuário**, não da perspectiva do sistema
-2. **Foque em valor/benefício**, não apenas funcionalidade
-3. **Mantenha stories pequenas** (completáveis em uma sprint)
-4. **Faça critérios de aceitação testáveis**
-5. **Use formato consistente** em todo seu time
-6. **Inclua edge cases** nos critérios de aceitação
-7. **Colabore** com engenheiros e designers ao escrever
-8. **Refine regularmente** baseado em novos aprendizados
-9. **Link para mockups/designs** quando relevante
-10. **Priorize impiedosamente** (must/should/nice-to-have)
+### Registration/Sign-Up
+
+```
+As a new visitor,
+I want to create an account with my email,
+So that I can access personalized features.
+
+Acceptance Criteria:
+- [ ] Email and password required (password: min 8 characters, 1 number, 1 special character).
+- [ ] Email validation and duplicate check.
+- [ ] Confirmation email sent after registration.
+- [ ] Automatically logged in after email confirmation.
+- [ ] Option to register with Google/Apple (social auth).
+
+```
+
+### Data Export
+
+```
+As a user,
+I want to export my data as a CSV,
+So that I can analyze it in Excel.
+
+Acceptance Criteria:
+- [ ] Export button in settings.
+- [ ] Includes all user data (specify fields).
+- [ ] File downloads immediately (or email if > 10MB).
+- [ ] Filename format: "export_[username]_[date].csv".
+- [ ] Respects data privacy regulations (only user's own data).
+
+```
+
+### Error Handling
+
+```
+As a user,
+I want to see helpful error messages,
+So that I know how to fix problems.
+
+Acceptance Criteria:
+- [ ] Error messages are specific (not generic "An error occurred").
+- [ ] Suggest actionable next steps.
+- [ ] Display in the user's language.
+- [ ] Do not expose technical details (stack traces).
+- [ ] Log errors for debugging (backend).
+
+```
 
 ---
 
-## Recursos Adicionais
+## Best Practices Summary
 
-### Template de User Story
+1. **Write from the user's perspective**, not the system's.
+2. **Focus on value/benefit**, not just functionality.
+3. **Keep stories small** (completable in one sprint).
+4. **Make acceptance criteria testable**.
+5. **Use a consistent format** across your team.
+6. **Include edge cases** in the acceptance criteria.
+7. **Collaborate** with engineers and designers when writing.
+8. **Refine regularly** based on new learnings.
+9. **Link to mockups/designs** when relevant.
+10. **Prioritize ruthlessly** (must/should/nice-to-have).
+
+---
+
+## Additional Resources
+
+### User Story Template
 
 ```
-Título: [Nome conciso da feature]
+Title: [Concise feature name]
 
-Como [tipo específico de usuário],
-Quero [ação/capacidade],
-Para que [benefício/valor].
+As a [specific user type],
+I want to [action/capability],
+So that [benefit/value].
 
-Critérios de Aceitação:
-- [ ] [Critério testável 1]
-- [ ] [Critério testável 2]
-- [ ] [Tratamento de edge case]
+Acceptance Criteria:
+- [ ] [Testable criterion 1]
+- [ ] [Testable criterion 2]
+- [ ] [Edge case handling]
 
-Prioridade: [Urgent / High / Medium / Low / No Priority]
+Priority: [Urgent / High / Medium / Low / No Priority]
 
-Dependências: [Liste se houver]
-Design: [Link para mockups]
-Notas: [Contexto adicional]
+Dependencies: [List if any]
+Design: [Link to mockups]
+Notes: [Additional context]
+
 ```
 
 ### Epic vs Story vs Task
 
-**Epic:** Grande corpo de trabalho (múltiplas sprints)
-- Exemplo: "Sistema de Autenticação de Usuário"
+**Epic:** Large body of work (multiple sprints)
 
-**Story:** Valor entregável (uma sprint)
-- Exemplo: "Como usuário, quero resetar minha senha..."
+- Example: "User Authentication System"
 
-**Task:** Passo de implementação (horas/dias)
-- Exemplo: "Criar endpoint de API de reset de senha"
+**Story:** Deliverable value (one sprint)
+
+- Example: "As a user, I want to reset my password..."
+
+**Task:** Implementation step (hours/days)
+
+- Example: "Create password reset API endpoint"
 
 ---
 
-## Conclusão
+## Conclusion
 
-User stories eficazes:
-- Começam com a perspectiva do usuário
-- Articulam valor claramente
-- Incluem critérios de aceitação testáveis
-- São dimensionadas apropriadamente
-- Permitem colaboração do time
+Effective user stories:
 
-Use estes exemplos como templates, mas adapte-os para seu produto e necessidades específicas dos seus usuários!
+- Start with the user's perspective
+- Articulate value clearly
+- Include testable acceptance criteria
+- Are sized appropriately
+- Enable team collaboration
+
+## Use these examples as templates, but adapt them to your product and the specific needs of your users!
+
+**Would you like me to translate any more templates or perhaps help you refine a specific story you're working on?**

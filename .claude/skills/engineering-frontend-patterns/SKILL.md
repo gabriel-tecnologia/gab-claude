@@ -3,16 +3,16 @@ name: engineering-frontend-patterns
 description: Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.
 ---
 
-# Padrões de Desenvolvimento Frontend
+# Frontend Development Patterns
 
-Padrões modernos de frontend para React, Next.js e interfaces de usuário performáticas.
+Modern frontend patterns for React, Next.js, and high-performance user interfaces.
 
-## Padrões de Componentes
+## Component Patterns
 
-### Composição ao Invés de Herança
+### Composition Over Inheritance
 
 ```typescript
-// ✅ BOM: Composição de componentes
+// ✅ GOOD: Component composition
 interface CardProps {
   children: React.ReactNode
   variant?: 'default' | 'outlined'
@@ -30,11 +30,12 @@ export function CardBody({ children }: { children: React.ReactNode }) {
   return <div className="card-body">{children}</div>
 }
 
-// Uso
+// Usage
 <Card>
-  <CardHeader>Título</CardHeader>
-  <CardBody>Conteúdo</CardBody>
+  <CardHeader>Title</CardHeader>
+  <CardBody>Content</CardBody>
 </Card>
+
 ```
 
 ### Compound Components
@@ -66,7 +67,7 @@ export function TabList({ children }: { children: React.ReactNode }) {
 
 export function Tab({ id, children }: { id: string, children: React.ReactNode }) {
   const context = useContext(TabsContext)
-  if (!context) throw new Error('Tab deve ser usado dentro de Tabs')
+  if (!context) throw new Error('Tab must be used within Tabs')
 
   return (
     <button
@@ -78,16 +79,17 @@ export function Tab({ id, children }: { id: string, children: React.ReactNode })
   )
 }
 
-// Uso
+// Usage
 <Tabs defaultTab="overview">
   <TabList>
-    <Tab id="overview">Visão Geral</Tab>
-    <Tab id="details">Detalhes</Tab>
+    <Tab id="overview">Overview</Tab>
+    <Tab id="details">Details</Tab>
   </TabList>
 </Tabs>
+
 ```
 
-### Padrão Render Props
+### Render Props Pattern
 
 ```typescript
 interface DataLoaderProps<T> {
@@ -111,7 +113,7 @@ export function DataLoader<T>({ url, children }: DataLoaderProps<T>) {
   return <>{children(data, loading, error)}</>
 }
 
-// Uso
+// Usage
 <DataLoader<Market[]> url="/api/markets">
   {(markets, loading, error) => {
     if (loading) return <Spinner />
@@ -119,11 +121,12 @@ export function DataLoader<T>({ url, children }: DataLoaderProps<T>) {
     return <MarketList markets={markets!} />
   }}
 </DataLoader>
+
 ```
 
-## Padrões de Custom Hooks
+## Custom Hooks Patterns
 
-### Hook de Gerenciamento de Estado
+### State Management Hook
 
 ```typescript
 export function useToggle(initialValue = false): [boolean, () => void] {
@@ -136,11 +139,11 @@ export function useToggle(initialValue = false): [boolean, () => void] {
   return [value, toggle];
 }
 
-// Uso
+// Usage
 const [isOpen, toggleOpen] = useToggle();
 ```
 
-### Hook de Fetch de Dados Assíncrono
+### Asynchronous Data Fetching Hook
 
 ```typescript
 interface UseQueryOptions<T> {
@@ -184,19 +187,19 @@ export function useQuery<T>(
   return { data, error, loading, refetch };
 }
 
-// Uso
+// Usage
 const {
   data: markets,
   loading,
   error,
   refetch,
 } = useQuery("markets", () => fetch("/api/markets").then((r) => r.json()), {
-  onSuccess: (data) => console.log("Buscados", data.length, "markets"),
-  onError: (err) => console.error("Falhou:", err),
+  onSuccess: (data) => console.log("Fetched", data.length, "markets"),
+  onError: (err) => console.error("Failed:", err),
 });
 ```
 
-### Hook de Debounce
+### Debounce Hook
 
 ```typescript
 export function useDebounce<T>(value: T, delay: number): T {
@@ -213,7 +216,7 @@ export function useDebounce<T>(value: T, delay: number): T {
   return debouncedValue;
 }
 
-// Uso
+// Usage
 const [searchQuery, setSearchQuery] = useState("");
 const debouncedQuery = useDebounce(searchQuery, 500);
 
@@ -224,9 +227,9 @@ useEffect(() => {
 }, [debouncedQuery]);
 ```
 
-## Padrões de Gerenciamento de Estado
+## State Management Patterns
 
-### Padrão Context + Reducer
+### Context + Reducer Pattern
 
 ```typescript
 interface State {
@@ -274,27 +277,28 @@ export function MarketProvider({ children }: { children: React.ReactNode }) {
 
 export function useMarkets() {
   const context = useContext(MarketContext)
-  if (!context) throw new Error('useMarkets deve ser usado dentro de MarketProvider')
+  if (!context) throw new Error('useMarkets must be used within MarketProvider')
   return context
 }
+
 ```
 
-## Otimização de Performance
+## Performance Optimization
 
 ### Memoization
 
 ```typescript
-// ✅ useMemo para computações custosas
+// ✅ useMemo for expensive computations
 const sortedMarkets = useMemo(() => {
   return markets.sort((a, b) => b.volume - a.volume)
 }, [markets])
 
-// ✅ useCallback para funções passadas para filhos
+// ✅ useCallback for functions passed to children
 const handleSearch = useCallback((query: string) => {
   setSearchQuery(query)
 }, [])
 
-// ✅ React.memo para componentes puros
+// ✅ React.memo for pure components
 export const MarketCard = React.memo<MarketCardProps>(({ market }) => {
   return (
     <div className="market-card">
@@ -303,14 +307,15 @@ export const MarketCard = React.memo<MarketCardProps>(({ market }) => {
     </div>
   )
 })
+
 ```
 
-### Code Splitting e Lazy Loading
+### Code Splitting and Lazy Loading
 
 ```typescript
 import { lazy, Suspense } from 'react'
 
-// ✅ Lazy load de componentes pesados
+// ✅ Lazy load heavy components
 const HeavyChart = lazy(() => import('./HeavyChart'))
 const ThreeJsBackground = lazy(() => import('./ThreeJsBackground'))
 
@@ -327,9 +332,10 @@ export function Dashboard() {
     </div>
   )
 }
+
 ```
 
-### Virtualização para Listas Longas
+### Virtualization for Long Lists
 
 ```typescript
 import { useVirtualizer } from '@tanstack/react-virtual'
@@ -340,8 +346,8 @@ export function VirtualMarketList({ markets }: { markets: Market[] }) {
   const virtualizer = useVirtualizer({
     count: markets.length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 100,  // Altura estimada da linha
-    overscan: 5  // Itens extras para renderizar
+    estimateSize: () => 100,  // Estimated row height
+    overscan: 5  // Extra items to render
   })
 
   return (
@@ -371,11 +377,12 @@ export function VirtualMarketList({ markets }: { markets: Market[] }) {
     </div>
   )
 }
+
 ```
 
-## Padrões de Tratamento de Formulários
+## Form Handling Patterns
 
-### Formulário Controlado com Validação
+### Controlled Form with Validation
 
 ```typescript
 interface FormData {
@@ -403,17 +410,17 @@ export function CreateMarketForm() {
     const newErrors: FormErrors = {}
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Nome é obrigatório'
+      newErrors.name = 'Name is required'
     } else if (formData.name.length > 200) {
-      newErrors.name = 'Nome deve ter menos de 200 caracteres'
+      newErrors.name = 'Name must be less than 200 characters'
     }
 
     if (!formData.description.trim()) {
-      newErrors.description = 'Descrição é obrigatória'
+      newErrors.description = 'Description is required'
     }
 
     if (!formData.endDate) {
-      newErrors.endDate = 'Data de fim é obrigatória'
+      newErrors.endDate = 'End date is required'
     }
 
     setErrors(newErrors)
@@ -427,9 +434,9 @@ export function CreateMarketForm() {
 
     try {
       await createMarket(formData)
-      // Tratamento de sucesso
+      // Success handling
     } catch (error) {
-      // Tratamento de erro
+      // Error handling
     }
   }
 
@@ -438,19 +445,20 @@ export function CreateMarketForm() {
       <input
         value={formData.name}
         onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
-        placeholder="Nome do market"
+        placeholder="Market name"
       />
       {errors.name && <span className="error">{errors.name}</span>}
 
-      {/* Outros campos */}
+      {/* Other fields */}
 
-      <button type="submit">Criar Market</button>
+      <button type="submit">Create Market</button>
     </form>
   )
 }
+
 ```
 
-## Padrão Error Boundary
+## Error Boundary Pattern
 
 ```typescript
 interface ErrorBoundaryState {
@@ -472,17 +480,17 @@ export class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error('Error boundary capturou:', error, errorInfo)
+    console.error('Error boundary caught:', error, errorInfo)
   }
 
   render() {
     if (this.state.hasError) {
       return (
         <div className="error-fallback">
-          <h2>Algo deu errado</h2>
+          <h2>Something went wrong</h2>
           <p>{this.state.error?.message}</p>
           <button onClick={() => this.setState({ hasError: false })}>
-            Tentar novamente
+            Try again
           </button>
         </div>
       )
@@ -492,20 +500,21 @@ export class ErrorBoundary extends React.Component<
   }
 }
 
-// Uso
+// Usage
 <ErrorBoundary>
   <App />
 </ErrorBoundary>
+
 ```
 
-## Padrões de Animação
+## Animation Patterns
 
-### Animações com Framer Motion
+### Animations with Framer Motion
 
 ```typescript
 import { motion, AnimatePresence } from 'framer-motion'
 
-// ✅ Animações de lista
+// ✅ List animations
 export function AnimatedMarketList({ markets }: { markets: Market[] }) {
   return (
     <AnimatePresence>
@@ -524,7 +533,7 @@ export function AnimatedMarketList({ markets }: { markets: Market[] }) {
   )
 }
 
-// ✅ Animações de modal
+// ✅ Modal animations
 export function Modal({ isOpen, onClose, children }: ModalProps) {
   return (
     <AnimatePresence>
@@ -550,11 +559,12 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
     </AnimatePresence>
   )
 }
+
 ```
 
-## Padrões de Acessibilidade
+## Accessibility Patterns
 
-### Navegação por Teclado
+### Keyboard Navigation
 
 ```typescript
 export function Dropdown({ options, onSelect }: DropdownProps) {
@@ -589,13 +599,14 @@ export function Dropdown({ options, onSelect }: DropdownProps) {
       aria-haspopup="listbox"
       onKeyDown={handleKeyDown}
     >
-      {/* Implementação do dropdown */}
+      {/* Dropdown implementation */}
     </div>
   )
 }
+
 ```
 
-### Gerenciamento de Foco
+### Focus Management
 
 ```typescript
 export function Modal({ isOpen, onClose, children }: ModalProps) {
@@ -604,13 +615,13 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
 
   useEffect(() => {
     if (isOpen) {
-      // Salvar elemento focado atualmente
+      // Save currently focused element
       previousFocusRef.current = document.activeElement as HTMLElement
 
-      // Focar no modal
+      // Focus the modal
       modalRef.current?.focus()
     } else {
-      // Restaurar foco ao fechar
+      // Restore focus on close
       previousFocusRef.current?.focus()
     }
   }, [isOpen])
@@ -627,6 +638,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
     </div>
   ) : null
 }
+
 ```
 
-**Lembre-se**: Padrões modernos de frontend permitem interfaces de usuário manuteníveis e performáticas. Escolha padrões que se adequem à complexidade do seu projeto.
+**Remember**: Modern frontend patterns enable maintainable and performant user interfaces. Choose patterns that suit the complexity of your project.

@@ -1,234 +1,244 @@
 ---
 name: product-story
-description: Gera user stories, spikes e bugs a partir de um PRD ou perguntas. Planeja as histórias, refina uma a uma com o usuário, e cria diretamente no Linear. Use quando precisar quebrar requisitos em histórias, criar itens de backlog, ou quando o usuário mencionar "user story", "spike", "bug", "história", "backlog".
+description: Generates user stories, spikes, and bugs from a PRD or questions. Plans the stories, refines them one by one with the user, and creates them directly in Linear. Use when you need to break down requirements into stories, create backlog items, or when the user mentions "user story", "spike", "bug", "story", "backlog".
 ---
 
-# Story Writer - Gerador de Histórias para Linear
+# Story Writer - Linear Story Generator
 
-Este skill gera user stories, spikes e bugs a partir de um PRD (ou perguntas), valida o plano com o usuário, e depois refina e cria cada história diretamente no Linear.
+This skill generates user stories, spikes, and bugs from a PRD (or questions), validates the plan with the user, and then refines and creates each story directly in Linear.
 
-## Princípios Fundamentais
+## Core Principles
 
-1. **INVEST** - Histórias devem ser Independent, Negotiable, Valuable, Estimable, Small, Testable
-2. **Critérios rule-oriented** - Formato checklist, não Given/When/Then
-3. **Uma história por vez** - Refinar e validar antes de criar
-4. **Buscar antes de criar** - Evitar duplicatas no Linear
-5. **Spike para incerteza** - Quando há risco técnico alto, spike primeiro
-
----
-
-## Fluxo de Conversa (4 Fases)
-
-### Fase 1: Entrada de Dados
-
-**1.1 Perguntar pela fonte:**
-
-> "Você tem um PRD para essa feature?"
-
-- **Se sim**: Ler o arquivo PRD, extrair requisitos das seções P0/P1/P2
-- **Se não**: Fazer perguntas de discovery:
-  - Qual problema estamos resolvendo?
-  - Quem é o usuário?
-  - Quais funcionalidades são necessárias?
-
-**1.2 Identificar o squad:**
-
-> "Qual squad? (app-mobile / gabriel-os / integrations)"
-
-**1.3 Identificar projeto no Linear:**
-
-> "Há um projeto no Linear para vincular estas histórias?"
-
-- Se mencionado, usar esse projeto
-- Se não mencionado, buscar projetos relacionados no Linear:
-  - Usar `mcp__linear__list_projects` com query do nome da feature
-  - **Excluir projetos com state Completed ou Cancelled**
-  - Mostrar opções encontradas ao usuário
-
-- **Se nenhum projeto encontrado**, prosseguir sem projeto mas avisar:
-  > "Não encontrei um projeto relacionado. Posso criar as histórias sem projeto, mas recomendo criar um no Linear para organizar melhor o trabalho. Deseja continuar assim mesmo?"
+1. **INVEST** - Stories must be Independent, Negotiable, Valuable, Estimable, Small, Testable.
+2. **Rule-oriented criteria** - Checklist format, not Given/When/Then.
+3. **One story at a time** - Refine and validate before creating.
+4. **Search before creating** - Avoid duplicates in Linear.
+5. **Spike for uncertainty** - When there is high technical risk, spike first.
 
 ---
 
-### Fase 2: Planejamento das Histórias
+## Conversation Flow (4 Phases)
 
-**2.1 Analisar requisitos e gerar um mapa de histórias:**
+### Phase 1: Data Input
 
-- Listar todas as histórias propostas com tipo (User Story / Spike / Bug)
-- Aplicar princípio INVEST - quebrar requisitos grandes em histórias menores
-- Identificar dependências entre histórias
-- Sugerir spikes para áreas de incerteza técnica
+**1.1 Ask for the source:**
 
-**2.2 Apresentar o plano ao usuário:**
+> "Do you have a PRD for this feature?"
+
+- **If yes**: Read the PRD file, extract requirements from sections P0/P1/P2.
+- **If no**: Ask discovery questions:
+- What problem are we solving?
+- Who is the user?
+- What functionalities are required?
+
+**1.2 Identify the squad:**
+
+> "Which squad? (app-mobile / gabriel-os / integrations)"
+
+**1.3 Identify the Linear project:**
+
+> "Is there a project in Linear to link these stories to?"
+
+- If mentioned, use that project.
+- If not mentioned, search for related projects in Linear:
+- Use `mcp__linear__list_projects` with a query for the feature name.
+- **Exclude projects with state Completed or Cancelled.**
+- Show options found to the user.
+
+- **If no project is found**, proceed without a project but warn the user:
+  > "I couldn't find a related project. I can create the stories without a project, but I recommend creating one in Linear to better organize the work. Do you want to continue anyway?"
+
+---
+
+### Phase 2: Story Planning
+
+**2.1 Analyze requirements and generate a story map:**
+
+- List all proposed stories with type (User Story / Spike / Bug).
+- Apply the INVEST principle—break large requirements into smaller stories.
+- Identify dependencies between stories.
+- Suggest spikes for areas of technical uncertainty.
+
+**2.2 Present the plan to the user:**
 
 ```
-📋 Plano de Stories para [Feature]:
+📋 Story Plan for [Feature]:
 
-1. [Spike] Investigar viabilidade técnica - avaliar API/integração
-2. [US] Funcionalidade principal - descrição breve
-3. [US] Feedback visual ao usuário - descrição breve
-4. [US] Tratamento de erros - descrição breve
-5. [Bug] Correção de problema conhecido - descrição breve
+1. [Spike] Investigate technical feasibility - evaluate API/integration
+2. [US] Main functionality - brief description
+3. [US] User visual feedback - brief description
+4. [US] Error handling - brief description
+5. [Bug] Fix known issue - brief description
 
-Faz sentido? Quer adicionar, remover ou ajustar algo?
+Does this make sense? Would you like to add, remove, or adjust anything?
+
 ```
 
-**2.3 Aguardar validação do usuário antes de prosseguir**
+**2.3 Wait for user validation before proceeding.**
 
 ---
 
-### Fase 3: Refinamento das Histórias (Uma por Uma)
+### Phase 3: Story Refinement (One by One)
 
-Para cada história no plano:
+For each story in the plan:
 
-**3.1 Buscar no Linear por histórias similares:**
+**3.1 Search Linear for similar stories:**
 
-- Usar `mcp__linear__list_issues` com query
-- **Excluir issues com status type Completed ou Cancelled**
-- Se encontrar similar, perguntar:
-  > "Encontrei uma issue similar: '[título]'. Quer usar essa existente ou criar uma nova?"
+- Use `mcp__linear__list_issues` with a query.
+- **Exclude issues with status type Completed or Cancelled.**
+- If a similar one is found, ask:
+  > "I found a similar issue: '[title]'. Do you want to use the existing one or create a new one?"
 
-**3.2 Buscar contexto no Slack:**
+**3.2 Search Slack for context:**
 
-- Buscar mensagens relacionadas ao tópico da história
-- Encontrar discussões, decisões, feedback que enriqueçam o entendimento
-- Mostrar achados relevantes ao usuário antes de gerar
+- Search for messages related to the story topic.
+- Find discussions, decisions, and feedback that enrich the understanding.
+- Show relevant findings to the user before generating.
 
-**3.3 Pedir mais contexto ao usuário:**
+**3.3 Ask the user for more context:**
 
-> "Vamos refinar a história '[título]'. Quanto mais contexto você puder fornecer, melhor ficará a história."
+> "Let's refine the story '[title]'. The more context you can provide, the better the story will be."
 
-Perguntar conforme o tipo:
+Ask according to the type:
 
-- **Para User Story**: cenários específicos, edge cases, integrações, comportamentos esperados
-- **Para Spike**: hipóteses a validar, riscos conhecidos, abordagens consideradas
-- **Para Bug**: logs, screenshots, frequência de ocorrência, impacto no usuário
+- **For User Story**: specific scenarios, edge cases, integrations, expected behaviors.
+- **For Spike**: hypotheses to validate, known risks, considered approaches.
+- **For Bug**: logs, screenshots, frequency of occurrence, impact on the user.
 
-**3.4 Gerar conteúdo usando o template apropriado:**
+**3.4 Generate content using the appropriate template:**
 
-> **IMPORTANTE**: Templates são a fonte da verdade. Sempre ler dinamicamente para obter a estrutura mais atual.
+> **IMPORTANT**: Templates are the source of truth. Always read them dynamically to get the most current structure.
 
-- **Para User Story**: Ler e seguir `templates/user-story.md`
-- **Para Spike**: Ler e seguir `templates/spike.md`
-- **Para Bug**: Ler e seguir `templates/bug.md`
+- **For User Story**: Read and follow `templates/user-story.md`.
+- **For Spike**: Read and follow `templates/spike.md`.
+- **For Bug**: Read and follow `templates/bug.md`.
 
-**3.5 Mostrar ao usuário para refinamento:**
+**3.5 Show to user for refinement:**
 
-- Apresentar o conteúdo gerado
-- Perguntar:
-  > "Algo a ajustar antes de criar no Linear?"
+- Present the generated content.
+- Ask:
+  > "Anything to adjust before creating in Linear?"
 
-**3.6 Criar no Linear após aprovação:**
+**3.6 Create in Linear after approval:**
 
-- Usar `mcp__linear__create_issue`
-- Configurar:
-  - **title**: título da história
-  - **description**: conteúdo completo em markdown
-  - **team**: squad identificado na Fase 1
-  - **project**: ID do projeto (se disponível)
-  - **state**: "Refinamento Geral" (este é o nome do status)
-  - **labels**: adicionar se alguma label existente fizer sentido
+- Use `mcp__linear__create_issue`.
+- Configure:
+- **title**: story title.
+- **description**: full content in markdown.
+- **team**: squad identified in Phase 1.
+- **project**: project ID (if available).
+- **state**: "Refinamento Geral" (this is the status name).
+- **labels**: add if any existing label makes sense.
 
-- Para verificar labels disponíveis, usar `mcp__linear__list_issue_labels`
-- Mostrar link da issue criada ao usuário
+- To check available labels, use `mcp__linear__list_issue_labels`.
+- Show the link to the created issue to the user.
 
-**3.7 Avançar para próxima história no plano**
-
----
-
-### Fase 4: Resumo Final
-
-Após criar todas as histórias:
-
-**4.1 Mostrar resumo de todas as issues criadas com links do Linear**
-
-```
-✅ Histórias criadas com sucesso!
-
-| # | Tipo | Título | Link |
-|---|------|--------|------|
-| 1 | Spike | Investigar API | [INT-123](link) |
-| 2 | US | Upload de vídeo | [INT-124](link) |
-| 3 | US | Preview do vídeo | [INT-125](link) |
-```
-
-**4.2 Sugerir próximos passos:**
-
-- Agendar refinement com o squad
-- Priorizar no backlog
-- Atribuir responsáveis
+**3.7 Move to the next story in the plan.**
 
 ---
 
-## Integração com Linear
+### Phase 4: Final Summary
 
-### Buscar issues similares
+After creating all stories:
+
+**4.1 Show a summary of all created issues with Linear links:**
 
 ```
-mcp__linear__list_issues com:
-- query: palavras-chave do título
+✅ Stories created successfully!
+
+| # | Type  | Title           | Link            |
+|---|-------|-----------------|-----------------|
+| 1 | Spike | Investigate API | [INT-123](link) |
+| 2 | US    | Video upload    | [INT-124](link) |
+| 3 | US    | Video preview   | [INT-125](link) |
+
+```
+
+**4.2 Suggest next steps:**
+
+- Schedule refinement with the squad.
+- Prioritize in the backlog.
+- Assign owners.
+
+---
+
+## Linear Integration
+
+### Search for similar issues
+
+```
+mcp__linear__list_issues with:
+- query: title keywords
 - team: squad team
 - includeArchived: false
-- Filtrar: excluir status type "Completed" ou "Cancelled"
-```
-
-### Buscar projetos relacionados
+- Filter: exclude status type "Completed" or "Cancelled"
 
 ```
-mcp__linear__list_projects com:
-- query: nome da feature
+
+### Search for related projects
+
+```
+mcp__linear__list_projects with:
+- query: feature name
 - team: squad team
-- Filtrar: excluir state "Completed" ou "Cancelled"
-```
-
-### Criar issue
+- Filter: exclude state "Completed" or "Cancelled"
 
 ```
-mcp__linear__create_issue com:
-- title: título da história
-- description: conteúdo completo (markdown)
+
+### Create issue
+
+```
+mcp__linear__create_issue with:
+- title: story title
+- description: full content (markdown)
 - team: squad team
-- project: ID do projeto (se disponível)
+- project: project ID (if available)
 - state: "Refinamento Geral"
-- labels: [se aplicável]
-```
-
-### Obter labels disponíveis
+- labels: [if applicable]
 
 ```
-mcp__linear__list_issue_labels com:
+
+### Get available labels
+
+```
+mcp__linear__list_issue_labels with:
 - team: squad team
+
 ```
 
 ---
 
-## Integração com Slack
+## Slack Integration
 
-### Buscar contexto
+### Search context
 
-- Buscar mensagens relacionadas ao tópico da história
-- Encontrar discussões, decisões, feedback de usuários
-- Enriquecer entendimento do problema com conversas reais
-
----
-
-## Exemplos de Ativação
-
-O usuário pode iniciar com:
-
-- "Quero criar as histórias para o PRD de [feature]"
-- "Me ajuda a quebrar esse PRD em user stories"
-- "Preciso criar histórias para [funcionalidade]"
-- "Vamos criar as stories para [feature]"
-- "Tenho um bug para reportar sobre [problema]"
-- "Preciso criar um spike para investigar [incerteza]"
+- Search for messages related to the story topic.
+- Find discussions, decisions, and user feedback.
+- Enrich problem understanding with real conversations.
 
 ---
 
-## Dicas para o PM
+## Activation Examples
 
-- **Quanto mais contexto, melhor** - Forneça detalhes sobre cenários, edge cases, integrações
-- **Não pule o planejamento** - Valide o mapa de histórias antes de refinar
-- **Spikes primeiro** - Se há incerteza técnica, crie spike antes de user stories
-- **Uma história por vez** - Refine e aprove cada história antes de avançar
-- **Revise os templates** - Os templates em `templates/` são a fonte da verdade
+The user can start with:
+
+- "I want to create the stories for the [feature] PRD."
+- "Help me break this PRD down into user stories."
+- "I need to create stories for [functionality]."
+- "Let's create the stories for [feature]."
+- "I have a bug to report about [problem]."
+- "I need to create a spike to investigate [uncertainty]."
+
+---
+
+## Tips for the PM
+
+- **More context is better** - Provide details about scenarios, edge cases, and integrations.
+- **Don't skip planning** - Validate the story map before refining.
+- **Spikes first** - If there is technical uncertainty, create a spike before user stories.
+- **One story at a time** - Refine and approve each story before moving forward.
+- **Review templates** - The templates in `templates/` are the source of truth.
+
+---
+
+**Story Writer skill is ready. Would you like to translate another one or start a story planning session?**
