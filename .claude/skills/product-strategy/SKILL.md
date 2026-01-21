@@ -1,13 +1,13 @@
 ---
 name: product-strategy
-description: Create Product Strategies following the Product School formula. Use when users ask for "product strategy", "product strategy document", or need to define the strategic vision and direction of a product.
+description: Create Product Strategies. Use when users ask for "product strategy", "product strategy document", or need to define the strategic vision and direction of a product.
 ---
 
 # Product Strategy Generator
 
 ## Overview
 
-Guide users in creating comprehensive Product Strategies following the Product School formula:
+Guide users in creating comprehensive Product Strategies:
 
 ```
 Product Strategy = Vision + Insights + Challenges + Approaches + Accountability

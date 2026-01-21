@@ -6,8 +6,6 @@ Full version for team alignment.
 
 # Product Strategy Template
 
-This template follows the Product School formula:
-
 ```
 Product Strategy = Vision + Insights + Challenges + Approaches + Accountability
 
