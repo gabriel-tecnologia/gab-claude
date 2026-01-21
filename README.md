@@ -1,4 +1,4 @@
-# Gabriel Tech
+# Gabriel Claude
 
 > ⚠️ **Proposta Inicial de Framework de Trabalho com AI**
 >
