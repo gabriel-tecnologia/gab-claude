@@ -1,74 +1,74 @@
 # CLAUDE.md
 
-Instruções para AI assistants trabalhando neste repositório.
+Instructions for AI assistants working in this repository.
 
-## Contexto
+## Context
 
-Repositório central de documentação da área de tecnologia da Gabriel. Docs-only (código em repos separados).
+Central documentation repository for Gabriel's technology area. Docs-only (code in separate repos).
 
-## Estrutura do Repositório
+## Repository Structure
 
-| Diretório              | Função                                                          |
-| ---------------------- | --------------------------------------------------------------- |
-| `products/`            | Documentação de produtos (visão de negócio, roadmap)            |
-| `tribes/`              | Estrutura organizacional (tribes, squads, decisões)             |
-| `building-directives/` | Processos de engenharia (handbook, discovery, design, delivery) |
-| `people/`              | Gestão de pessoas (onboarding, 1:1s, hiring)                    |
-| `incidents/`           | Gestão de incidentes (severidade, postmortems)                  |
-| `templates/`           | Templates reutilizáveis (ERD, PRD, product, squad)              |
+| Directory              | Function                                                      |
+| ---------------------- | ------------------------------------------------------------- |
+| `products/`            | Product documentation (business vision, roadmap)              |
+| `tribes/`              | Organizational structure (tribes, squads, decisions)          |
+| `building-directives/` | Engineering processes (handbook, discovery, design, delivery) |
+| `people/`              | People management (onboarding, 1:1s, hiring)                  |
+| `incidents/`           | Incident management (severity, postmortems)                   |
+| `templates/`           | Reusable templates (ERD, PRD, product, squad)                 |
 
-## Relacionamentos
+## Relationships
 
-- **1 Tribe → N Products**: Tribe Borda é dona de 4 produtos, Produtos Digitais de 3
-- **Squads operam assets**: Squad App Gabriel opera os repos do app mobile
+- **1 Tribe → N Products**: Borda Tribe owns 4 products, Digital Products owns 3
+- **Squads operate assets**: App Gabriel Squad operates the mobile app repos
 
-## Estrutura Organizacional
+## Organizational Structure
 
-- **Org**: ~40-60 pessoas
-- **Tribes**: Borda, Produtos Digitais, Plataforma
-- **Metodologia**: Scrum/Kanban
+- **Org**: ~40-60 people
+- **Tribes**: Borda, Digital Products, Platform
+- **Methodology**: Scrum/Kanban
 
-## Diretrizes de Decisão
+## Decision Guidelines
 
-### Ao tomar decisões técnicas:
+### When making technical decisions:
 
-1. **Documente primeiro** - Antes de implementar, documente
-2. **Consulte stakeholders** - Liste quem precisa ser consultado
-3. **Considere trade-offs** - Explique prós e contras
-4. **Defina critérios de sucesso** - Como saberemos se funcionou?
+1. **Document first** - Before implementing, document
+2. **Consult stakeholders** - List who needs to be consulted
+3. **Consider trade-offs** - Explain pros and cons
+4. **Define success criteria** - How will we know if it worked?
 
-### Níveis de decisão:
+### Decision levels:
 
-| Nível | Escopo                 | Quem decide               | Documentação           |
-| ----- | ---------------------- | ------------------------- | ---------------------- |
-| Squad | Implementação local    | Squad                     | Comentário no Linear   |
-| Tribe | Afeta múltiplos squads | Engineering Manager + GPM | ERD + PRD ou Diretivas |
-| Org   | Afeta múltiplas tribes | CPTO                      | Product Decision       |
+| Level | Scope                   | Who decides               | Documentation           |
+| ----- | ----------------------- | ------------------------- | ----------------------- |
+| Squad | Local implementation    | Squad                     | Comment on Linear       |
+| Tribe | Affects multiple squads | Engineering Manager + GPM | ERD + PRD or Directives |
+| Org   | Affects multiple tribes | CPTO                      | Product Decision        |
 
-### Princípios:
+### Principles:
 
-- **Simplicidade** - Prefira soluções simples
-- **Reversibilidade** - Prefira decisões reversíveis
-- **Dados** - Baseie decisões em dados quando possível
-- **Documentação** - Se não está documentado, não existe
+- **Simplicity** - Prefer simple solutions
+- **Reversibility** - Prefer reversible decisions
+- **Data** - Base decisions on data when possible
+- **Documentation** - If it is not documented, it does not exist
 
-## Convenções deste Repo
+## Repo Conventions
 
-- Documentos em Português
-- Markdown para tudo
-- Nomes de arquivo: lowercase com hífens
-- Templates em `templates/` para produtos e squads
+- Documents in Portuguese
+- Markdown for everything
+- File names: lowercase with hyphens
+- Templates in `templates/` for products and squads
 
-## Integrações
+## Integrations
 
-- **Linear**: Gestão de projetos
-- **GitHub**: Código e PRs (assets descobertos via org, não listados aqui)
-- **DataDog**: Observabilidade técnica e de produto (analytics)
-- **Slack**: Comunicação
-- **n8n**: Automações
-- **Notion**: Docs legados (migrar para cá)
+- **Linear**: Project management
+- **GitHub**: Code and PRs (assets discovered via org, not listed here)
+- **DataDog**: Technical and product observability (analytics)
+- **Slack**: Communication
+- **n8n**: Automations
+- **Notion**: Legacy docs (migrate here)
 
 ## Plan mode
 
-- Faça o plano extremamente conciso. Sacrifique a gramática em prol da concisão.
-- Ao final de cada plano, forneça-me uma lista de perguntas não resolvidas que preciso responder, se houver.
+- Make the plan extremely concise. Sacrifice grammar for the sake of conciseness.
+- At the end of each plan, provide me with a list of unresolved questions I need to answer, if any.
