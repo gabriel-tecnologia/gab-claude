@@ -6,6 +6,18 @@
 >
 > Contribuições, críticas e sugestões são bem-vindas.
 
+## Diretrizes de Uso
+
+> 🧠 **Use e abuse do Plan Mode!** O sucesso do uso da ferramento DEPENDE de um bom plano. Aperte Shift+Tab duas vezes, entre no plan mode e escope sua tarefa muito bem antes da execução
+> 🧪 **Antes de mais nada: experimente!** Teste comandos, edite workflows, quebre coisas. Só assim você descobre como AI pode turbinar seu dia.
+
+- **Supervisão humana é inegociável** — AI constrói rápido, mas você assina embaixo. Revise sempre.
+- **Itere sem dó** — Primeira resposta raramente é a melhor. Refine, questione, peça de novo.
+- **AI é par, não oráculo** — Você traz contexto e julgamento. Ela traz velocidade e padrões.
+- **Comece pelo simples** — Domine tarefas pequenas antes de entregar o mundo.
+- **Compartilhe descobertas** — Achou um prompt matador? Joga no canal. A equipe agradece.
+- **Desconfie de dados específicos** — Nomes, métricas, datas... AI pode inventar com convicção impressionante.
+
 Repositório central de documentação da área de tecnologia. Código fica em repositórios separados.
 
 ## Estrutura
