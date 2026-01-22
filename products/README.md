@@ -7,7 +7,7 @@ Produtos são a visão de negócio - o que entregamos de valor para clientes e s
 | Produto                       | Descrição                         | Owner (Tribe)     |
 | ----------------------------- | --------------------------------- | ----------------- |
 | [App Gabriel](./app-gabriel/) | Aplicativo mobile para clientes   | Produtos Digitais |
-| [Gabriel OS](./gabriel-os/)   | Sistema operacional para hardware | Produtos Digitais |
+| [Gabriel OS](./gabriel-os/)   | Plataforma de inteligência em vídeo para autoridades e empresas | Produtos Digitais |
 | [Integrações](./integracoes/) | Conectores com sistemas externos  | Produtos Digitais |
 
 ## Relacionamento com Tribes
