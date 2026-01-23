@@ -1,39 +1,23 @@
 ---
 name: product-discovery
-description: Conducts discovery sessions for features/products. Explores concept definition, business model, user journeys, competitive analysis, scoping decisions, and data modeling. Use when you need to explore "what is X", "let's understand", "discovery for", or the /discovery command.
+description: Conducts discovery sessions for features/products. Explores concept definition, business model, user journeys, competitive analysis, success metrics, and scoping decisions. Use when you need to explore "what is X", "let's understand", "discovery for", or the /discovery command.
 ---
 
 # Discovery Skill
 
 Conduct structured discovery sessions for features and products. This skill helps PMs explore and document a problem space before writing PRDs or creating user stories.
 
-## Triggers
-
-**Explicit command:**
-
-- `/discovery [feature-name]`
-
-**Auto-detection patterns:**
-
-- "what is [X]"
-- "let's explore [X]"
-- "discovery for [X]"
-- "I want to understand [X]"
-- "let's debate/discuss [X]"
-
----
-
 ## Workflow Overview
 
 The discovery process has **7 flexible phases**. All phases are optional—ask the user which aspects they want to explore at the start.
 
 ```
-Phase 1: Concept Definition   → What is it?
+Phase 1: Concept Definition   → What is it? Is the problem validated?
 Phase 2: Business Model       → Who manages it, for whom, how is it monetized?
 Phase 3: Journey Mapping      → How do personas interact?
 Phase 4: Competitive Analysis → How do competitors solve this? (OPTIONAL)
-Phase 5: Scoping Decisions    → What goes into v1 vs. later?
-Phase 6: Data Model           → What entities and behaviors? (OPTIONAL)
+Phase 5: Success Metrics      → How do we know the solution worked? (OPTIONAL)
+Phase 6: Scoping Decisions    → What goes into v1 vs. later?
 Phase 7: Documentation        → Compile into a research document
 
 ```
@@ -65,7 +49,31 @@ Phase 7: Documentation        → Compile into a research document
     └── Summarize agreed definition
     └── "Before moving on, I confirm: [X] is [final definition]"
 
+1.5 Problem validation
+    └── "Why is this a pain point for the company?"
+    └── "What evidence supports this problem?"
+        ├── Quantitative: metrics, conversion, churn
+        └── Qualitative: client reports, support tickets, interviews
+    └── "Why solve this now?"
+        ├── Urgency: revenue impact, competition, regulatory
+        └── Opportunity cost of delay
+    └── "What data do we have?"
+        ├── Internal: analytics, NPS, support volume
+        └── External: client feedback, market research
+
+1.6 Problem validation checkpoint
+    └── Summarize in table before proceeding
+
 ```
+
+### Problem Validation Table Template
+
+| Dimension         | Evidence                 | Source            |
+| ----------------- | ------------------------ | ----------------- |
+| Pain point        | [description]            | [who reported]    |
+| Quantitative data | [metrics/numbers]        | [system/report]   |
+| Qualitative data  | [client quotes/feedback] | [interviews/CS]   |
+| Urgency driver    | [why now]                | [business reason] |
 
 ### Example 1: Hotlist (Public Safety)
 
@@ -103,6 +111,29 @@ Claude: "Analytics show that 80% never change defaults. Is the real
 → Result: "The problem isn't lack of customization—it's that defaults
    don't serve the primary use cases. Focus on smarter defaults,
    not more options."
+
+```
+
+### Example 4: Problem Validation (E-commerce)
+
+```
+User: "We need a loyalty program"
+Claude: "Why is this a pain point? What evidence do we have?"
+User: "Repeat purchase rate is 15%, competitors have loyalty programs"
+Claude: "What data supports this?"
+→ Quantitative: 15% repeat rate vs 25% industry avg, 40% churn at 90 days
+→ Qualitative: NPS comments mention "no reason to come back", CS tickets
+   asking about rewards
+
+| Dimension         | Evidence                     | Source             |
+|-------------------|------------------------------|--------------------|
+| Pain point        | Low repeat purchase rate     | Product analytics  |
+| Quantitative data | 15% repeat vs 25% benchmark  | Mixpanel + industry|
+| Qualitative data  | "No reason to come back"     | NPS survey Q4      |
+| Urgency driver    | Competitor launched program  | Market research    |
+
+→ Result: Problem validated. Evidence shows retention gap with clear
+   quantitative + qualitative support. Competitive pressure adds urgency.
 
 ```
 
@@ -366,7 +397,94 @@ Key Insight:
 
 ---
 
-## Phase 5: Scoping Decisions
+## Phase 5: Success Metrics (OPTIONAL)
+
+**Objective:** Define how we'll know the solution worked.
+
+**Approach:** Use problem evidence (Phase 1), journey touchpoints (Phase 3), and competitive benchmarks (Phase 4) to define measurable success criteria.
+
+### Steps
+
+```
+5.1 Ask if user wants to define metrics
+    └── "Do you want to define success metrics now?"
+    └── If no, skip to Phase 6
+
+5.2 Primary success metric
+    └── "What single metric proves the problem is solved?"
+    └── Derived from problem evidence (Phase 1)
+
+5.3 Leading indicators
+    └── "What early signals show we're on track?"
+    └── Derived from journey touchpoints (Phase 3)
+
+5.4 Benchmarks
+    └── "What are competitors achieving?" (if Phase 4 done)
+    └── "What's a realistic target for v1?"
+
+5.5 Guardrail metrics
+    └── "What shouldn't get worse?"
+
+5.6 Timeframe
+    └── "When do we measure success?"
+    └── v1 milestone vs long-term target
+
+5.7 Success metrics checkpoint
+    └── Summarize in table before proceeding
+
+```
+
+### Success Metrics Table Template
+
+| Metric Type | Metric           | Baseline  | Target     | Timeframe |
+| ----------- | ---------------- | --------- | ---------- | --------- |
+| Primary     | [main KPI]       | [current] | [goal]     | [when]    |
+| Leading     | [early signal]   | [current] | [goal]     | [when]    |
+| Benchmark   | [competitor ref] | [theirs]  | [ours]     | [when]    |
+| Guardrail   | [don't break]    | [current] | [maintain] | [always]  |
+
+### Example 1: Loyalty Program (E-commerce)
+
+```
+| Metric Type | Metric | Baseline | Target | Timeframe |
+|-------------|--------|----------|--------|-----------|
+| Primary | Repeat purchase rate | 15% | 20% | 6 months |
+| Leading | Loyalty signup rate | N/A | 30% | 1 month |
+| Leading | Points redemption | N/A | 50% | 3 months |
+| Benchmark | Industry avg repeat | 25% | 20% | 6 months |
+| Guardrail | Avg order value | $85 | ≥$80 | Always |
+
+```
+
+### Example 2: Hotlist Alerts (Public Safety)
+
+```
+| Metric Type | Metric | Baseline | Target | Timeframe |
+|-------------|--------|----------|--------|-----------|
+| Primary | Alert response time | N/A | <2 min | 3 months |
+| Leading | Hotlist adoption | 0 clients | 5 clients | 1 month |
+| Leading | Plates added/client | N/A | >100 | 2 months |
+| Benchmark | Flock response time | 90 sec | <120 sec | 3 months |
+| Guardrail | False positive rate | N/A | <5% | Always |
+
+```
+
+### Example 3: Notification System (SaaS)
+
+```
+| Metric Type | Metric | Baseline | Target | Timeframe |
+|-------------|--------|----------|--------|-----------|
+| Primary | User engagement | 40% | 55% | 3 months |
+| Leading | Email open rate | 18% | 25% | 1 month |
+| Leading | Click-through rate | 3% | 6% | 2 months |
+| Benchmark | Industry open rate | 22% | 25% | 3 months |
+| Guardrail | Unsubscribe rate | 2% | <3% | Always |
+
+```
+
+---
+
+## Phase 6: Scoping Decisions
 
 **Objective:** Define what goes into v1 and what comes later.
 
@@ -375,26 +493,26 @@ Key Insight:
 ### Steps
 
 ```
-5.1 Compile feature list
+6.1 Compile feature list
     └── Extract from competitive analysis (if done)
     └── Derive from user journey
     └── Consolidate into a single list
 
-5.2 Ask for analysis level
+6.2 Ask for analysis level
     └── "Do you want to analyze line-by-line or general decision?"
     └── If line-by-line: discuss each feature individually
     └── If general: summarize decisions in a table
 
-5.3 For each feature (if line-by-line)
+6.3 For each feature (if line-by-line)
     └── "Why [decision]? What is the justification?"
     └── Capture user's reasoning
     └── Document trade-off
 
-5.4 Document in table
+6.4 Document in table
     └── | # | Feature | v1 Decision | Justification |
     └── Add "Future" column if relevant
 
-5.5 Checkpoint
+6.5 Checkpoint
     └── Validate complete table before proceeding
 
 ```
@@ -449,112 +567,6 @@ Decision: Focus on #1, #2, #3, #6 for v1 (expected +58% CR improvement)
 
 ---
 
-## Phase 6: Data Model (OPTIONAL)
-
-**Objective:** Define entities, attributes, and behaviors.
-
-**Approach:** PM perspective (non-technical), ask about each behavior.
-
-### Steps
-
-```
-6.1 Ask if user wants to define model
-    └── "Do you want to define the data model now?"
-    └── If no, skip to Phase 7
-
-6.2 Identify main entities
-    └── "What are the main 'objects' of [X]?"
-    └── Derive from journey and features
-
-6.3 For each entity
-    ├── Attributes (PM language)
-    │   └── "What needs to be stored about [entity]?"
-    │   └── Avoid jargon: "text field" not "string"
-    ├── Behaviors (ask about each)
-    │   └── "Can it be created? Edited? Deleted?"
-    │   └── "What happens when [action]?"
-    │   └── "Are there special rules?" (TTL, validations)
-    └── Relationships
-        └── "How does [A] relate to [B]?"
-        └── Simple language: "belongs to", "has many"
-
-6.4 Checkpoint
-    └── Summarize model in simple visual format
-
-```
-
-### Example 1: Hotlist Data Model (PM language)
-
-```
-HOTLIST:
-- Name, description, active/inactive status
-- Expiration rule for plates (TTL)
-- List of webhooks for alerts
-- Owning organization
-- Can create, edit all fields, delete
-- Delete only if there are no plates
-
-PLATE ENTRY:
-- Plate (normalized uppercase), reason
-- Source: manual, API, or import
-- Expires automatically based on hotlist rule
-- Can create and delete, CANNOT edit (delete + re-add)
-- Same plate can be in multiple hotlists
-
-AUDIT LOG:
-- Record of who added/removed each plate
-- Maintained even after plate removal
-- Read-only (cannot alter history)
-
-```
-
-### Example 2: Notification Data Model (PM language)
-
-```
-NOTIFICATION TEMPLATE:
-- Name, subject line, body content
-- Trigger event (what causes it)
-- Active/inactive status
-- Can create, edit, delete
-
-NOTIFICATION LOG:
-- Which user, which template, when sent
-- Delivery status (sent, delivered, opened, clicked)
-- Read-only after creation
-- Retained for 90 days
-
-USER PREFERENCES:
-- Which notification types enabled
-- Preferred frequency (immediate, daily, weekly)
-- Can edit, cannot delete (only disable)
-
-```
-
-### Example 3: Lead Data Model (PM language)
-
-```
-LEAD:
-- Contact info (name, email, company)
-- Source (form, referral, import)
-- Status (new, contacted, qualified, converted, archived)
-- Assigned sales rep
-- Can create, edit status/assignment, soft-delete only
-
-TOUCHPOINT:
-- Type (email, call, meeting, note)
-- Summary, timestamp
-- Associated lead
-- Can create, cannot edit or delete (audit trail)
-
-LEAD SCORE:
-- Calculated value based on engagement
-- Auto-updated by system
-- Read-only for users
-
-```
-
----
-
 ## Phase 7: Documentation
 
 **Objective:** Compile everything into a research document.
@@ -596,15 +608,15 @@ LEAD SCORE:
 
 ## 2. Product Decisions
 
-(from Phase 5 - table)
+(from Phase 6 - table)
 
 ## 3. User Journeys
 
 (from Phase 3)
 
-## 4. Data Model
+## 4. Success Metrics
 
-(from Phase 6, if done)
+(from Phase 5, if done)
 
 ## 5. Competitive Analysis
 
