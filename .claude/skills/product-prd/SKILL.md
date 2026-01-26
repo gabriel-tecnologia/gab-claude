@@ -13,33 +13,140 @@ Generate comprehensive and well-structured Product Requirements Documents (PRDs)
 
 When a user requests to create a PRD (e.g., "create a PRD for a user authentication feature"), follow this workflow:
 
-### Step 1: Gather Context
+### Step 1: Gather Context (Iterative)
 
-Before generating the PRD, collect essential information through a discovery conversation:
+Before generating the PRD, collect essential information through an **iterative discovery conversation**. Do not proceed with doubts—ensure full alignment before moving forward.
 
-**Required Information:**
+#### 1.1 Initial Open-Ended Question
 
-- **Feature/Product Name**: What are we building?
-- **Problem Statement**: What problem does this solve?
-- **Target Users**: Who is this for?
-- **Business Goals**: What are we trying to achieve?
-- **Success Metrics**: How will we measure success?
-- **Timeline/Constraints**: Any deadlines or limitations?
-
-**Discovery Questions to Ask:**
+Start with a broad question to understand the user's mental model:
 
 ```
-1. What problem are you trying to solve?
-2. Who is the primary user/audience for this feature?
-3. What are the main business goals?
-4. Are there technical constraints we should know about?
-5. What does success look like? How will you measure it?
-6. What is the timeline for this feature?
-7. What is explicitly out of scope?
-
+"Tell me about [feature/product]. What problem does it solve?"
 ```
 
-**Note:** If the user provides a detailed brief or requirements beforehand, you can skip some questions. Always ask for clarification on critical missing information.
+Let the user explain in their own words. Listen for implicit assumptions and gaps.
+
+#### 1.2 Active Listening + Synthesis
+
+After the user responds, **rephrase their answer** to confirm understanding:
+
+```
+"So [X] is [your interpretation]. Is that correct?"
+```
+
+This validates alignment and surfaces misunderstandings early.
+
+#### 1.3 Iterate Until Alignment
+
+Ask follow-up questions based on gaps identified. Continue until you have clarity on:
+
+**Topics to Explore:**
+
+- **Problem statement**: What pain exists today?
+- **Target users**: Who experiences this problem?
+- **Business goals**: Why does the company care?
+- **Success metrics**: How will we know it worked?
+- **Timeline/Constraints**: Deadlines or limitations?
+- **Out of scope**: What are we explicitly NOT building?
+
+**Do NOT proceed to Step 2 with unresolved questions.**
+
+#### 1.4 Concept Checkpoint
+
+Summarize the agreed definition before continuing:
+
+```
+"Before moving on: [feature] solves [problem] for [users] by [approach].
+This aligns with [business goal] and success looks like [metric]. Correct?"
+```
+
+Wait for explicit confirmation.
+
+#### 1.5 Problem Validation (Optional)
+
+Ask: **"Do you want to validate the problem with evidence before proceeding?"**
+
+- **If yes**: Gather quantitative + qualitative data (see table below)
+- **If no**: Proceed to Step 2
+
+### Problem Validation Table (Optional)
+
+If the user opts for problem validation, collect evidence:
+
+| Dimension         | Evidence                 | Source            |
+| ----------------- | ------------------------ | ----------------- |
+| Pain point        | [description]            | [who reported]    |
+| Quantitative data | [metrics/numbers]        | [system/report]   |
+| Qualitative data  | [client quotes/feedback] | [interviews/CS]   |
+| Urgency driver    | [why now]                | [business reason] |
+
+Use this table to document the problem's validity before investing in the PRD.
+
+---
+
+### Step 1 Examples
+
+**Example A: Concept Refinement Through Iteration**
+
+```
+User: "I want a PRD for a notification system"
+
+Claude: "Tell me about this notification system. What problem does it solve?"
+
+User: "Users miss important updates"
+
+Claude: "So users are missing updates that matter to them, and this causes
+        [frustration/missed deadlines/lost opportunities]—is that right?"
+
+User: "Yes, specifically they miss payment reminders and get charged late fees"
+
+Claude: "Got it. So the core problem is: users miss payment reminders,
+        leading to late fees. The notification system would prevent this.
+        Who are these users—all customers or a specific segment?"
+
+User: "Customers with recurring payments"
+
+Claude: "Before moving on: A notification system for customers with recurring
+        payments, solving missed payment reminders that cause late fees.
+        Success = reduced late fee incidents. Correct?"
+
+User: "Yes"
+```
+
+**Example B: Problem Validation Flow**
+
+```
+Claude: "Do you want to validate this problem with evidence before proceeding?"
+
+User: "Yes, let's validate"
+
+Claude: "Let's build the validation table:
+        - Pain point: What specific complaints have you heard?
+        - Quantitative: How many users are affected? What's the late fee rate?
+        - Qualitative: Any user quotes or CS tickets about this?
+        - Urgency: Why solve this now vs. later?"
+
+User: "30% of recurring customers had at least one late fee last quarter.
+       CS gets 50+ tickets/month about this. A customer said 'I'd pay more
+       if you just reminded me.' We're losing customers to competitors
+       who have this."
+
+Claude: "Strong validation. Here's the evidence summary:
+
+        | Dimension         | Evidence                        | Source       |
+        | ----------------- | ------------------------------- | ------------ |
+        | Pain point        | Customers missing payment dates | CS tickets   |
+        | Quantitative data | 30% late fee rate, 50 tickets/mo| Analytics/CS |
+        | Qualitative data  | 'I'd pay more for reminders'    | Customer     |
+        | Urgency driver    | Competitor feature gap          | Churn data   |
+
+        Ready to proceed to Step 2?"
+```
+
+---
+
+**Note:** If the user provides a detailed brief upfront, you may accelerate through 1.1-1.3, but always confirm with 1.4 (Concept Checkpoint) before proceeding.
 
 ### Step 2: Gather Slack Context
 
@@ -65,9 +172,15 @@ Use the Slack MCP integration to search for relevant discussions about the featu
 ```
 1. Use feature name and keywords from Step 1 to search all accessible channels.
 2. Search for keywords related to the problem.
-3. Look for recent messages (last 30-90 days) for relevance.
-4. Identify key participants in the discussions.
-5. Extract insights and link to original messages when relevant.
+3. To resume your job, search only in these channels by its IDs and explicity to the user that you will search only in these channels:
+    - #cancelamentos-e-vergonhas, ID C038XDZ6GLV
+    - #problemas, ID C01GWAN9FHP
+    - #feedbacks-gabriel, ID C03GV7MFMU5
+    - #comitê-de-satisfação, ID C08F5FKD02H
+4. Look for recent messages (last 30-90 days) for relevance.
+5. Identify key participants in the discussions.
+6. Extract insights and link to original messages when relevant.
+7. For each possible relevant message to the context, ask the user to confirm its relevance
 
 ```
 
@@ -80,7 +193,37 @@ Use the Slack MCP integration to search for relevant discussions about the featu
 
 **Note:** If no relevant Slack discussions are found, or if Slack access is unavailable, proceed directly to Step 3. This step enriches context but is not mandatory.
 
-### Step 3: Generate PRD Structure
+### Step 3: Competitive Analysis (Optional)
+
+Ask if user wants competitive analysis. If yes:
+
+1. Identify 2-3 direct competitors in the market
+2. WebSearch: "[competitor] + [feature] + features"
+3. WebFetch: documentation if available
+4. G2/Capterra for feature comparison
+5. Create comparison table: Feature | Us | Competitor | Justification
+6. Document differentiators + gaps
+7. Save reference URLs
+
+**Examples:**
+
+**Public Safety (Hotlist Feature):**
+```
+Competitors: Mark43, Axon Records, Tyler Technologies
+Search: "Mark43 hotlist vehicle alerts features"
+Compare: Alert types, integration with CAD, mobile access
+```
+
+**SaaS CRM:**
+```
+Competitors: Salesforce, HubSpot, Pipedrive
+Search: "HubSpot CRM pipeline management features"
+Compare: Pipeline customization, automation, reporting
+```
+
+**Note:** If user declines competitive analysis or it's not relevant for the feature, proceed directly to Step 4.
+
+### Step 4: Generate PRD Structure
 
 Use the standard PRD template in `references/prd_template.md` to create a well-structured document. The PRD should include:
 
@@ -92,13 +235,14 @@ Use the standard PRD template in `references/prd_template.md` to create a well-s
 6. **Success Metrics** - KPIs and measurement criteria.
 7. **Scope** - What is in and out of scope.
 8. **Technical Considerations** - Architecture, dependencies, constraints.
-9. **Design & UX Requirements** - UI/UX considerations.
-10. **Timeline & Milestones** - Key dates and phases.
-11. **Risks & Mitigation** - Potential issues and solutions.
-12. **Dependencies & Assumptions** - What we are relying on.
-13. **Open Questions** - Unresolved items.
+9. **Competitive Analysis** - How competitors solve this (optional).
+10. **Design & UX Requirements** - UI/UX considerations.
+11. **Timeline & Milestones** - Key dates and phases.
+12. **Risks & Mitigation** - Potential issues and solutions.
+13. **Dependencies & Assumptions** - What we are relying on.
+14. **Open Questions** - Unresolved items.
 
-### Step 4: Create User Stories
+### Step 5: Create User Stories
 
 For each main requirement, generate user stories using the standard format found in `references/user_story_examples.md` for common patterns and best practices.
 For each story, review whether you have the following details following the best practices below.
@@ -109,7 +253,7 @@ For each story, review whether you have the following details following the best
 - Validate if you have enough context to create each one with well-written acceptance criteria.
 - Ask the user to check each one before finalizing the story writing.
 
-### Step 5: Define Success Metrics
+### Step 6: Define Success Metrics
 
 Use appropriate metrics frameworks based on the product type:
 
@@ -120,7 +264,7 @@ Use appropriate metrics frameworks based on the product type:
 
 Consult `references/metrics_frameworks.md` for detailed guidance on each framework.
 
-### Step 6: Validate & Review
+### Step 7: Validate & Review
 
 Optionally run the validation script to ensure PRD completeness:
 
