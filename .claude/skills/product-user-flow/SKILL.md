@@ -26,6 +26,17 @@ Document user flows at the **decision-point level**: what users decide, not how 
 - Forces focus on user goals vs. implementation
 - Makes flows testable at business level
 
+## Key Concept: Flowchart Diagrams
+
+Use Mermaid `flowchart` syntax to visualize flows at decision-point level:
+
+| Component     | Description                                           |
+| ------------- | ----------------------------------------------------- |
+| **Direction** | TD (top-down) or LR (left-right)                      |
+| **Subgraphs** | Group related decisions by phase                      |
+| **Nodes**     | States: `[]` regular, `([])` start/end, `{}` decision |
+| **Edges**     | Transitions with optional labels `-->\|label\|`       |
+
 ## Main Workflow
 
 ### Phase 1: Flow Context
@@ -103,6 +114,10 @@ Ask: **"What business question does tracking this answer?"**
 - How long does this step take?
 - Which path do most users take?
 
+**Directives**
+
+- Define the business questions you should answer in this flow before think in analytics
+
 #### Communications
 
 Ask: **"Should the system send push/email after this decision?"**
@@ -125,22 +140,35 @@ Ask: **"Should the system send push/email after this decision?"**
 2. Populate template with collected data
 3. Output to `products/{product}/flows/{flow-name}.md`
 
-**State Diagram Rules:**
+**Flowchart Diagram Rules:**
 
-- Use `[*]` for start/end states
-- Arrow labels = outcomes/conditions
-- Keep labels short
+- Use `flowchart TD` for top-down direction
+- Group phases into `subgraph` blocks
+- Use `{}` for decision diamonds
+- Use `([])` for start/end nodes
+- Label edges for outcomes
 
 Example:
 
 ```mermaid
-stateDiagram-v2
-    [*] --> Login
-    Login --> OTPVerification: valid phone
-    Login --> Login: invalid
-    OTPVerification --> Home: correct code
-    OTPVerification --> OTPVerification: wrong/resend
-    Home --> [*]
+flowchart TD
+    subgraph Identification
+        A([Start]) --> B[Provides phone number]
+        B --> C{Valid format?}
+        C -->|No| B
+    end
+
+    subgraph Verification
+        C -->|Yes| D[Enters OTP code]
+        D --> E{Correct?}
+        E -->|No| D
+        D --> F[Requests resend]
+        F --> D
+    end
+
+    subgraph Completion
+        E -->|Yes| G([Authenticated])
+    end
 ```
 
 ## Usage Patterns
@@ -225,11 +253,11 @@ stateDiagram-v2
 
 ### Mermaid Diagrams
 
-- Keep states to 10-15 max per diagram
-- Break complex flows into sub-flows
+- Keep nodes to 10-15 max per diagram
+- Use subgraphs to organize phases
 - Document only the main flow. Exemple: If a login can be followed by the profile completition flow, document only the login flow and define the profile completition as one of the exit flows.
 - Label only significant transitions
-- Use notes for complex conditions
+- Use decision diamonds `{}` for branching points
 
 ## Common Scenarios
 
